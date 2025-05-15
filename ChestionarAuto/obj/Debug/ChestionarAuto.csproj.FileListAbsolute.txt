@@ -1,0 +1,10 @@
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ChestionarAuto\bin\Debug\ChestionarAuto.exe.config
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ChestionarAuto\bin\Debug\ChestionarAuto.exe
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ChestionarAuto\bin\Debug\ChestionarAuto.pdb
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ChestionarAuto\obj\Debug\ChestionarAuto.csproj.AssemblyReference.cache
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ChestionarAuto\obj\Debug\ChestionarAuto.Form1.resources
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ChestionarAuto\obj\Debug\ChestionarAuto.Properties.Resources.resources
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ChestionarAuto\obj\Debug\ChestionarAuto.csproj.GenerateResource.cache
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ChestionarAuto\obj\Debug\ChestionarAuto.csproj.CoreCompileInputs.cache
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ChestionarAuto\obj\Debug\ChestionarAuto.exe
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ChestionarAuto\obj\Debug\ChestionarAuto.pdb
