@@ -19,24 +19,28 @@ namespace ChestionarAuto
         public Form1()
         {
             InitializeComponent();
+            LoadLoginControl();
         }
 
-        private void goToSignupLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LoadLoginControl()
         {
-            loginPanel.Visible = false;
-            signUpPanel.Visible = false;
-            signUpPanel.BringToFront();
-            signUpPanel.Visible = true;
-
+            var login = new LogInUserControl();
+            login.SignUpRequested += (s, e) => LoadSignUpControl();
+            LoadUserControl(login);
         }
 
-        private void goToLogInPanelLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LoadSignUpControl()
         {
-            loginPanel.Visible = false;
-            signUpPanel.Visible = false;
-            loginPanel.BringToFront();
-            loginPanel.Visible = true;
-            
+            var signUp = new SignUpUserControl();
+            signUp.LoginRequested += (s, e) => LoadLoginControl();
+            LoadUserControl(signUp);
+        }
+
+        private void LoadUserControl(UserControl control)
+        {
+            mainPanel.Controls.Clear();
+            control.Dock = DockStyle.Fill;
+            mainPanel.Controls.Add(control);
         }
     }
 }
