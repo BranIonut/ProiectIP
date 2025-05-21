@@ -20,3 +20,29 @@ C:\Vlad\Facultate\IP\proiect\ProiectIP\ChestionarAuto\obj\Debug\ChestionarAuto.e
 C:\Vlad\Facultate\IP\proiect\ProiectIP\ChestionarAuto\obj\Debug\ChestionarAuto.pdb
 C:\Vlad\Facultate\IP\proiect\ProiectIP\ChestionarAuto\obj\Debug\ChestionarAuto.LogInUserControl.resources
 C:\Vlad\Facultate\IP\proiect\ProiectIP\ChestionarAuto\obj\Debug\ChestionarAuto.SignUpUserControl.resources
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\bin\Debug\ChestionarAuto.exe.config
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\bin\Debug\ChestionarAuto.exe
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\bin\Debug\ChestionarAuto.pdb
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\bin\Debug\EntityFramework.dll
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\bin\Debug\Newtonsoft.Json.dll
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\bin\Debug\System.Data.SQLite.dll
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\bin\Debug\EntityFramework.xml
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\bin\Debug\Newtonsoft.Json.xml
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\bin\Debug\System.Data.SQLite.xml
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\obj\Debug\ChestionarAuto.csproj.AssemblyReference.cache
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\obj\Debug\ChestionarAuto.Form1.resources
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\obj\Debug\ChestionarAuto.Properties.Resources.resources
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\obj\Debug\ChestionarAuto.LogInUserControl.resources
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\obj\Debug\ChestionarAuto.SignUpUserControl.resources
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\obj\Debug\ChestionarAuto.csproj.GenerateResource.cache
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\obj\Debug\ChestionarAuto.csproj.CoreCompileInputs.cache
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\obj\Debug\Chestion.CB692D18.Up2Date
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\obj\Debug\ChestionarAuto.exe
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\obj\Debug\ChestionarAuto.pdb
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\obj\Debug\ChestionarAuto.UserControls.DashboardAdminControl.resources
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\obj\Debug\ChestionarAuto.UserControls.DashboardUserControl.resources
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\obj\Debug\ChestionarAuto.UserControls.QuizControl.resources

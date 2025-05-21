@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ChestionarAuto.UserControls;
 using System.Windows.Forms;
 
 namespace ChestionarAuto
@@ -25,6 +18,7 @@ namespace ChestionarAuto
         private void LoadLoginControl()
         {
             var login = new LogInUserControl();
+            login.DashBoardRequested += (s, e) => LoadUserDashboardControl();
             login.SignUpRequested += (s, e) => LoadSignUpControl();
             LoadUserControl(login);
         }
@@ -34,6 +28,21 @@ namespace ChestionarAuto
             var signUp = new SignUpUserControl();
             signUp.LoginRequested += (s, e) => LoadLoginControl();
             LoadUserControl(signUp);
+        }
+
+        private void LoadUserDashboardControl()
+        {
+            var dashboard = new DashboardUserControl();
+            dashboard.LogOutRequested += (s, e) => LoadLoginControl();
+            dashboard.AdminDashBoardRequested += (s, e) => LoadAdminDashboard();
+            LoadUserControl(dashboard);
+        }
+
+        private void LoadAdminDashboard()
+        {
+            var dashboard = new DashboardAdminControl();
+            dashboard.UserPanelRequested += (s, e) => LoadUserDashboardControl();
+            LoadUserControl(dashboard);
         }
 
         private void LoadUserControl(UserControl control)
