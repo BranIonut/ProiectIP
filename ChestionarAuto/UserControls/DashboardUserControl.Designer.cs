@@ -113,5 +113,10 @@
         private System.Windows.Forms.Button adminDashButton;
         private System.Windows.Forms.Button userSettingsButton;
         private System.Windows.Forms.Button logOutButton;
+
+        public void SetAdminDashBttnVisibility(bool ok)
+        {
+            adminDashButton.Visible = ok;
+        }
     }
 }

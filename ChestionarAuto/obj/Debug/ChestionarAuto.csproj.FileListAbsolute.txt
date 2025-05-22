@@ -46,3 +46,12 @@ C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\Che
 C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\obj\Debug\ChestionarAuto.UserControls.DashboardAdminControl.resources
 C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\obj\Debug\ChestionarAuto.UserControls.DashboardUserControl.resources
 C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\obj\Debug\ChestionarAuto.UserControls.QuizControl.resources
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\bin\Debug\Commons.dll
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\bin\Debug\Commons.pdb
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\bin\Debug\Commons.dll.config
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\bin\Debug\Presenter.dll
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\bin\Debug\Presenter.pdb
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\bin\Debug\Presenter.dll.config
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\bin\Debug\Model.dll
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\bin\Debug\Model.pdb
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\ChestionarAuto\bin\Debug\Model.dll.config

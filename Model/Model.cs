@@ -13,8 +13,8 @@ namespace ChestionarAuto
 {
     public class Model : IModel
     {
-        private const string _questionsFileName = "questions.json";
-        private const string _databaseFileName = "application.db";
+        private const string _questionsFileName = "C:\\Users\\gamia\\OneDrive\\Desktop\\Facultate\\Anul III\\Semestrul II\\IP\\ProiectIP\\Model\\questions.json";
+        private const string _databaseFileName = "C:\\Users\\gamia\\OneDrive\\Desktop\\Facultate\\Anul III\\Semestrul II\\IP\\ProiectIP\\Model\\application.db";
 
         private User _currentUser;
         private List<Quiz> _quizzes;
@@ -25,6 +25,7 @@ namespace ChestionarAuto
             _questions = new List<Question>();
             _quizzes = new List<Quiz>();
             InitializeDatabase();
+            InitializeQuestions();
             for (int i = 1; i <= 10; i++)
             {
                 CreateQuiz(i);
@@ -74,13 +75,29 @@ namespace ChestionarAuto
 
         public void InitializeQuestions()
         {
-            string jsonContent = File.ReadAllText(_questionsFileName);
+            /*string jsonContent = File.ReadAllText(_questionsFileName);
 
             _questions = JsonConvert.DeserializeObject<List<Question>>(jsonContent);
 
             foreach (Question question in _questions)
             {
-                Console.WriteLine(question);
+                Console.WriteLine(question.question);
+                Console.WriteLine(question.answers);
+                Console.WriteLine(question.correctAnswers);
+            }*/
+            try
+            {
+                string jsonContent = File.ReadAllText(_questionsFileName);
+                _questions = JsonConvert.DeserializeObject<List<Question>>(jsonContent);
+
+                foreach (Question question in _questions)
+                {
+                    Console.WriteLine($"Întrebare: {question.question}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Eroare la parsarea întrebărilor: " + ex.Message);
             }
         }
 
@@ -182,16 +199,18 @@ namespace ChestionarAuto
         public void QuizFailed(int n, int correct, int incorrect)
             => UpdateQuizUserState(n, "failed", correct, incorrect);
 
-        public void AddUser(string username, string name, string email, string password)
+        public bool AddUser(string username, string name, string email, string password)
         {
             var connection = new SQLiteConnection($"Data Source={_databaseFileName}");
             connection.Open();
 
+            Console.WriteLine(username + "\n" + name + "\n" + email + "\n" + password);
+
             var command = connection.CreateCommand();
 
             command.CommandText = @"
-                INSERT INTO User (username, name, email, password)
-                VALUES ($username, $name, $email, $password);
+                INSERT INTO User (username, name, email, password, role)
+                VALUES ($username, $name, $email, $password, 'user');
             ";
 
             command.Parameters.AddWithValue("$username", username);
@@ -199,7 +218,15 @@ namespace ChestionarAuto
             command.Parameters.AddWithValue("$email", email);
             command.Parameters.AddWithValue("$password", password);
 
-            command.ExecuteNonQuery();
+            try { 
+                int rowsAffected = command.ExecuteNonQuery();
+                return rowsAffected > 0;
+            } catch(Exception e)
+            {
+                return false;
+            }
+
+            
         }
 
         public bool Login(string username, string password)
@@ -210,7 +237,7 @@ namespace ChestionarAuto
             var command = connection.CreateCommand();
 
             command.CommandText = @"
-                SELECT id_user, username, name, email, password
+                SELECT id_user, username, name, email, password, role
                 FROM User
                 WHERE username = $username AND password = $password;
             ";
@@ -227,7 +254,8 @@ namespace ChestionarAuto
                     reader.GetString(1),
                     reader.GetString(2),
                     reader.GetString(3),
-                    reader.GetString(4)
+                    reader.GetString(4),
+                    reader.GetString(5)
                 );
                 return true;
             }
@@ -239,9 +267,9 @@ namespace ChestionarAuto
             _currentUser = null;
         }
 
-        public User GetLoggedUser()
+        public string GetLoggedUserRole()
         {
-            return _currentUser;
+            return _currentUser.Role;
         }
     }
 }

@@ -13,14 +13,16 @@ namespace ChestionarAuto
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public string Role {  get; set; }
 
-        public User(int userId, string Username, string Name, string Email, string Password)
+        public User(int userId, string Username, string Name, string Email, string Password, string Role)
         {
             this.userId = userId;
             this.Username = Username;
             this.Name = Name;
             this.Email = Email;
             this.Password = Password;
+            this.Role = Role;
         }
     }
 }

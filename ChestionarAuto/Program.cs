@@ -16,7 +16,14 @@ namespace ChestionarAuto
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Form1 form = new Form1();
+            View view = new View(form);
+            IModel model = new Model();
+            Presenter presenter = new Presenter(model, view);
+            view.LoadLoginControl();
+            view.SetPresenter(presenter);
+
+            Application.Run(form);
         }
     }
 }

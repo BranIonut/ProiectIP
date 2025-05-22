@@ -12,9 +12,9 @@ namespace ChestionarAuto
 {
     public partial class LogInUserControl : UserControl
     {
-
+        private IPresenter _presenter;
         public event EventHandler SignUpRequested;
-        public event EventHandler DashBoardRequested;
+        public event EventHandler<LoginEventArgs> LoginRequested;
 
         public LogInUserControl()
         {
@@ -28,13 +28,22 @@ namespace ChestionarAuto
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            string username = this.textBox1.Text;
-            string password = this.textBox2.Text;
+            string username = textBox1.Text;
+            string password = textBox2.Text;
 
-            if(username == "admin" && password == "admin")
-            {
-                DashBoardRequested?.Invoke(this, e);
-            }
+            LoginRequested?.Invoke(this, new LoginEventArgs(username, password));
+        }
+    }
+
+    public class LoginEventArgs : EventArgs
+    {
+        public string Username { get; }
+        public string Password { get; }
+
+        public LoginEventArgs(string username, string password)
+        {
+            Username = username;
+            Password = password;
         }
     }
 }

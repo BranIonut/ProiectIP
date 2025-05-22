@@ -10,13 +10,17 @@ namespace ChestionarAuto
     {
         public string question { get; set; }
         public List<string> answers { get; set; }
-        public string correctAnswer { get; set; }
+        public List<string> correctAnswers { get; set; }
+        public string image { get; set; }
+        public string difficulty { get; set; }
 
-        public Question(string question, List<string> answers, string correctAnswer) {
+        public Question(string question, List<string> answers, List<string> correctAnswer, string image, string difficulty)
+        {
             this.question = question;
             this.answers = answers;
-            this.correctAnswer = correctAnswer;
-
+            this.correctAnswers = correctAnswer;
+            this.image = image;
+            this.difficulty = difficulty;
         }
     }
 }

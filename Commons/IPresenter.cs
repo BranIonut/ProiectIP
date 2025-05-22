@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Commons
+namespace ChestionarAuto
 {
-    internal interface IPresenter
+    public interface IPresenter
     {
+        void OnLoginRequest(string username, string password);
+        void OnSignupRequest(string username, string name, string email, string password);
     }
 }

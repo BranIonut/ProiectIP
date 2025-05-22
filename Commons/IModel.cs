@@ -17,7 +17,9 @@ namespace ChestionarAuto
 
         void QuizFailed(int n, int correct, int incorrect);
         bool Login(string username, string password);
+        bool AddUser(string username, string name, string email, string password);
         void Logout();
+        string GetLoggedUserRole();
     }
 
 }

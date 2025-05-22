@@ -16,3 +16,6 @@ C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\Pre
 C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\Presenter\obj\Debug\Presenter.csproj.Up2Date
 C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\Presenter\obj\Debug\Presenter.dll
 C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\Presenter\obj\Debug\Presenter.pdb
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\Presenter\bin\Debug\Commons.dll
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\Presenter\bin\Debug\Commons.pdb
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\Presenter\bin\Debug\Commons.dll.config

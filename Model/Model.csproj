@@ -71,13 +71,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="application.db" />
     <None Include="packages.config" />
+    <None Include="questions.json" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ChestionarAuto\ChestionarAuto.csproj">
-      <Project>{49d83c3f-6187-4715-981e-46ea8679131e}</Project>
-      <Name>ChestionarAuto</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Commons\Commons.csproj">
       <Project>{eda14066-a537-4a86-b1f5-a10f0ee22557}</Project>
       <Name>Commons</Name>
@@ -85,10 +83,6 @@
     <ProjectReference Include="..\Presenter\Presenter.csproj">
       <Project>{30a2e450-d85f-4d2a-8be9-6486244a6e83}</Project>
       <Name>Presenter</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\View\View.csproj">
-      <Project>{418c967e-9af2-45d5-9f48-fbdb480cbe5c}</Project>
-      <Name>View</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
