@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data.SQLite;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,9 +14,10 @@ namespace ChestionarAuto
 {
     public class Model : IModel
     {
-        private const string _questionsFileName = "C:\\Users\\gamia\\OneDrive\\Desktop\\Facultate\\Anul III\\Semestrul II\\IP\\ProiectIP\\Model\\questions.json";
-        private const string _databaseFileName = "C:\\Users\\gamia\\OneDrive\\Desktop\\Facultate\\Anul III\\Semestrul II\\IP\\ProiectIP\\Model\\application.db";
-
+        static string exeFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        static string commonsFolder = Path.Combine(exeFolder, "..\\..\\..\\", "Commons");
+        string _questionsFileName = Path.GetFullPath(Path.Combine(commonsFolder, "questions.json"));
+        string _databaseFileName = Path.GetFullPath(Path.Combine(commonsFolder, "application.db"));
         private User _currentUser;
         private List<Quiz> _quizzes;
         private List<Question> _questions;

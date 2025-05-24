@@ -19,3 +19,27 @@ C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\Pre
 C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\Presenter\bin\Debug\Commons.dll
 C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\Presenter\bin\Debug\Commons.pdb
 C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\Presenter\bin\Debug\Commons.dll.config
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Presenter\bin\Debug\Presenter.dll.config
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Presenter\bin\Debug\Presenter.dll
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Presenter\bin\Debug\Presenter.pdb
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Presenter\bin\Debug\Commons.dll
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Presenter\bin\Debug\EntityFramework.dll
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Presenter\bin\Debug\EntityFramework.SqlServer.dll
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Presenter\bin\Debug\Model.dll
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Presenter\bin\Debug\Newtonsoft.Json.dll
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Presenter\bin\Debug\System.Data.SQLite.dll
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Presenter\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Presenter\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Presenter\bin\Debug\Commons.pdb
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Presenter\bin\Debug\Commons.dll.config
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Presenter\bin\Debug\EntityFramework.xml
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Presenter\bin\Debug\EntityFramework.SqlServer.xml
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Presenter\bin\Debug\Model.pdb
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Presenter\bin\Debug\Model.dll.config
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Presenter\bin\Debug\Newtonsoft.Json.xml
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Presenter\bin\Debug\System.Data.SQLite.xml
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Presenter\obj\Debug\Presenter.csproj.AssemblyReference.cache
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Presenter\obj\Debug\Presenter.csproj.CoreCompileInputs.cache
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Presenter\obj\Debug\Presenter.csproj.Up2Date
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Presenter\obj\Debug\Presenter.dll
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Presenter\obj\Debug\Presenter.pdb

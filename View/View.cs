@@ -11,13 +11,13 @@ namespace ChestionarAuto
     public class View : IView
     {
         private Form1 _form;
-        private Presenter presenter;
+        private IPresenter presenter;
         public View(Form1 form)
         {
             _form = form;
         }
 
-        public void SetPresenter(Presenter presenter)
+        public void SetPresenter(IPresenter presenter)
         {
             this.presenter = presenter;
         }

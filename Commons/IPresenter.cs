@@ -9,6 +9,7 @@ namespace ChestionarAuto
     public interface IPresenter
     {
         void OnLoginRequest(string username, string password);
+        void OnLogoutRequest();
         void OnSignupRequest(string username, string name, string email, string password);
     }
 }

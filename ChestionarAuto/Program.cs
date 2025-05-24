@@ -17,9 +17,9 @@ namespace ChestionarAuto
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Form1 form = new Form1();
-            View view = new View(form);
+            IView view = new View(form);
             IModel model = new Model();
-            Presenter presenter = new Presenter(model, view);
+            IPresenter presenter = new Presenter(model, view);
             view.LoadLoginControl();
             view.SetPresenter(presenter);
 

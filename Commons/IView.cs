@@ -12,5 +12,6 @@ namespace ChestionarAuto
         void LoadSignupControl();
         void LoadUserDashboardControl(string role);
         void LoadAdminDashboardControl();
+        void SetPresenter(IPresenter presenter);
     }
 }

@@ -16,3 +16,21 @@ C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\Com
 C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\Commons\obj\Debug\Commons.csproj.Up2Date
 C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\Commons\obj\Debug\Commons.dll
 C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\Commons\obj\Debug\Commons.pdb
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Commons\bin\Debug\Commons.dll.config
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Commons\bin\Debug\Commons.dll
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Commons\bin\Debug\Commons.pdb
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Commons\bin\Debug\EntityFramework.dll
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Commons\bin\Debug\EntityFramework.SqlServer.dll
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Commons\bin\Debug\Newtonsoft.Json.dll
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Commons\bin\Debug\System.Data.SQLite.dll
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Commons\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Commons\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Commons\bin\Debug\EntityFramework.xml
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Commons\bin\Debug\EntityFramework.SqlServer.xml
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Commons\bin\Debug\Newtonsoft.Json.xml
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Commons\bin\Debug\System.Data.SQLite.xml
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Commons\obj\Debug\Commons.csproj.AssemblyReference.cache
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Commons\obj\Debug\Commons.csproj.CoreCompileInputs.cache
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Commons\obj\Debug\Commons.csproj.Up2Date
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Commons\obj\Debug\Commons.dll
+C:\Vlad\Facultate\IP\proiect\ProiectIP\Commons\obj\Debug\Commons.pdb

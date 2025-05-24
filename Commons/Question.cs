@@ -4,20 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Commons
+namespace ChestionarAuto
 {
-    internal class Question
+    public class Question
     {
-        protected string question;
-        protected List<string> answers;
-        protected string correctAnswer;
-        protected int difficulty;
+        public string question { get; set; }
+        public List<string> answers { get; set; }
+        public List<string> correctAnswers { get; set; }
+        public string image { get; set; }
+        public string difficulty { get; set; }
 
-        public Question(string question, List<string> answers, string correctAnswer, int difficulty)
+        public Question(string question, List<string> answers, List<string> correctAnswer, string image, string difficulty)
         {
             this.question = question;
             this.answers = answers;
-            this.correctAnswer = correctAnswer;
+            this.correctAnswers = correctAnswer;
+            this.image = image;
             this.difficulty = difficulty;
         }
     }
