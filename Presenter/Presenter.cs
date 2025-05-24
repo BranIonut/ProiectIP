@@ -12,6 +12,9 @@ namespace ChestionarAuto
     {
         private IModel _model;
         private IView _view;
+        private List<Question> _questions;
+        private Quiz _currentQuiz;
+        private int currentQuestionIndex = 0;
 
         public Presenter(IModel model, IView view)
         {
@@ -53,6 +56,38 @@ namespace ChestionarAuto
             {
                 _view.LoadSignupControl();
             }
+        }
+
+        public void OnStartQuiz()
+        {
+            _currentQuiz = _model.GetRandomQuiz();
+            _questions = _currentQuiz.questionsList;
+            currentQuestionIndex = 0;
+            _view.ShowQuestion(_questions[currentQuestionIndex]);
+        }
+
+        public void OnNextQuestion(List<int> selectedAnswers)
+        {
+            if (_questions == null || currentQuestionIndex >= _questions.Count - 1)
+                return;
+
+            currentQuestionIndex++;
+            _view.ShowQuestion(_questions[currentQuestionIndex]);
+        }
+
+        public void OnPreviousQuestion()
+        {
+            if (_questions == null || currentQuestionIndex <= 0)
+                return;
+
+            currentQuestionIndex--;
+            _view.ShowQuestion(_questions[currentQuestionIndex]);
+        }
+
+        public void OnAbortQuiz()
+        {
+            currentQuestionIndex = 0;
+            _view.LoadUserDashboardControl(_model.GetLoggedUserRole());
         }
     }
 }

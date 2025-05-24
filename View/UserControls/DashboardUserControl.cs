@@ -14,6 +14,7 @@ namespace ChestionarAuto.UserControls
     {
         public event EventHandler LogOutRequested;
         public event EventHandler AdminDashBoardRequested;
+        public event EventHandler StartQuizRequested;
 
         public DashboardUserControl()
         {
@@ -29,6 +30,11 @@ namespace ChestionarAuto.UserControls
         private void adminDashButton_Click(object sender, EventArgs e)
         {
             AdminDashBoardRequested?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void startQuizButton_Click(object sender, EventArgs e)
+        {
+            StartQuizRequested?.Invoke(this, EventArgs.Empty);
         }
     }
 }

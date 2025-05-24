@@ -13,5 +13,6 @@ namespace ChestionarAuto
         void LoadUserDashboardControl(string role);
         void LoadAdminDashboardControl();
         void SetPresenter(IPresenter presenter);
+        void ShowQuestion(Question question);
     }
 }

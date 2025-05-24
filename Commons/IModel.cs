@@ -20,6 +20,7 @@ namespace ChestionarAuto
         bool AddUser(string username, string name, string email, string password);
         void Logout();
         string GetLoggedUserRole();
+        Quiz GetRandomQuiz();
     }
 
 }

@@ -12,6 +12,7 @@ namespace ChestionarAuto
     {
         private Form1 _form;
         private IPresenter presenter;
+        private QuizControl quizControl;
         public View(Form1 form)
         {
             _form = form;
@@ -44,6 +45,7 @@ namespace ChestionarAuto
 
             dashboardUserControl.LogOutRequested += (s, e) => presenter.OnLogoutRequest();
             dashboardUserControl.AdminDashBoardRequested += (s, e) => LoadAdminDashboardControl();
+            dashboardUserControl.StartQuizRequested += (s, e) => StartQuizControl();
             if (role == "admin")
             {
                 dashboardUserControl.SetAdminDashBttnVisibility(false);
@@ -64,10 +66,21 @@ namespace ChestionarAuto
             _form.LoadUserControl(dashboardAdminControl);
         }
 
-        public void LoadQuizControl()
+        public void StartQuizControl()
         {
-            var quizControl = new QuizControl();
+            quizControl = new QuizControl();
+
+            quizControl.NextQuestionClicked += (s, e) => presenter.OnNextQuestion(e.SelectedAnswers);
+            quizControl.PreviousQuestionClicked += (s, e) => presenter.OnPreviousQuestion();
+            quizControl.AbortQuizClicked += (s, e) => presenter.OnAbortQuiz();
+
             _form.LoadUserControl(quizControl);
+            presenter.OnStartQuiz();
+        }
+
+        public void ShowQuestion(Question question)
+        {
+            quizControl.LoadQuestion(question);
         }
     }
 }

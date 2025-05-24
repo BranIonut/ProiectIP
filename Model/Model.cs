@@ -273,5 +273,15 @@ namespace ChestionarAuto
         {
             return _currentUser.Role;
         }
+
+        public Quiz GetRandomQuiz()
+        {
+            if (_quizzes == null || _quizzes.Count == 0)
+                throw new InvalidOperationException("No quiz available :(");
+
+            Random rnd = new Random();
+            int index = rnd.Next(_quizzes.Count);
+            return _quizzes[index];
+        }
     }
 }
