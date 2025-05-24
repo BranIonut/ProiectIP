@@ -12,8 +12,8 @@ namespace ChestionarAuto
         void OnLoginRequest(string username, string password);
         void OnLogoutRequest();
         void OnNextQuestion(List<int> selectedAnswers);
-        void OnPreviousQuestion();
         void OnSignupRequest(string username, string name, string email, string password);
         void OnStartQuiz();
+        void GoToMainMenu();
     }
 }

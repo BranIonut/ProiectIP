@@ -13,6 +13,8 @@ namespace ChestionarAuto
         void LoadUserDashboardControl(string role);
         void LoadAdminDashboardControl();
         void SetPresenter(IPresenter presenter);
-        void ShowQuestion(Question question);
+        void ShowQuestion(Question question, bool isLastQuestion);
+        void UpdateUI(int correctAnswers, int wrongAnswers);
+        void ShowQuizResults(Quiz _quiz);
     }
 }

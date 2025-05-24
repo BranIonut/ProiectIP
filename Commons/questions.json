@@ -2,210 +2,210 @@
     {
         "question": "Ce semn indică «drum cu prioritate»?",
         "answers": ["Romb galben cu margine albă", "Triunghi roșu cu margine albă", "Cerc roșu cu margine albă"],
-        "correctAnswer": ["0"],
+        "correctAnswer": [0],
         "image": "none",
         "difficulty": "easy"
     },
     {
         "question": "Ce semn interzice depășirea tuturor vehiculelor?",
         "answers": ["Cerc roșu cu două mașini negre", "Triunghi avertizare cu două săgeți", "Dreptunghi albastru cu X roșu"],
-        "correctAnswer": ["0"],
+        "correctAnswer": [0],
         "image": "none",
         "difficulty": "easy"
     },
     {
         "question": "Ce trebuie să faceți când întâlniți semnul «STOP»?",
         "answers": ["Opriți la linia de stop și continuați dacă drumul e liber", "Încetiniți și treceți cu prioritate", "Opriți complet, apoi porniți când e liber"],
-        "correctAnswer": ["2"],
+        "correctAnswer": [2],
         "image": "none",
         "difficulty": "easy"
     },
     {
         "question": "Ce semnal luminos indică cedarea priorității?",
         "answers": ["Semnalizare continuă cu lumină albă", "Semnalizare intermitentă cu lumină galbenă", "Semnalizare intermitentă cu lumină roșie"],
-        "correctAnswer": ["1"],
+        "correctAnswer": [1],
         "image": "none",
         "difficulty": "medium"
     },
     {
         "question": "Care este limita maximă de viteză în localitate?",
         "answers": ["50 km/h", "90 km/h", "100 km/h"],
-        "correctAnswer": ["0"],
+        "correctAnswer": [0],
         "image": "none",
         "difficulty": "easy"
     },
     {
         "question": "În afara localităților, pe autostrăzi, care este viteza maximă?",
         "answers": ["110 km/h", "130 km/h", "120 km/h"],
-        "correctAnswer": ["1"],
+        "correctAnswer": [1],
         "image": "none",
         "difficulty": "medium"
     },
     {
         "question": "Când aveți dreptul de prioritate față de vehiculele din sens invers?",
         "answers": ["Pe o porțiune îngustă semnalizată cu semnul C1", "Pe orice porțiune îngustă", "Întotdeauna când drumul vă aparține"],
-        "correctAnswer": ["0"],
+        "correctAnswer": [0],
         "image": "none",
         "difficulty": "medium"
     },
     {
         "question": "Cum semnalizați din timp intenția de schimbare a direcției de mers spre dreapta?",
         "answers": ["Cu semnalul luminos stânga", "Cu semnalul luminos dreapta", "Cu semnal sonor și lumină avarie"],
-        "correctAnswer": ["1"],
+        "correctAnswer": [1],
         "image": "none",
         "difficulty": "easy"
     },
     {
         "question": "Când este obligatorie folosirea centurii de siguranță?",
         "answers": ["Doar pe autostradă", "Întotdeauna, atât în față cât și în spate", "Doar pe drumurile naționale"],
-        "correctAnswer": ["1"],
+        "correctAnswer": [1],
         "image": "none",
         "difficulty": "easy"
     },
     {
         "question": "Ce documente trebuie să aveți asupra dvs. în timpul conducerii?",
         "answers": ["Permis de conducere și asigurare RCA", "Cartea de identitate și viza autocolant", "Certificat fiscal și carte de muncă"],
-        "correctAnswer": ["0"],
+        "correctAnswer": [0],
         "image": "none",
         "difficulty": "easy"
     },
     {
         "question": "Cum procedați la apropierea de o trecere pentru pietoni fără semafor?",
         "answers": ["Opriți pentru a acorda prioritate pietonilor angajați în traversare", "Continuați cu prudență, pietonii trebuie să vă acorde prioritate", "Acelerați pentru a evita blocarea intersecției"],
-        "correctAnswer": ["0"],
+        "correctAnswer": [0],
         "image": "none",
         "difficulty": "medium"
     },
     {
         "question": "Ce semnal al polițistului însoțitor al coloanei oficiale obligă oprirea?",
         "answers": ["Baston reflectorizant ridicat vertical", "Baston reflectorizant orizontal", "Palmă ridicată spre vehicule"],
-        "correctAnswer": ["0"],
+        "correctAnswer": [0],
         "image": "none",
         "difficulty": "hard"
     },
     {
         "question": "Cum semnalizați că aveți o defecțiune și sunteți oprit pe carosabil?",
         "answers": ["Lăsați avariile și plasați triunghi reflectorizant la 30 m", "Folosiți doar luminile de poziție", "Așteptați ajutor fără semnalizare suplimentară"],
-        "correctAnswer": ["0"],
+        "correctAnswer": [0],
         "image": "none",
         "difficulty": "medium"
     },
     {
         "question": "Ce înseamnă un marcaj longitudinal continuu pe mijlocul drumului?",
         "answers": ["Depășirea interzisă", "Depășirea permisă cu prudență", "Separarea sensurilor de mers fără restricții"],
-        "correctAnswer": ["0"],
+        "correctAnswer": [0],
         "image": "none",
         "difficulty": "easy"
     },
     {
         "question": "Care este ordinea de prioritate la intersecție fără semne de circulație?",
         "answers": ["Vehiculele de pe drumul prioritar, apoi de pe dreapta", "Vehiculele de pe dreapta, apoi de pe stânga", "Vehiculele care virează la stânga au prioritate"],
-        "correctAnswer": ["1"],
+        "correctAnswer": [1],
         "image": "none",
         "difficulty": "medium"
     },
     {
         "question": "Ce trebuie să faceți când un autovehicul de intervenție circulă cu semnalele acustice și luminoase pornite?",
         "answers": ["Opriți imediat și acordați prioritate", "Continuați traseul cu atenție sporită", "Încetiniți și vă situați pe partea dreaptă"],
-        "correctAnswer": ["0"],
+        "correctAnswer": [0],
         "image": "none",
         "difficulty": "medium"
     },
     {
         "question": "În ce cazuri folosiți semnalele sonore scurte?",
         "answers": ["Pentru avertizarea pietonilor angajați în traversare", "În afara localităților pentru a avertiza vehiculele din față", "În interiorul localităților, pentru a semnaliza intenția de depășire"],
-        "correctAnswer": ["1","2"],
+        "correctAnswer": [1,2],
         "image": "none",
         "difficulty": "hard"
     },
     {
         "question": "Ce semnifică semnalul electric al semaforului cu lumina galbenă intermitentă?",
         "answers": ["Atenție și traversare cu prioritate", "Atenție sporită și adaptarea vitezei", "Oprire obligatorie"],
-        "correctAnswer": ["1"],
+        "correctAnswer": [1],
         "image": "none",
         "difficulty": "easy"
     },
     {
         "question": "Unde este interzisă staționarea?",
         "answers": ["Pe trotuar", "În dreptul alveolei de autobuz", "La mai puțin de 5 m de colțul străzii"],
-        "correctAnswer": ["0","2"],
+        "correctAnswer": [0,2],
         "image": "none",
         "difficulty": "medium"
     },
     {
         "question": "Ce semn indică limita maximă de viteză?",
         "answers": ["Cerc roșu cu numărul vitezei", "Triunghi roșu cu numărul vitezei", "Dreptunghi albastru cu numărul vitezei"],
-        "correctAnswer": ["0"],
+        "correctAnswer": [0],
         "image": "none",
         "difficulty": "easy"
     },
     {
         "question": "Cum circulați într-o zonă rezidențială semnalizată cu indicatorul S17?",
         "answers": ["Cu cel mult 20 km/h și acordând prioritate pietonilor", "Cu cel mult 30 km/h și pietonii au prioritate deplină", "Cu orice viteză dacă drumul e liber"],
-        "correctAnswer": ["1"],
+        "correctAnswer": [1],
         "image": "none",
         "difficulty": "medium"
     },
     {
         "question": "Ce semnalizare folosiți pentru a parca în rampă?",
         "answers": ["Semnale de avarie", "Semnale de poziție", "Farurile de întâlnire"],
-        "correctAnswer": ["0"],
+        "correctAnswer": [0],
         "image": "none",
         "difficulty": "medium"
     },
     {
         "question": "Care este distanța minimă de urmat între vehicule pe autostradă în condiții normale?",
         "answers": ["50 m", "2 secunde", "100 m"],
-        "correctAnswer": ["1"],
+        "correctAnswer": [1],
         "image": "none",
         "difficulty": "medium"
     },
     {
         "question": "Ce semn avertizează despre trecerea la nivel cu calea ferată fără bariere?",
         "answers": ["Triunghi roșu cu locomotivă", "Cerc roșu cu locomotivă", "Triunghi roșu cu tren și bariere"],
-        "correctAnswer": ["0"],
+        "correctAnswer": [0],
         "image": "none",
         "difficulty": "medium"
     },
     {
         "question": "Cum procedați la apropierea de un semafor defect?",
         "answers": ["Treceți cu prioritate dacă nu sunt pietoni", "Reglați circulația după prioritate din dreapta", "Opriți automat"],
-        "correctAnswer": ["1"],
+        "correctAnswer": [1],
         "image": "none",
         "difficulty": "hard"
     },
     {
         "question": "Când puteți folosi luminile de întâlnire pe timp de zi?",
         "answers": ["Doar în afara localităților", "Întotdeauna pe drumurile publice", "Numai în condiții de vizibilitate redusă"],
-        "correctAnswer": ["2"],
+        "correctAnswer": [2],
         "image": "none",
         "difficulty": "easy"
     },
     {
         "question": "Unde este permisă oprirea voluntară?",
         "answers": ["În stația mijloc de transport în comun", "Pe carosabilul de partea dreaptă", "Pe banda de circulație a bicicliștilor"],
-        "correctAnswer": ["1"],
+        "correctAnswer": [1],
         "image": "none",
         "difficulty": "medium"
     },
     {
         "question": "Ce interval de alcoolemie la volan este permis în România?",
         "answers": ["0‰", "0.3‰", "0.5‰"],
-        "correctAnswer": ["0"],
+        "correctAnswer": [0],
         "image": "none",
         "difficulty": "medium"
     },
     {
         "question": "Ce semn indică porțiunea de drum unde se interzice accesul pietonilor?",
         "answers": ["Cerc roșu cu simbol pieton", "Triunghi roșu cu simbol pieton", "Dreptunghi albastru cu simbol pieton"],
-        "correctAnswer": ["0"],
+        "correctAnswer": [0],
         "image": "none",
         "difficulty": "easy"
     },
     {
         "question": "Cum semnalizați intenția de a opri?",
         "answers": ["Avariile", "Lumina de frână", "Semnal sonor lung"],
-        "correctAnswer": ["1"],
+        "correctAnswer": [1],
         "image": "none",
         "difficulty": "easy"
     },
@@ -217,7 +217,7 @@
       "C. Avertizare restricție de tonaj",
       "D. Avertizare limită de viteză"
     ],
-    "correctAnswer": ["0"],
+    "correctAnswer": [0],
     "image": "/Imagini/Semn3.png",
     "difficulty": "medium"
   },
@@ -229,7 +229,7 @@
       "C. Indicator de „Drum cu prioritate” fără panou",
       "D. Semn de „Intersecție cu sens giratoriu”"
     ],
-    "correctAnswer": ["0"],
+    "correctAnswer": [0],
     "image": "/Imagini/Semn1.jpg",
     "difficulty": "medium"
   },
@@ -241,7 +241,7 @@
       "C. Avertizare generală",
       "D. Interdicție de acces"
     ],
-    "correctAnswer": ["0"],
+    "correctAnswer": [0],
     "image": "/Imagini/Semn2.jpg",
     "difficulty": "easy"
   },
@@ -253,7 +253,7 @@
       "C. Pante înclinate",
       "D. Restricție de tonaj"
     ],
-    "correctAnswer": ["0"],
+    "correctAnswer": [0],
     "image": "/Imagini/Semn5.jpeg",
     "difficulty": "easy"
   },
@@ -265,7 +265,7 @@
       "C. Depășire interzisă",
       "D. Acces interzis"
     ],
-    "correctAnswer": ["0"],
+    "correctAnswer": [0],
     "image": "/Imagini/Semn6.png",
     "difficulty": "medium"
   },
@@ -277,7 +277,7 @@
       "C. Interdicție acces vehicule grele",
       "D. Semn de avertizare"
     ],
-    "correctAnswer": ["0"],
+    "correctAnswer": [0],
     "image": "/Imagini/Semn4.jpg",
     "difficulty": "easy"
   },
@@ -289,7 +289,7 @@
       "C. Limită de viteză 22 km/h",
       "D. Avertizare pantă abruptă"
     ],
-    "correctAnswer": ["0"],
+    "correctAnswer": [0],
     "image": "/Imagini/Semn7.jpg",
     "difficulty": "hard"
   },
@@ -301,7 +301,7 @@
       "C. 1: Sfârșitul tuturor restricțiilor, 2: Depășirea interzisă",
       "D. 1: Limită de viteză 70 km/h, 2: Staționare permisă"
     ],
-    "correctAnswer": ["0"],
+    "correctAnswer": [0],
     "image": "/Imagini/Compara1.jpg",
     "difficulty": "medium"
   },
@@ -313,7 +313,7 @@
       "C. 1: Treceți obligatoriu pe partea dreaptă a obstacolului, 2: Virați la stânga",
       "D. 1: Virați la dreapta, 2: Treceți pe partea stângă"
     ],
-    "correctAnswer": ["0"],
+    "correctAnswer": [0],
     "image": "/Imagini/Compara2.jpg",
     "difficulty": "medium"
   },
@@ -325,7 +325,7 @@
       "C. Drum cu prioritate, STOP, Cedează trecerea",
       "D. Stop, Drum cu prioritate, Cedează trecerea"
     ],
-    "correctAnswer": ["0"],
+    "correctAnswer": [0],
     "image": "/Imagini/Compara3.jpg",
     "difficulty": "easy"
   },
@@ -337,7 +337,7 @@
       "C. Motocicleta galbenă",
       "D. Toate pleacă simultan"
     ],
-    "correctAnswer": ["0"],
+    "correctAnswer": [0],
     "image": "/Imagini/Prioritate1.png",
     "difficulty": "medium"
   },
@@ -349,7 +349,7 @@
       "C. Autoturismul roșu",
       "D. Toate odată"
     ],
-    "correctAnswer": ["1"],
+    "correctAnswer": [1],
     "image": "/Imagini/Prioritate2.jpg",
     "difficulty": "medium"
   },
@@ -361,7 +361,7 @@
       "C. Prioritate pietonilor",
       "D. Prioritate tramvaielor"
     ],
-    "correctAnswer": ["0"],
+    "correctAnswer": [0],
     "image": "/Imagini/Prioritate3.jpg",
     "difficulty": "medium"
   },
@@ -373,7 +373,7 @@
       "C. Drum cu prioritate",
       "D. Drum fără prioritate"
     ],
-    "correctAnswer": ["0"],
+    "correctAnswer": [0],
     "image": "/Imagini/Prioritate4.jpg",
     "difficulty": "medium"
   },
@@ -385,7 +385,7 @@
       "C. Panou de sfârșit al tuturor restricțiilor",
       "D. Panou de restricție tonaj"
     ],
-    "correctAnswer": ["0"],
+    "correctAnswer": [0],
     "image": "/Imagini/Prioritate5.jpg",
     "difficulty": "medium"
   }

@@ -69,6 +69,8 @@
   <ItemGroup>
     <Compile Include="Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuizScoreObserver.cs" />
+    <Compile Include="QuizViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

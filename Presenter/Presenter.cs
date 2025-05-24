@@ -15,6 +15,8 @@ namespace ChestionarAuto
         private List<Question> _questions;
         private Quiz _currentQuiz;
         private int currentQuestionIndex = 0;
+        private QuizViewModel _quizViewModel;
+        private QuizScoreObserver _quizScoreObserver;
 
         public Presenter(IModel model, IView view)
         {
@@ -61,33 +63,58 @@ namespace ChestionarAuto
         public void OnStartQuiz()
         {
             _currentQuiz = _model.GetRandomQuiz();
+
+            _quizViewModel = new QuizViewModel(_currentQuiz);
+            _quizScoreObserver = new QuizScoreObserver(_currentQuiz, _view);
+            _quizViewModel.RegisterObserver(_quizScoreObserver);
+
             _questions = _currentQuiz.questionsList;
             currentQuestionIndex = 0;
-            _view.ShowQuestion(_questions[currentQuestionIndex]);
+            var isLastQuestion = false;
+            if(currentQuestionIndex == _questions.Count-1)
+            {
+                isLastQuestion = true;
+            }
+            _view.ShowQuestion(_questions[currentQuestionIndex], isLastQuestion);
         }
 
         public void OnNextQuestion(List<int> selectedAnswers)
         {
-            if (_questions == null || currentQuestionIndex >= _questions.Count - 1)
+
+            if (_questions == null)
                 return;
+
+            _quizViewModel.AnswerQuestion(_questions[currentQuestionIndex].question, selectedAnswers);
 
             currentQuestionIndex++;
-            _view.ShowQuestion(_questions[currentQuestionIndex]);
-        }
 
-        public void OnPreviousQuestion()
-        {
-            if (_questions == null || currentQuestionIndex <= 0)
+            if (currentQuestionIndex > _questions.Count - 1)
+            {
+                _currentQuiz.quizState = "completed";
+                _view.ShowQuizResults(_currentQuiz);
                 return;
-
-            currentQuestionIndex--;
-            _view.ShowQuestion(_questions[currentQuestionIndex]);
+            }
+            
+            var isLastQuestion = false;
+            if (currentQuestionIndex == _questions.Count - 1)
+            {
+                isLastQuestion = true;
+            }
+            _view.ShowQuestion(_questions[currentQuestionIndex], isLastQuestion);
         }
 
         public void OnAbortQuiz()
         {
             currentQuestionIndex = 0;
+            _currentQuiz.quizState = "aborted";
+            _view.ShowQuizResults(_currentQuiz);
+        }
+
+        public void GoToMainMenu()
+        {
             _view.LoadUserDashboardControl(_model.GetLoggedUserRole());
         }
+
+        //public void SaveInDatabase(); TODO -> fac eu mai tarziu
     }
 }

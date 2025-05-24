@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ChestionarAuto.UserControls
+namespace ChestionarAuto
 {
     public partial class QuizControl : UserControl
     {
         public event EventHandler<AnswerEventArgs> NextQuestionClicked;
-        public event EventHandler PreviousQuestionClicked;
         public event EventHandler AbortQuizClicked;
         public QuizControl()
         {
@@ -32,17 +33,18 @@ namespace ChestionarAuto.UserControls
             NextQuestionClicked?.Invoke(this, new AnswerEventArgs(selectedAnswers));
         }
 
-        private void prevQuestionButton_Click(object sender, EventArgs e)
-        {
-            PreviousQuestionClicked?.Invoke(this, EventArgs.Empty);
-        }
-
         private void abortQuizButton_Click(object sender, EventArgs e)
         {
             AbortQuizClicked?.Invoke(this, EventArgs.Empty);
         }
+        
+        public void UpdateUI(int correctAnswers, int wrongAnswers)
+        {
+            correctAnswLabel.Text = "Correct: " + correctAnswers.ToString();
+            wrongAnswLabel.Text = "Wrong: " + wrongAnswers.ToString();
+        }
 
-        public void LoadQuestion(Question question)
+        public void LoadQuestion(Question question, bool isLastQuestion = false)
         {
             questionLabel.Text = question.question;
             answerCheckBox1.Text = question.answers[0];
@@ -54,6 +56,31 @@ namespace ChestionarAuto.UserControls
             answerCheckBox2.Checked = false;
             answerCheckBox3.Checked = false;
             answerCheckBox4.Checked = false;
+
+            nextQuestionButton.Text = (isLastQuestion) ? "Finish" : "Next";
+
+            if (!string.IsNullOrEmpty(question.image) && question.image.ToLower() != "none")
+            {
+                try
+                {
+                    quizPictureBox.Image = Image.FromFile(question.image);
+                }
+                catch (Exception ex)
+                {
+                    quizPictureBox.Image = null;
+                    Console.WriteLine("Eroare la încărcarea imaginii: " + ex.Message);
+                }
+            }
+            else
+            {
+                quizPictureBox.Image = null;
+            }
+        }
+
+        public void ShowQuizResults(int correctAnswers, int wrongAnswers, string quizState)
+        {
+            var resultsForm = new ResultsForm(correctAnswers, wrongAnswers, quizState);
+            resultsForm.ShowDialog();
         }
     }
 

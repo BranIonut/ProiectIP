@@ -13,7 +13,6 @@ C:\Vlad\Facultate\IP\proiect\ProiectIP\View\obj\Debug\ChestionarAuto.Form1.resou
 C:\Vlad\Facultate\IP\proiect\ProiectIP\View\obj\Debug\ChestionarAuto.UserControls.DashboardAdminControl.resources
 C:\Vlad\Facultate\IP\proiect\ProiectIP\View\obj\Debug\ChestionarAuto.UserControls.DashboardUserControl.resources
 C:\Vlad\Facultate\IP\proiect\ProiectIP\View\obj\Debug\ChestionarAuto.LogInUserControl.resources
-C:\Vlad\Facultate\IP\proiect\ProiectIP\View\obj\Debug\ChestionarAuto.UserControls.QuizControl.resources
 C:\Vlad\Facultate\IP\proiect\ProiectIP\View\obj\Debug\ChestionarAuto.SignUpUserControl.resources
 C:\Vlad\Facultate\IP\proiect\ProiectIP\View\obj\Debug\View.csproj.GenerateResource.cache
 C:\Vlad\Facultate\IP\proiect\ProiectIP\View\obj\Debug\View.csproj.CoreCompileInputs.cache
@@ -40,3 +39,8 @@ C:\Vlad\Facultate\IP\proiect\ProiectIP\View\bin\Debug\View.pdb
 C:\Vlad\Facultate\IP\proiect\ProiectIP\View\obj\Debug\View.Properties.Resources.resources
 C:\Vlad\Facultate\IP\proiect\ProiectIP\View\obj\Debug\View.dll
 C:\Vlad\Facultate\IP\proiect\ProiectIP\View\obj\Debug\View.pdb
+C:\Vlad\Facultate\IP\proiect\ProiectIP\View\bin\Debug\Model.dll
+C:\Vlad\Facultate\IP\proiect\ProiectIP\View\bin\Debug\Model.pdb
+C:\Vlad\Facultate\IP\proiect\ProiectIP\View\bin\Debug\Model.dll.config
+C:\Vlad\Facultate\IP\proiect\ProiectIP\View\obj\Debug\ChestionarAuto.QuizControl.resources
+C:\Vlad\Facultate\IP\proiect\ProiectIP\View\obj\Debug\ChestionarAuto.ResultsForm.resources

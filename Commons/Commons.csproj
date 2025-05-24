@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="IModel.cs" />
     <Compile Include="IPresenter.cs" />
+    <Compile Include="IQuizObserver.cs" />
     <Compile Include="IView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Question.cs" />

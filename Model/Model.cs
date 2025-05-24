@@ -121,7 +121,7 @@ namespace ChestionarAuto
 
             long quizId = (long)command.ExecuteScalar();
 
-            _quizzes.Add(new Quiz((int)quizId, questionList, 0, 0, null));
+            _quizzes.Add(new Quiz((int)quizId, questionList, 0, 0, "in progress"));
 
 
         }

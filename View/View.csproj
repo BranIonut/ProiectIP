@@ -102,6 +102,12 @@
     <Compile Include="UserControls\QuizControl.Designer.cs">
       <DependentUpon>QuizControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ResultsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\ResultsForm.Designer.cs">
+      <DependentUpon>ResultsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\SignUpUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -132,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\QuizControl.resx">
       <DependentUpon>QuizControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ResultsForm.resx">
+      <DependentUpon>ResultsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\SignUpUserControl.resx">
       <DependentUpon>SignUpUserControl.cs</DependentUpon>

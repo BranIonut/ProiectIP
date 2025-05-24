@@ -71,16 +71,26 @@ namespace ChestionarAuto
             quizControl = new QuizControl();
 
             quizControl.NextQuestionClicked += (s, e) => presenter.OnNextQuestion(e.SelectedAnswers);
-            quizControl.PreviousQuestionClicked += (s, e) => presenter.OnPreviousQuestion();
             quizControl.AbortQuizClicked += (s, e) => presenter.OnAbortQuiz();
 
             _form.LoadUserControl(quizControl);
             presenter.OnStartQuiz();
         }
 
-        public void ShowQuestion(Question question)
+        public void ShowQuestion(Question question, bool isLastQuestion = false)
         {
-            quizControl.LoadQuestion(question);
+            quizControl.LoadQuestion(question, isLastQuestion);
+        }
+
+        public void ShowQuizResults(Quiz _quiz)
+        {
+            quizControl.ShowQuizResults(_quiz.correctAnswers, _quiz.wrongAnswers, _quiz.quizState);
+            presenter.GoToMainMenu();
+        }
+
+        public void UpdateUI(int correctAnswers, int wrongAnswers)
+        {
+            quizControl.UpdateUI(correctAnswers, wrongAnswers);
         }
     }
 }
