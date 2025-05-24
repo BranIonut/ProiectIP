@@ -74,6 +74,7 @@ namespace ChestionarAuto
             quizControl.AbortQuizClicked += (s, e) => presenter.OnAbortQuiz();
 
             _form.LoadUserControl(quizControl);
+            quizControl.UpdateUI(0, 0);
             presenter.OnStartQuiz();
         }
 
