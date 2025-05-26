@@ -28,15 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("");
             this.welcomeBackLabel = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.adminDashButton = new System.Windows.Forms.Button();
             this.userSettingsButton = new System.Windows.Forms.Button();
             this.logOutButton = new System.Windows.Forms.Button();
             this.startQuizButton = new System.Windows.Forms.Button();
+            this.quizNumber1Label = new System.Windows.Forms.Label();
+            this.quizNumber2Label = new System.Windows.Forms.Label();
+            this.quizNumber3Label = new System.Windows.Forms.Label();
+            this.quizNumber4Label = new System.Windows.Forms.Label();
+            this.quizNumber5Label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // welcomeBackLabel
@@ -54,11 +59,11 @@
             // 
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3});
+            listViewItem4,
+            listViewItem5,
+            listViewItem6});
             this.listView1.Location = new System.Drawing.Point(24, 81);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(755, 406);
             this.listView1.TabIndex = 1;
@@ -67,7 +72,7 @@
             // adminDashButton
             // 
             this.adminDashButton.Location = new System.Drawing.Point(840, 351);
-            this.adminDashButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.adminDashButton.Margin = new System.Windows.Forms.Padding(4);
             this.adminDashButton.Name = "adminDashButton";
             this.adminDashButton.Size = new System.Drawing.Size(137, 28);
             this.adminDashButton.TabIndex = 2;
@@ -78,7 +83,7 @@
             // userSettingsButton
             // 
             this.userSettingsButton.Location = new System.Drawing.Point(840, 405);
-            this.userSettingsButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.userSettingsButton.Margin = new System.Windows.Forms.Padding(4);
             this.userSettingsButton.Name = "userSettingsButton";
             this.userSettingsButton.Size = new System.Drawing.Size(137, 28);
             this.userSettingsButton.TabIndex = 3;
@@ -88,7 +93,7 @@
             // logOutButton
             // 
             this.logOutButton.Location = new System.Drawing.Point(840, 460);
-            this.logOutButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.logOutButton.Margin = new System.Windows.Forms.Padding(4);
             this.logOutButton.Name = "logOutButton";
             this.logOutButton.Size = new System.Drawing.Size(137, 28);
             this.logOutButton.TabIndex = 4;
@@ -106,17 +111,67 @@
             this.startQuizButton.UseVisualStyleBackColor = true;
             this.startQuizButton.Click += new System.EventHandler(this.startQuizButton_Click);
             // 
+            // quizNumber1Label
+            // 
+            this.quizNumber1Label.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.quizNumber1Label.Location = new System.Drawing.Point(38, 174);
+            this.quizNumber1Label.Name = "quizNumber1Label";
+            this.quizNumber1Label.Size = new System.Drawing.Size(725, 45);
+            this.quizNumber1Label.TabIndex = 6;
+            this.quizNumber1Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // quizNumber2Label
+            // 
+            this.quizNumber2Label.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.quizNumber2Label.Location = new System.Drawing.Point(38, 219);
+            this.quizNumber2Label.Name = "quizNumber2Label";
+            this.quizNumber2Label.Size = new System.Drawing.Size(725, 45);
+            this.quizNumber2Label.TabIndex = 7;
+            this.quizNumber2Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // quizNumber3Label
+            // 
+            this.quizNumber3Label.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.quizNumber3Label.Location = new System.Drawing.Point(38, 264);
+            this.quizNumber3Label.Name = "quizNumber3Label";
+            this.quizNumber3Label.Size = new System.Drawing.Size(725, 45);
+            this.quizNumber3Label.TabIndex = 8;
+            this.quizNumber3Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // quizNumber4Label
+            // 
+            this.quizNumber4Label.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.quizNumber4Label.Location = new System.Drawing.Point(38, 309);
+            this.quizNumber4Label.Name = "quizNumber4Label";
+            this.quizNumber4Label.Size = new System.Drawing.Size(725, 45);
+            this.quizNumber4Label.TabIndex = 9;
+            this.quizNumber4Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // quizNumber5Label
+            // 
+            this.quizNumber5Label.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.quizNumber5Label.Location = new System.Drawing.Point(38, 354);
+            this.quizNumber5Label.Name = "quizNumber5Label";
+            this.quizNumber5Label.Size = new System.Drawing.Size(725, 45);
+            this.quizNumber5Label.TabIndex = 10;
+            this.quizNumber5Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // DashboardUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.quizNumber5Label);
+            this.Controls.Add(this.quizNumber4Label);
+            this.Controls.Add(this.quizNumber3Label);
+            this.Controls.Add(this.quizNumber2Label);
+            this.Controls.Add(this.quizNumber1Label);
             this.Controls.Add(this.startQuizButton);
             this.Controls.Add(this.logOutButton);
             this.Controls.Add(this.userSettingsButton);
             this.Controls.Add(this.adminDashButton);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.welcomeBackLabel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DashboardUserControl";
             this.Size = new System.Drawing.Size(1031, 524);
             this.ResumeLayout(false);
@@ -138,5 +193,10 @@
         }
 
         private System.Windows.Forms.Button startQuizButton;
+        private System.Windows.Forms.Label quizNumber1Label;
+        private System.Windows.Forms.Label quizNumber2Label;
+        private System.Windows.Forms.Label quizNumber3Label;
+        private System.Windows.Forms.Label quizNumber4Label;
+        private System.Windows.Forms.Label quizNumber5Label;
     }
 }

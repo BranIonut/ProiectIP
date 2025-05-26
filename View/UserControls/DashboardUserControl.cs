@@ -36,5 +36,31 @@ namespace ChestionarAuto.UserControls
         {
             StartQuizRequested?.Invoke(this, EventArgs.Empty);
         }
+
+        public void UpdateUserHistoryUI(int labelIndex, int correctAnswers, int wrongAnswers, string quiz_state)
+        {
+            string text = $"Quiz #{labelIndex + 1} | Corecte: {correctAnswers} | Greșite: {wrongAnswers} | Stare: {quiz_state}";
+            switch (labelIndex)
+            {
+                case 0:
+                    quizNumber1Label.Text = text;
+                    break;
+                case 1:
+                    quizNumber2Label.Text = text;
+                    break;
+                case 2:
+                    quizNumber3Label.Text = text;
+                    break;
+                case 3:
+                    quizNumber4Label.Text = text;
+                    break;
+                case 4:
+                    quizNumber5Label.Text = text;
+                    break;
+                default:
+                    Console.WriteLine("Label index out of range.");
+                    break;
+            }
+        }
     }
 }

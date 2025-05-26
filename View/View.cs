@@ -66,8 +66,9 @@ namespace ChestionarAuto
             var dashboardUserControl = new DashboardUserControl();
 
             dashboardUserControl.LogOutRequested += (s, e) => presenter.OnLogoutRequest();
-            dashboardUserControl.AdminDashBoardRequested += (s, e) => LoadAdminDashboardControl();
-            dashboardUserControl.StartQuizRequested += (s, e) => StartQuizControl();
+            dashboardUserControl.AdminDashBoardRequested += (s, e) => this.LoadAdminDashboardControl();
+            dashboardUserControl.StartQuizRequested += (s, e) => this.StartQuizControl();
+            this.LoadUserHistory(dashboardUserControl);
             if (role == "admin")
             {
                 dashboardUserControl.SetAdminDashBttnVisibility(false);
@@ -154,6 +155,18 @@ namespace ChestionarAuto
         {
             quizControl.StopTimer();
             presenter.OnPassQuiz();
+        }
+
+        private void LoadUserHistory(DashboardUserControl dashboardUserControl)
+        {
+            List<Quiz> quizList = presenter.OnLoadUserHistory();
+            int index = 0;
+            while(index < quizList.Count)
+            {
+                dashboardUserControl.UpdateUserHistoryUI(index, quizList[index].correctAnswers, quizList[index].wrongAnswers,
+                     quizList[index].quizState);
+                index++;
+            }
         }
     }
 }

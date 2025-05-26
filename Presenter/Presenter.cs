@@ -178,5 +178,12 @@ namespace ChestionarAuto
         {
             _model.AddToUserQuiz(_quiz.Id, _model.GetCurrentUserId(), _quiz.correctAnswers, _quiz.wrongAnswers, _quiz.quizState);
         }
+
+        public List<Quiz> OnLoadUserHistory()
+        {
+            int currentUserId = _model.GetCurrentUserId();
+            List<Quiz> quizList = _model.GetLastFiveQuizes(currentUserId);
+            return quizList;
+        }
     }
 }

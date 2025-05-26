@@ -20,5 +20,7 @@ namespace ChestionarAuto
         void GoToMainMenu();
         void OnFailQuiz();
         void OnPassQuiz();
+        List<Quiz> OnLoadUserHistory();
+
     }
 }

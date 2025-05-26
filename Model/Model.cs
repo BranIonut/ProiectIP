@@ -379,8 +379,7 @@ namespace ChestionarAuto
 
                     command.CommandText = @"
         INSERT INTO quiz_user (id_user, id_quiz, correct_answers, incorrect_answers, quiz_state)
-        VALUES ($userId, $quizId, $correctAns, $wrongAns, $quizState);
-    ";
+        VALUES ($userId, $quizId, $correctAns, $wrongAns, $quizState);";
 
                     command.Parameters.AddWithValue("$userId", userId);
                     command.Parameters.AddWithValue("$quizId", quizId);
@@ -404,6 +403,42 @@ namespace ChestionarAuto
         public int GetCurrentUserId()
         {
             return _currentUser.userId;
+        }
+
+        public List<Quiz> GetLastFiveQuizes(int userId)
+        {
+            List<Quiz> quizList = new List<Quiz>();
+            using (var connection = new SQLiteConnection($"Data Source={_databaseFileName}"))
+            {
+                connection.Open();
+
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = @"
+                    SELECT id_quiz, correct_answers, incorrect_answers, quiz_state
+                    FROM quiz_user
+                    WHERE id_user = $userId
+                    ORDER BY rowid DESC
+                    LIMIT 5;";
+
+                    command.Parameters.AddWithValue("$userId", userId);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int quizId = reader.GetInt32(0);
+                            int correctAnswers = reader.GetInt32(1);
+                            int incorrectAnswers = reader.GetInt32(2);
+                            string quizState = reader.GetString(3);
+
+                            quizList.Add(new Quiz(quizId, null, correctAnswers, incorrectAnswers, quizState));
+                        }
+                    }
+                }
+            }
+
+            return quizList;
         }
     }
 }
