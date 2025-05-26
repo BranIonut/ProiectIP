@@ -220,15 +220,17 @@ namespace ChestionarAuto
             command.Parameters.AddWithValue("$email", email);
             command.Parameters.AddWithValue("$password", password);
 
-            try { 
+            try
+            {
                 int rowsAffected = command.ExecuteNonQuery();
                 return rowsAffected > 0;
-            } catch(Exception e)
+            }
+            catch (Exception e)
             {
                 return false;
             }
 
-            
+
         }
 
         public bool Login(string username, string password)
@@ -282,6 +284,35 @@ namespace ChestionarAuto
             Random rnd = new Random();
             int index = rnd.Next(_quizzes.Count);
             return _quizzes[index];
+        }
+
+        public bool AddToUserQuiz(int quizId, int userId, int correctAns, int wrongAns, string quizState)
+        {
+            var connection = new SQLiteConnection($"Data Source={_databaseFileName}");
+            connection.Open();
+
+            var command = connection.CreateCommand();
+
+            command.CommandText = @"
+        INSERT INTO quiz_user (id_user, id_quiz, correct_answers, incorrect_answers, quiz_state)
+        VALUES ($userId, $quizId, $correctAns, $wrongAns, $quizState);
+    ";
+
+            command.Parameters.AddWithValue("$userId", userId);
+            command.Parameters.AddWithValue("$quizId", quizId);
+            command.Parameters.AddWithValue("$correctAns", correctAns);
+            command.Parameters.AddWithValue("$wrongAns", wrongAns);
+            command.Parameters.AddWithValue("$quizState", quizState);
+            try
+            {
+                int rowsAffected = command.ExecuteNonQuery();
+                return rowsAffected > 0;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
         }
     }
 }

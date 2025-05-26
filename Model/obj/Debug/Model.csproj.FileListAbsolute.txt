@@ -43,3 +43,24 @@ C:\Vlad\Facultate\IP\proiect\ProiectIP\Model\obj\Debug\Model.csproj.CoreCompileI
 C:\Vlad\Facultate\IP\proiect\ProiectIP\Model\obj\Debug\Model.csproj.Up2Date
 C:\Vlad\Facultate\IP\proiect\ProiectIP\Model\obj\Debug\Model.dll
 C:\Vlad\Facultate\IP\proiect\ProiectIP\Model\obj\Debug\Model.pdb
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ProiectIP\Model\bin\Debug\Model.dll.config
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ProiectIP\Model\bin\Debug\Model.dll
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ProiectIP\Model\bin\Debug\Model.pdb
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ProiectIP\Model\bin\Debug\Commons.dll
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ProiectIP\Model\bin\Debug\EntityFramework.dll
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ProiectIP\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ProiectIP\Model\bin\Debug\Newtonsoft.Json.dll
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ProiectIP\Model\bin\Debug\System.Data.SQLite.dll
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ProiectIP\Model\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ProiectIP\Model\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ProiectIP\Model\bin\Debug\Commons.pdb
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ProiectIP\Model\bin\Debug\Commons.dll.config
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ProiectIP\Model\bin\Debug\EntityFramework.xml
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ProiectIP\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ProiectIP\Model\bin\Debug\Newtonsoft.Json.xml
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ProiectIP\Model\bin\Debug\System.Data.SQLite.xml
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ProiectIP\Model\obj\Debug\Model.csproj.AssemblyReference.cache
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ProiectIP\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ProiectIP\Model\obj\Debug\Model.csproj.Up2Date
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ProiectIP\Model\obj\Debug\Model.dll
+C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ProiectIP\Model\obj\Debug\Model.pdb
