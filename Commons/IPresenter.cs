@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ChestionarAuto
 {
+    /// <summary>
+    /// Interfață pentru presenter-ul aplicației.
+    /// </summary>
     public interface IPresenter
     {
         void OnAbortQuiz();

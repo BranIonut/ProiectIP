@@ -6,17 +6,29 @@ using System.Threading.Tasks;
 
 namespace ChestionarAuto
 {
+    /// <summary>
+    /// Reprezintă un observator pentru chestionar care monitorizează scorul utilizatorului.
+    /// </summary>
     public class QuizScoreObserver : IQuizObserver
     {
         private Quiz _quiz;
         private IView _view;
 
+        /// <summary>
+        /// Constructorul clasei QuizScoreObserver.
+        /// </summary>
+        /// <param name="quiz">Obiectul Quiz a cărui stare va fi actualizată în funcție de răspunsurile utilizatorului.</param>
+        /// <param name="view">Interfața utilizator care va fi actualizată în funcție de scorul actual.</param>
         public QuizScoreObserver(Quiz quiz, IView view)
         {
             _quiz = quiz;
             _view = view;
         }
 
+        /// <summary>
+        /// Metoda care este apelată atunci când un răspuns este validat.
+        /// </summary>
+        /// <param name="isCorrect">Indică dacă răspunsul utilizatorului a fost corect (true) sau greșit (false).</param>
         public void OnAnswerValidated(bool isCorrect)
         {
             if (isCorrect)

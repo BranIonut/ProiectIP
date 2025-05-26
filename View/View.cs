@@ -8,21 +8,36 @@ using System.Windows.Forms;
 
 namespace ChestionarAuto
 {
+    /// <summary>
+    /// Clasa View implementează interfața IView și este responsabilă pentru interacțiunea cu utilizatorul.
+    /// </summary>
     public class View : IView
     {
         private Form1 _form;
         private IPresenter presenter;
         private QuizControl quizControl;
+
+        /// <summary>
+        /// Constructorul clasei View.
+        /// </summary>
+        /// <param name="form">Formularul principal al aplicației.</param>
         public View(Form1 form)
         {
             _form = form;
         }
 
+        /// <summary>
+        /// Setează presenter-ul pentru View.
+        /// </summary>
+        /// <param name="presenter">Obiectul presenter care conține logica aplicației.</param>
         public void SetPresenter(IPresenter presenter)
         {
             this.presenter = presenter;
         }
 
+        /// <summary>
+        /// Încarcă controlul de autentificare (LogInUserControl) în formular.
+        /// </summary>
         public void LoadLoginControl()
         {
             var loginControl = new LogInUserControl();
@@ -31,6 +46,9 @@ namespace ChestionarAuto
             _form.LoadUserControl(loginControl);
         }
 
+        /// <summary>
+        /// Încarcă controlul de înregistrare (SignUpUserControl) în formular.
+        /// </summary>
         public void LoadSignupControl()
         {
             var signupControl = new SignUpUserControl();
@@ -39,6 +57,10 @@ namespace ChestionarAuto
             _form.LoadUserControl(signupControl);
         }
 
+        /// <summary>
+        /// Încarcă controlul de tablă de bord pentru utilizator (DashboardUserControl) în formular.
+        /// </summary>
+        /// <param name="role">Parametru ce primește rolul utilizatorului curent logat (ex: "admin" sau "user").</param>
         public void LoadUserDashboardControl(string role)
         {
             var dashboardUserControl = new DashboardUserControl();
@@ -59,6 +81,9 @@ namespace ChestionarAuto
             _form.LoadUserControl(dashboardUserControl);
         }
 
+        /// <summary>
+        /// Încarcă controlul de tablă de bord pentru administrator (DashboardAdminControl) în formular.
+        /// </summary>
         public void LoadAdminDashboardControl()
         {
             var dashboardAdminControl = new DashboardAdminControl();
@@ -66,6 +91,9 @@ namespace ChestionarAuto
             _form.LoadUserControl(dashboardAdminControl);
         }
 
+        /// <summary>
+        /// Inițiază controlul de quiz (QuizControl) și îl încarcă în formular.
+        /// </summary>
         public void StartQuizControl()
         {
             quizControl = new QuizControl();
@@ -78,17 +106,31 @@ namespace ChestionarAuto
             presenter.OnStartQuiz();
         }
 
+        /// <summary>
+        /// Afișează o întrebare în controlul de quiz.
+        /// </summary>
+        /// <param name="question">Întrebarea ce urmează să fie afișată.</param>
+        /// <param name="isLastQuestion">Indică dacă întrebarea este ultima din quiz.</param>
         public void ShowQuestion(Question question, bool isLastQuestion = false)
         {
             quizControl.LoadQuestion(question, isLastQuestion);
         }
 
+        /// <summary>
+        /// Afișează rezultatele quiz-ului și navighează înapoi la meniul principal.
+        /// </summary>
+        /// <param name="_quiz">Obiectul de tip Quiz care conține rezultatele quiz-ului (răspunsuri corecte, greșite, stare).</param>
         public void ShowQuizResults(Quiz _quiz)
         {
             quizControl.ShowQuizResults(_quiz.correctAnswers, _quiz.wrongAnswers, _quiz.quizState);
             presenter.GoToMainMenu();
         }
 
+        /// <summary>
+        /// Actualizează interfața utilizatorului cu numărul de răspunsuri corecte și greșite.
+        /// </summary>
+        /// <param name="correctAnswers">Numărul de răspunsuri corecte.</param>
+        /// <param name="wrongAnswers">Numărul de răspunsuri greșite.</param>
         public void UpdateUI(int correctAnswers, int wrongAnswers)
         {
             quizControl.UpdateUI(correctAnswers, wrongAnswers);

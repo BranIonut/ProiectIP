@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ChestionarAuto
 {
+    /// <summary>
+    /// Reprezintă un utilizator al aplicației, cu informații despre ID, nume de utilizator, nume real, email, parolă și rol.
+    /// </summary>
     public class User
     {
         public int userId { get; set; }

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ChestionarAuto
 {
+    /// <summary>
+    /// Reprezintă un chestionar care conține o listă de întrebări și starea acestuia.
+    /// </summary>
     public class Quiz
     {
         public int Id { get; set; }

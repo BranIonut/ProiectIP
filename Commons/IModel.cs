@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ChestionarAuto
 {
+    /// <summary>
+    /// Interfață pentru modelul aplicației.
+    /// </summary>
     public interface IModel
     {
         void InitializeQuestions();

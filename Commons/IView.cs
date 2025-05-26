@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ChestionarAuto
 {
+    /// <summary>
+    /// Interfață pentru vizualizarea aplicației.
+    /// </summary>
     public interface IView
     {
         void LoadLoginControl();

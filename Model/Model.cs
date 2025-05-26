@@ -131,6 +131,11 @@ namespace ChestionarAuto
 
         }
 
+        /// <summary>
+        /// Șterge un quiz existent din baza de date și din lista de quiz-uri.
+        /// </summary>
+        /// <param name="n">Indexul quiz-ului ce va fi șters din listă.</param>
+        /// <exception cref="Exception"></exception>
         public void DeleteQuiz(int n)
         {
             if (n < 0 || n >= _quizzes.Count)
@@ -265,8 +270,8 @@ namespace ChestionarAuto
         /// <summary>
         /// Autentifică un utilizator în aplicație pe baza numelui de utilizator și a parolei.
         /// </summary>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
+        /// <param name="username">Numele de utilizator introdus de utilizator.</param>
+        /// <param name="password">Parola introdusă de utilizator.</param>
         /// <returns>True dacă utilizatorul a fost logat cu succes, sau false în caz contrar.</returns>
         public bool Login(string username, string password)
         {
@@ -336,12 +341,12 @@ namespace ChestionarAuto
         /// <summary>
         /// Adaugă un quiz asociat unui utilizator în baza de date.
         /// </summary>
-        /// <param name="quizId"></param>
-        /// <param name="userId"></param>
-        /// <param name="correctAns"></param>
-        /// <param name="wrongAns"></param>
-        /// <param name="quizState"></param>
-        /// <returns></returns>
+        /// <param name="quizId">ID-ul quiz-ului care a fost completat.</param>
+        /// <param name="userId">ID-ul utilizatorului care a completat quiz-ul.</param>
+        /// <param name="correctAns">Numărul de răspunsuri corecte.</param>
+        /// <param name="wrongAns">Numărul de răspunsuri greșite.</param>
+        /// <param name="quizState">Starea finală a quiz-ului (ex: completed, aborted, failed).</param>
+        /// <returns>True dacă inserarea a avut succes, altfel false.</returns>
         public bool AddToUserQuiz(int quizId, int userId, int correctAns, int wrongAns, string quizState)
         {
             var connection = new SQLiteConnection($"Data Source={_databaseFileName}");

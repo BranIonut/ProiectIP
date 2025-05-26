@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace ChestionarAuto
 {
+    /// <summary>
+    /// Reprezintă o întrebare din chestionar.
+    /// </summary>
     public class Question
     {
         public string question { get; set; }
