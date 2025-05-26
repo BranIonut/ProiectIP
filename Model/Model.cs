@@ -375,5 +375,10 @@ namespace ChestionarAuto
                 return false;
             }
         }
+
+        public int GetCurrentUserId()
+        {
+            return _currentUser.userId;
+        }
     }
 }

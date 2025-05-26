@@ -16,9 +16,60 @@ namespace ChestionarAuto
     {
         public event EventHandler<AnswerEventArgs> NextQuestionClicked;
         public event EventHandler AbortQuizClicked;
+        public event EventHandler FailedQuiz;
+        private Timer quizTimer;
+        private int timeLeftInSeconds = 600;
         public QuizControl()
         {
             InitializeComponent();
+
+            InitializeQuizTimer();
+        }
+
+        private void InitializeQuizTimer()
+        {
+            quizTimer = new Timer();
+            quizTimer.Interval = 1000;
+            quizTimer.Tick += QuizTimer_Tick;
+        }
+
+        public void StartGlobalTimer()
+        {
+            timeLeftInSeconds = 600;
+            quizTimer.Start();
+            UpdateTimerLabel();
+        }
+
+        private void QuizTimer_Tick(object sender, EventArgs e)
+        {
+            timeLeftInSeconds--;
+
+            if (timeLeftInSeconds <= 0)
+            {
+                StopTimer();
+                TimeExpired();
+            }
+            else
+            {
+                UpdateTimerLabel();
+            }
+        }
+
+        private void UpdateTimerLabel()
+        {
+            int minutes = timeLeftInSeconds / 60;
+            int seconds = timeLeftInSeconds % 60;
+            timerLabel.Text = $"Timp rămas: {minutes:D2}:{seconds:D2}";
+        }
+
+        public void StopTimer()
+        {
+            quizTimer.Stop();
+        }
+
+        private void TimeExpired()
+        {
+            FailedQuiz?.Invoke(this, EventArgs.Empty);
         }
 
         private void nextQuestionButton_Click(object sender, EventArgs e)
@@ -28,7 +79,6 @@ namespace ChestionarAuto
             if (answerCheckBox1.Checked) selectedAnswers.Add(0);
             if (answerCheckBox2.Checked) selectedAnswers.Add(1);
             if (answerCheckBox3.Checked) selectedAnswers.Add(2);
-            if (answerCheckBox4.Checked) selectedAnswers.Add(3);
 
             NextQuestionClicked?.Invoke(this, new AnswerEventArgs(selectedAnswers));
         }
@@ -50,12 +100,10 @@ namespace ChestionarAuto
             answerCheckBox1.Text = question.answers[0];
             answerCheckBox2.Text = question.answers[1];
             answerCheckBox3.Text = question.answers[2];
-            //answerCheckBox4.Text = question.answers[3];
 
             answerCheckBox1.Checked = false;
             answerCheckBox2.Checked = false;
             answerCheckBox3.Checked = false;
-            answerCheckBox4.Checked = false;
 
             nextQuestionButton.Text = (isLastQuestion) ? "Finish" : "Next";
 

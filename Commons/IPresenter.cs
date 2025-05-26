@@ -18,5 +18,7 @@ namespace ChestionarAuto
         void OnSignupRequest(string username, string name, string email, string password);
         void OnStartQuiz();
         void GoToMainMenu();
+        void OnFailQuiz();
+        void OnPassQuiz();
     }
 }

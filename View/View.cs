@@ -99,10 +99,12 @@ namespace ChestionarAuto
             quizControl = new QuizControl();
 
             quizControl.NextQuestionClicked += (s, e) => presenter.OnNextQuestion(e.SelectedAnswers);
-            quizControl.AbortQuizClicked += (s, e) => presenter.OnAbortQuiz();
+            quizControl.AbortQuizClicked += (s, e) => this.AbortQuiz();
+            quizControl.FailedQuiz += (s, e) => this.FailQuiz();
 
             _form.LoadUserControl(quizControl);
             quizControl.UpdateUI(0, 0);
+            quizControl.StartGlobalTimer();
             presenter.OnStartQuiz();
         }
 
@@ -134,6 +136,24 @@ namespace ChestionarAuto
         public void UpdateUI(int correctAnswers, int wrongAnswers)
         {
             quizControl.UpdateUI(correctAnswers, wrongAnswers);
+        }
+
+        public void AbortQuiz()
+        {
+            quizControl.StopTimer();
+            presenter.OnAbortQuiz();
+        }
+
+        public void FailQuiz()
+        {
+            quizControl.StopTimer();
+            presenter.OnFailQuiz();
+        }
+
+        public void PassQuiz()
+        {
+            quizControl.StopTimer();
+            presenter.OnPassQuiz();
         }
     }
 }

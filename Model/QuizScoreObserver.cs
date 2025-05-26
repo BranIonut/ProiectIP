@@ -36,13 +36,26 @@ namespace ChestionarAuto
             else
                 _quiz.wrongAnswers++;
 
-            int totalAnswered = _quiz.correctAnswers + _quiz.wrongAnswers;
-            if (totalAnswered == _quiz.questionsList.Count)
-                _quiz.quizState = "completed";
+            if (_quiz.wrongAnswers >= 5)
+            {
+                _quiz.quizState = "failed";
+                _view.UpdateUI(_quiz.correctAnswers, _quiz.wrongAnswers);
+                _view.FailQuiz();
+            }
             else
             {
-                _quiz.quizState = "in progress";
-                _view.UpdateUI(_quiz.correctAnswers, _quiz.wrongAnswers);
+                int totalAnswered = _quiz.correctAnswers + _quiz.wrongAnswers;
+                if (totalAnswered == _quiz.questionsList.Count)
+                {
+                    _quiz.quizState = "passed";
+                    _view.UpdateUI(_quiz.correctAnswers, _quiz.wrongAnswers);
+                    _view.PassQuiz();
+                }
+                else
+                {
+                    _quiz.quizState = "in progress";
+                    _view.UpdateUI(_quiz.correctAnswers, _quiz.wrongAnswers);
+                }
             }
         }
     }

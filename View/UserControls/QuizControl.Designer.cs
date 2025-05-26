@@ -33,7 +33,6 @@
             this.answerCheckBox1 = new System.Windows.Forms.CheckBox();
             this.answerCheckBox2 = new System.Windows.Forms.CheckBox();
             this.answerCheckBox3 = new System.Windows.Forms.CheckBox();
-            this.answerCheckBox4 = new System.Windows.Forms.CheckBox();
             this.nextQuestionButton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.correctAnswLabel = new System.Windows.Forms.Label();
@@ -57,10 +56,10 @@
             // answerCheckBox1
             // 
             this.answerCheckBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.answerCheckBox1.Location = new System.Drawing.Point(28, 399);
+            this.answerCheckBox1.Location = new System.Drawing.Point(28, 391);
             this.answerCheckBox1.Margin = new System.Windows.Forms.Padding(4);
             this.answerCheckBox1.Name = "answerCheckBox1";
-            this.answerCheckBox1.Size = new System.Drawing.Size(288, 35);
+            this.answerCheckBox1.Size = new System.Drawing.Size(396, 54);
             this.answerCheckBox1.TabIndex = 1;
             this.answerCheckBox1.Text = "checkBox1";
             this.answerCheckBox1.UseVisualStyleBackColor = true;
@@ -71,7 +70,7 @@
             this.answerCheckBox2.Location = new System.Drawing.Point(28, 453);
             this.answerCheckBox2.Margin = new System.Windows.Forms.Padding(4);
             this.answerCheckBox2.Name = "answerCheckBox2";
-            this.answerCheckBox2.Size = new System.Drawing.Size(288, 35);
+            this.answerCheckBox2.Size = new System.Drawing.Size(396, 54);
             this.answerCheckBox2.TabIndex = 2;
             this.answerCheckBox2.Text = "checkBox2";
             this.answerCheckBox2.UseVisualStyleBackColor = true;
@@ -79,29 +78,18 @@
             // answerCheckBox3
             // 
             this.answerCheckBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.answerCheckBox3.Location = new System.Drawing.Point(375, 399);
+            this.answerCheckBox3.Location = new System.Drawing.Point(432, 418);
             this.answerCheckBox3.Margin = new System.Windows.Forms.Padding(4);
             this.answerCheckBox3.Name = "answerCheckBox3";
-            this.answerCheckBox3.Size = new System.Drawing.Size(288, 35);
+            this.answerCheckBox3.Size = new System.Drawing.Size(396, 54);
             this.answerCheckBox3.TabIndex = 3;
             this.answerCheckBox3.Text = "checkBox3";
             this.answerCheckBox3.UseVisualStyleBackColor = true;
             // 
-            // answerCheckBox4
-            // 
-            this.answerCheckBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.answerCheckBox4.Location = new System.Drawing.Point(375, 453);
-            this.answerCheckBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.answerCheckBox4.Name = "answerCheckBox4";
-            this.answerCheckBox4.Size = new System.Drawing.Size(288, 35);
-            this.answerCheckBox4.TabIndex = 4;
-            this.answerCheckBox4.Text = "checkBox4";
-            this.answerCheckBox4.UseVisualStyleBackColor = true;
-            // 
             // nextQuestionButton
             // 
             this.nextQuestionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nextQuestionButton.Location = new System.Drawing.Point(759, 332);
+            this.nextQuestionButton.Location = new System.Drawing.Point(839, 332);
             this.nextQuestionButton.Margin = new System.Windows.Forms.Padding(4);
             this.nextQuestionButton.Name = "nextQuestionButton";
             this.nextQuestionButton.Size = new System.Drawing.Size(151, 42);
@@ -149,7 +137,7 @@
             // abortQuizButton
             // 
             this.abortQuizButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.abortQuizButton.Location = new System.Drawing.Point(759, 464);
+            this.abortQuizButton.Location = new System.Drawing.Point(839, 460);
             this.abortQuizButton.Margin = new System.Windows.Forms.Padding(4);
             this.abortQuizButton.Name = "abortQuizButton";
             this.abortQuizButton.Size = new System.Drawing.Size(151, 38);
@@ -178,7 +166,6 @@
             this.Controls.Add(this.wrongAnswLabel);
             this.Controls.Add(this.correctAnswLabel);
             this.Controls.Add(this.nextQuestionButton);
-            this.Controls.Add(this.answerCheckBox4);
             this.Controls.Add(this.answerCheckBox3);
             this.Controls.Add(this.answerCheckBox2);
             this.Controls.Add(this.answerCheckBox1);
@@ -198,7 +185,6 @@
         private System.Windows.Forms.CheckBox answerCheckBox1;
         private System.Windows.Forms.CheckBox answerCheckBox2;
         private System.Windows.Forms.CheckBox answerCheckBox3;
-        private System.Windows.Forms.CheckBox answerCheckBox4;
         private System.Windows.Forms.Button nextQuestionButton;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label correctAnswLabel;

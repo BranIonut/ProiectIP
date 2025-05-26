@@ -19,5 +19,8 @@ namespace ChestionarAuto
         void ShowQuestion(Question question, bool isLastQuestion);
         void UpdateUI(int correctAnswers, int wrongAnswers);
         void ShowQuizResults(Quiz _quiz);
+        void AbortQuiz();
+        void FailQuiz();
+        void PassQuiz();
     }
 }

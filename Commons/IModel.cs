@@ -25,6 +25,8 @@ namespace ChestionarAuto
         string GetLoggedUserRole();
         Quiz GetRandomQuiz();
         bool AddToUserQuiz(int quizId, int userId, int correctAns, int wrongAns, string quizState);
+
+        int GetCurrentUserId();
     }
 
 }

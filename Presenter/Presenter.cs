@@ -18,6 +18,7 @@ namespace ChestionarAuto
         private List<Question> _questions;
         private Quiz _currentQuiz;
         private int currentQuestionIndex = 0;
+        private int _currentWrongAnswers = 0;
         private QuizViewModel _quizViewModel;
         private QuizScoreObserver _quizScoreObserver;
 
@@ -90,12 +91,18 @@ namespace ChestionarAuto
         {
             _currentQuiz = _model.GetRandomQuiz();
 
+            _currentQuiz.correctAnswers = 0;
+            _currentQuiz.wrongAnswers = 0;
+            _currentQuiz.quizState = "in progress";
+
+            currentQuestionIndex = 0;
+            _currentWrongAnswers = 0;
+
             _quizViewModel = new QuizViewModel(_currentQuiz);
             _quizScoreObserver = new QuizScoreObserver(_currentQuiz, _view);
             _quizViewModel.RegisterObserver(_quizScoreObserver);
 
             _questions = _currentQuiz.questionsList;
-            currentQuestionIndex = 0;
             var isLastQuestion = false;
             if(currentQuestionIndex == _questions.Count-1)
             {
@@ -138,8 +145,8 @@ namespace ChestionarAuto
         /// </summary>
         public void OnAbortQuiz()
         {
-            currentQuestionIndex = 0;
             _currentQuiz.quizState = "aborted";
+            this.SaveInDatabase(_currentQuiz);
             _view.ShowQuizResults(_currentQuiz);
         }
 
@@ -148,9 +155,28 @@ namespace ChestionarAuto
         /// </summary>
         public void GoToMainMenu()
         {
+            currentQuestionIndex = 0;
+            _quizScoreObserver = null;
+            _quizViewModel = null;
+            _currentWrongAnswers = 0;
             _view.LoadUserDashboardControl(_model.GetLoggedUserRole());
         }
 
-        //public void SaveInDatabase(); TODO -> fac eu mai tarziu
+        public void OnFailQuiz()
+        {
+            this.SaveInDatabase(_currentQuiz);
+            _view.ShowQuizResults(_currentQuiz);
+        }
+
+        public void OnPassQuiz()
+        {
+            this.SaveInDatabase(_currentQuiz);
+            _view.ShowQuizResults(_currentQuiz);
+        }
+
+        private void SaveInDatabase(Quiz _quiz)
+        {
+            _model.AddToUserQuiz(_quiz.Id, _model.GetCurrentUserId(), _quiz.correctAnswers, _quiz.wrongAnswers, _quiz.quizState);
+        }
     }
 }
