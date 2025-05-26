@@ -44,12 +44,14 @@ namespace ChestionarAuto
         /// </summary>
         private void InitializeDatabase()
         {
-            var connection = new SQLiteConnection($"Data Source={_databaseFileName}");
-            connection.Open();
+            using (var connection = new SQLiteConnection($"Data Source={_databaseFileName}"))
+            {
+                connection.Open();
 
-            var command = connection.CreateCommand();
+                using (var command = connection.CreateCommand())
+                {
 
-            command.CommandText = @"
+                    command.CommandText = @"
                 CREATE TABLE IF NOT EXISTS User (
                     id_user INTEGER PRIMARY KEY AUTOINCREMENT,
                     username TEXT NOT NULL UNIQUE,
@@ -59,16 +61,16 @@ namespace ChestionarAuto
                     role TEXT NOT NULL DEFAULT 'user'
                 );
             ";
-            command.ExecuteNonQuery();
+                    command.ExecuteNonQuery();
 
-            command.CommandText = @"
+                    command.CommandText = @"
                 CREATE TABLE IF NOT EXISTS Quiz (
                     id_quiz INTEGER PRIMARY KEY AUTOINCREMENT
                 );
             ";
-            command.ExecuteNonQuery();
+                    command.ExecuteNonQuery();
 
-            command.CommandText = @"
+                    command.CommandText = @"
                 CREATE TABLE IF NOT EXISTS quiz_user (
                     id_user INTEGER NOT NULL,
                     id_quiz INTEGER NOT NULL,
@@ -80,7 +82,9 @@ namespace ChestionarAuto
                     FOREIGN KEY (id_quiz) REFERENCES Quiz(id_quiz)
                 );
             ";
-            command.ExecuteNonQuery();
+                    command.ExecuteNonQuery();
+                }
+            }
         }
 
         /// <summary>
@@ -113,20 +117,24 @@ namespace ChestionarAuto
             Random random = new Random();
             List<Question> questionList = _questions.OrderBy(q => random.Next()).Take(25).ToList();
 
-            var connection = new SQLiteConnection($"Data Source={_databaseFileName}");
-            connection.Open();
+            using (var connection = new SQLiteConnection($"Data Source={_databaseFileName}"))
+            {
+                connection.Open();
 
-            var command = connection.CreateCommand();
+                using (var command = connection.CreateCommand())
+                {
 
-            command.CommandText = "INSERT INTO Quiz DEFAULT VALUES;";
+                    command.CommandText = "INSERT INTO Quiz DEFAULT VALUES;";
 
-            command.ExecuteNonQuery();
+                    command.ExecuteNonQuery();
 
-            command.CommandText = "SELECT last_insert_rowid();";
+                    command.CommandText = "SELECT last_insert_rowid();";
 
-            long quizId = (long)command.ExecuteScalar();
+                    long quizId = (long)command.ExecuteScalar();
 
-            _quizzes.Add(new Quiz((int)quizId, questionList, 0, 0, "in progress"));
+                    _quizzes.Add(new Quiz((int)quizId, questionList, 0, 0, "in progress"));
+                }
+            }
 
 
         }
@@ -170,43 +178,47 @@ namespace ChestionarAuto
         /// <param name="incorrect">Numărul de răspunsuri greșite.</param>
         private void UpdateQuizUserState(int n, string state, int correct, int incorrect)
         {
-            var connection = new SQLiteConnection($"Data Source={_databaseFileName}");
-            connection.Open();
+            using (var connection = new SQLiteConnection($"Data Source={_databaseFileName}"))
+            {
+                connection.Open();
 
-            var command = connection.CreateCommand();
+                using (var command = connection.CreateCommand())
+                {
 
-            command.CommandText = @"
+                    command.CommandText = @"
                 UPDATE quiz_user 
                 SET quiz_state = $state, correct_answers = $correct, incorrect_answers = $incorrect
                 WHERE id_user = $userId AND id_quiz = $quizId;
             ";
-            command.Parameters.AddWithValue("$userId", _currentUser.userId);
-            command.Parameters.AddWithValue("$quizId", _quizzes[n].Id);
-            command.Parameters.AddWithValue("$state", state);
-            command.Parameters.AddWithValue("$correct", correct);
-            command.Parameters.AddWithValue("$incorrect", incorrect);
+                    command.Parameters.AddWithValue("$userId", _currentUser.userId);
+                    command.Parameters.AddWithValue("$quizId", _quizzes[n].Id);
+                    command.Parameters.AddWithValue("$state", state);
+                    command.Parameters.AddWithValue("$correct", correct);
+                    command.Parameters.AddWithValue("$incorrect", incorrect);
 
-            int rowsAffected = command.ExecuteNonQuery();
+                    int rowsAffected = command.ExecuteNonQuery();
 
-            if (rowsAffected == 0)
-            {
-                command.CommandText = @"
+                    if (rowsAffected == 0)
+                    {
+                        command.CommandText = @"
                     INSERT INTO quiz_user (id_user, id_quiz, correct_answers, incorrect_answers, quiz_state)
                     VALUES ($userId, $quizId, $correct, $incorrect, $state);
                 ";
-                command.Parameters.Clear();
-                command.Parameters.AddWithValue("$userId", _currentUser.userId);
-                command.Parameters.AddWithValue("$quizId", _quizzes[n].Id);
-                command.Parameters.AddWithValue("$correct", correct);
-                command.Parameters.AddWithValue("$incorrect", incorrect);
-                command.Parameters.AddWithValue("$state", state);
+                        command.Parameters.Clear();
+                        command.Parameters.AddWithValue("$userId", _currentUser.userId);
+                        command.Parameters.AddWithValue("$quizId", _quizzes[n].Id);
+                        command.Parameters.AddWithValue("$correct", correct);
+                        command.Parameters.AddWithValue("$incorrect", incorrect);
+                        command.Parameters.AddWithValue("$state", state);
 
-                command.ExecuteNonQuery();
+                        command.ExecuteNonQuery();
+                    }
+
+                    _quizzes[n].quizState = state;
+                    _quizzes[n].correctAnswers = correct;
+                    _quizzes[n].wrongAnswers = incorrect;
+                }
             }
-
-            _quizzes[n].quizState = state;
-            _quizzes[n].correctAnswers = correct;
-            _quizzes[n].wrongAnswers = incorrect;
         }
 
         /// <summary>
@@ -237,33 +249,36 @@ namespace ChestionarAuto
         /// <returns>True dacă utilizatorul a fost adăugat cu succes, sau false în caz contrar.</returns>
         public bool AddUser(string username, string name, string email, string password)
         {
-            var connection = new SQLiteConnection($"Data Source={_databaseFileName}");
-            connection.Open();
+            using (var connection = new SQLiteConnection($"Data Source={_databaseFileName}"))
+            {
+                connection.Open();
 
-            Console.WriteLine(username + "\n" + name + "\n" + email + "\n" + password);
+                Console.WriteLine(username + "\n" + name + "\n" + email + "\n" + password);
 
-            var command = connection.CreateCommand();
+                using (var command = connection.CreateCommand())
+                {
 
-            command.CommandText = @"
+                    command.CommandText = @"
                 INSERT INTO User (username, name, email, password, role)
                 VALUES ($username, $name, $email, $password, 'user');
             ";
 
-            command.Parameters.AddWithValue("$username", username);
-            command.Parameters.AddWithValue("$name", name);
-            command.Parameters.AddWithValue("$email", email);
-            command.Parameters.AddWithValue("$password", password);
+                    command.Parameters.AddWithValue("$username", username);
+                    command.Parameters.AddWithValue("$name", name);
+                    command.Parameters.AddWithValue("$email", email);
+                    command.Parameters.AddWithValue("$password", password);
 
-            try
-            {
-                int rowsAffected = command.ExecuteNonQuery();
-                return rowsAffected > 0;
+                    try
+                    {
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                    catch (Exception e)
+                    {
+                        return false;
+                    }
+                }
             }
-            catch (Exception e)
-            {
-                return false;
-            }
-
 
         }
 
@@ -275,35 +290,41 @@ namespace ChestionarAuto
         /// <returns>True dacă utilizatorul a fost logat cu succes, sau false în caz contrar.</returns>
         public bool Login(string username, string password)
         {
-            var connection = new SQLiteConnection($"Data Source={_databaseFileName}");
-            connection.Open();
+            using (var connection = new SQLiteConnection($"Data Source={_databaseFileName}"))
+            {
+                connection.Open();
 
-            var command = connection.CreateCommand();
+                using (var command = connection.CreateCommand())
+                {
 
-            command.CommandText = @"
+                    command.CommandText = @"
                 SELECT id_user, username, name, email, password, role
                 FROM User
                 WHERE username = $username AND password = $password;
             ";
 
-            command.Parameters.AddWithValue("$username", username);
-            command.Parameters.AddWithValue("$password", password);
+                    command.Parameters.AddWithValue("$username", username);
+                    command.Parameters.AddWithValue("$password", password);
 
-            var reader = command.ExecuteReader();
+                    using (var reader = command.ExecuteReader())
+                    {
 
-            if (reader.Read())
-            {
-                _currentUser = new User(
-                    reader.GetInt32(0),
-                    reader.GetString(1),
-                    reader.GetString(2),
-                    reader.GetString(3),
-                    reader.GetString(4),
-                    reader.GetString(5)
-                );
-                return true;
+                        if (reader.Read())
+                        {
+                            _currentUser = new User(
+                                reader.GetInt32(0),
+                                reader.GetString(1),
+                                reader.GetString(2),
+                                reader.GetString(3),
+                                reader.GetString(4),
+                                reader.GetString(5)
+                            );
+                            return true;
+                        }
+                        return false;
+                    }
+                }
             }
-            return false;
         }
 
         /// <summary>
@@ -349,30 +370,34 @@ namespace ChestionarAuto
         /// <returns>True dacă inserarea a avut succes, altfel false.</returns>
         public bool AddToUserQuiz(int quizId, int userId, int correctAns, int wrongAns, string quizState)
         {
-            var connection = new SQLiteConnection($"Data Source={_databaseFileName}");
-            connection.Open();
+            using (var connection = new SQLiteConnection($"Data Source={_databaseFileName}"))
+            {
+                connection.Open();
 
-            var command = connection.CreateCommand();
+                using (var command = connection.CreateCommand())
+                {
 
-            command.CommandText = @"
+                    command.CommandText = @"
         INSERT INTO quiz_user (id_user, id_quiz, correct_answers, incorrect_answers, quiz_state)
         VALUES ($userId, $quizId, $correctAns, $wrongAns, $quizState);
     ";
 
-            command.Parameters.AddWithValue("$userId", userId);
-            command.Parameters.AddWithValue("$quizId", quizId);
-            command.Parameters.AddWithValue("$correctAns", correctAns);
-            command.Parameters.AddWithValue("$wrongAns", wrongAns);
-            command.Parameters.AddWithValue("$quizState", quizState);
-            try
-            {
-                int rowsAffected = command.ExecuteNonQuery();
-                return rowsAffected > 0;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                return false;
+                    command.Parameters.AddWithValue("$userId", userId);
+                    command.Parameters.AddWithValue("$quizId", quizId);
+                    command.Parameters.AddWithValue("$correctAns", correctAns);
+                    command.Parameters.AddWithValue("$wrongAns", wrongAns);
+                    command.Parameters.AddWithValue("$quizState", quizState);
+                    try
+                    {
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                        return false;
+                    }
+                }
             }
         }
 
