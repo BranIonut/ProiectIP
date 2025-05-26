@@ -6,12 +6,14 @@ using System.Data.SQLite;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace ChestionarAuto
 {
+    /// <summary>
+    /// Reprezintă modelul de business logic pentru aplicația Chestionar Auto.
+    /// Se ocupă de interacțiunea cu baza de date, întrebări, quizuri și utilizatori.
+    /// </summary>
     public class Model : IModel
     {
         static string exeFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -22,6 +24,9 @@ namespace ChestionarAuto
         private List<Quiz> _quizzes;
         private List<Question> _questions;
 
+        /// <summary>
+        /// Constructorul clasei Model. Inițializează baza de date și încarcă întrebările.
+        /// </summary>
         public Model()
         {
             _questions = new List<Question>();
@@ -34,6 +39,9 @@ namespace ChestionarAuto
             }
         }
 
+        /// <summary>
+        /// Inițializează baza de date și creează tabelele necesare în baza de date dacă acestea nu există.
+        /// </summary>
         private void InitializeDatabase()
         {
             var connection = new SQLiteConnection($"Data Source={_databaseFileName}");
@@ -75,18 +83,11 @@ namespace ChestionarAuto
             command.ExecuteNonQuery();
         }
 
+        /// <summary>
+        /// Încarcă întrebările din fișierul JSON într-o listă de obiecte Question.
+        /// </summary>
         public void InitializeQuestions()
         {
-            /*string jsonContent = File.ReadAllText(_questionsFileName);
-
-            _questions = JsonConvert.DeserializeObject<List<Question>>(jsonContent);
-
-            foreach (Question question in _questions)
-            {
-                Console.WriteLine(question.question);
-                Console.WriteLine(question.answers);
-                Console.WriteLine(question.correctAnswers);
-            }*/
             try
             {
                 string jsonContent = File.ReadAllText(_questionsFileName);
@@ -103,6 +104,10 @@ namespace ChestionarAuto
             }
         }
 
+        /// <summary>
+        /// Creează un quiz nou cu 25 de întrebări aleatorii și îl inserează în baza de date.
+        /// </summary>
+        /// <param name="n">Numărul de quizuri de creat (folosit doar în bucla constructorului).</param>
         public void CreateQuiz(int n)
         {
             Random random = new Random();
@@ -151,6 +156,13 @@ namespace ChestionarAuto
 
         }
 
+        /// <summary>
+        /// Actualizează starea unui quiz asociat unui utilizator (completat, anulat, eșuat).
+        /// </summary>
+        /// <param name="n">Indicele quiz-ului din lista de quiz-uri.</param>
+        /// <param name="state">Starea quiz-ului ce va fi actualizată.</param>
+        /// <param name="correct">Numărul de răspunsuri corecte.</param>
+        /// <param name="incorrect">Numărul de răspunsuri greșite.</param>
         private void UpdateQuizUserState(int n, string state, int correct, int incorrect)
         {
             var connection = new SQLiteConnection($"Data Source={_databaseFileName}");
@@ -192,15 +204,32 @@ namespace ChestionarAuto
             _quizzes[n].wrongAnswers = incorrect;
         }
 
+        /// <summary>
+        /// Marchează un quiz ca anulat.
+        /// </summary>
         public void QuizCancelled(int n, int correct, int incorrect)
             => UpdateQuizUserState(n, "cancelled", correct, incorrect);
 
+        /// <summary>
+        /// Marchează un quiz ca completat cu succes.
+        /// </summary>
         public void QuizCompleted(int n, int correct, int incorrect)
             => UpdateQuizUserState(n, "completed", correct, incorrect);
 
+        /// <summary>
+        /// Marchează un quiz ca eșuat.
+        /// </summary>
         public void QuizFailed(int n, int correct, int incorrect)
             => UpdateQuizUserState(n, "failed", correct, incorrect);
 
+        /// <summary>
+        /// Adaugă un utilizator nou în baza de date.
+        /// </summary>
+        /// <param name="username">Numele de utilizator folosit pentru identificare.</param>
+        /// <param name="name">Numele și prenumele utilizatorului</param>
+        /// <param name="email">Email-ul utilizatorului.</param>
+        /// <param name="password">Parola utilizatorului.</param>
+        /// <returns>True dacă utilizatorul a fost adăugat cu succes, sau false în caz contrar.</returns>
         public bool AddUser(string username, string name, string email, string password)
         {
             var connection = new SQLiteConnection($"Data Source={_databaseFileName}");
@@ -233,6 +262,12 @@ namespace ChestionarAuto
 
         }
 
+        /// <summary>
+        /// Autentifică un utilizator în aplicație pe baza numelui de utilizator și a parolei.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns>True dacă utilizatorul a fost logat cu succes, sau false în caz contrar.</returns>
         public bool Login(string username, string password)
         {
             var connection = new SQLiteConnection($"Data Source={_databaseFileName}");
@@ -266,16 +301,28 @@ namespace ChestionarAuto
             return false;
         }
 
+        /// <summary>
+        /// Deconectează utilizatorul curent din aplicație.
+        /// </summary>
         public void Logout()
         {
             _currentUser = null;
         }
 
+        /// <summary>
+        /// Obține rolul utilizatorului curent conectat.
+        /// </summary>
+        /// <returns></returns>
         public string GetLoggedUserRole()
         {
             return _currentUser.Role;
         }
 
+        /// <summary>
+        /// Obține un quiz aleatoriu din lista de quiz-uri disponibile.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
         public Quiz GetRandomQuiz()
         {
             if (_quizzes == null || _quizzes.Count == 0)
@@ -286,6 +333,15 @@ namespace ChestionarAuto
             return _quizzes[index];
         }
 
+        /// <summary>
+        /// Adaugă un quiz asociat unui utilizator în baza de date.
+        /// </summary>
+        /// <param name="quizId"></param>
+        /// <param name="userId"></param>
+        /// <param name="correctAns"></param>
+        /// <param name="wrongAns"></param>
+        /// <param name="quizState"></param>
+        /// <returns></returns>
         public bool AddToUserQuiz(int quizId, int userId, int correctAns, int wrongAns, string quizState)
         {
             var connection = new SQLiteConnection($"Data Source={_databaseFileName}");
