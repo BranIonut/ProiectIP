@@ -33,7 +33,7 @@ namespace ChestionarAuto
             _quizzes = new List<Quiz>();
             InitializeDatabase();
             InitializeQuestions();
-            for (int i = 1; i <= 10; i++)
+            for (int i = 1; i <= 50; i++)
             {
                 CreateQuiz(i);
             }
@@ -144,14 +144,16 @@ namespace ChestionarAuto
         /// </summary>
         /// <param name="n">Indexul quiz-ului ce va fi șters din listă.</param>
         /// <exception cref="Exception"></exception>
-        public void DeleteQuiz(int n)
+        public bool DeleteQuiz(int n)
         {
             if (n < 0 || n >= _quizzes.Count)
             {
+                return false;
                 throw new Exception("Cannot delete nonexistent quiz.");
             }
 
             int quizId = _quizzes[n].Id;
+            _quizzes.RemoveAt(n);
 
             using (var connection = new SQLiteConnection($"Data Source={_databaseFileName}"))
             {
@@ -159,14 +161,21 @@ namespace ChestionarAuto
 
                 using (var command = connection.CreateCommand())
                 {
-                    command.CommandText = "DELETE FROM Quiz WHERE id_quiz = $quizId;";
+                    command.CommandText = "DELETE FROM quiz_user WHERE id_quiz = $quizId;";
                     command.Parameters.AddWithValue("$quizId", quizId);
 
                     command.ExecuteNonQuery();
                 }
-            }
-            _quizzes.RemoveAt(n);
 
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = "DELETE FROM Quiz WHERE id_quiz = $quizId;";
+                    command.Parameters.AddWithValue("$quizId", quizId);
+
+                    int x = command.ExecuteNonQuery();
+                    return x > 0;
+                }
+            }
         }
 
         /// <summary>
@@ -253,11 +262,26 @@ namespace ChestionarAuto
             {
                 connection.Open();
 
-                Console.WriteLine(username + "\n" + name + "\n" + email + "\n" + password);
+                Console.WriteLine($"[DEBUG] Username: {username}, Name: {name}, Email: {email}");
+
+                using (var checkCommand = connection.CreateCommand())
+                {
+                    checkCommand.CommandText = @"
+                SELECT COUNT(*) FROM User WHERE username = $username OR email = $email;
+            ";
+                    checkCommand.Parameters.AddWithValue("$username", username);
+                    checkCommand.Parameters.AddWithValue("$email", email);
+
+                    long exists = (long)checkCommand.ExecuteScalar();
+                    if (exists > 0)
+                    {
+                        Console.Error.WriteLine("[ERROR] Username/Email deja folosit.");
+                        return false;
+                    }
+                }
 
                 using (var command = connection.CreateCommand())
                 {
-
                     command.CommandText = @"
                 INSERT INTO User (username, name, email, password, role)
                 VALUES ($username, $name, $email, $password, 'user');
@@ -275,12 +299,13 @@ namespace ChestionarAuto
                     }
                     catch (Exception e)
                     {
+                        Console.Error.WriteLine($"[ERROR] Eroare la inserare: {e.Message}");
                         return false;
                     }
                 }
             }
-
         }
+
 
         /// <summary>
         /// Autentifică un utilizator în aplicație pe baza numelui de utilizator și a parolei.
@@ -400,12 +425,30 @@ namespace ChestionarAuto
             }
         }
 
+        /// <summary>
+        /// Obține username-ul utilizatorului logat.
+        /// </summary>
+        /// <returns>String reprezentând username-ul utilizatorului logat.</returns>
+        public string GetCurrentUsername()
+        {
+            return _currentUser.Username;
+        }
+
+        /// <summary>
+        /// Obține ID-ul utilizatorului logat.
+        /// </summary>
+        /// <returns>Int reprezentând ID-ul utilizatorului logat.</returns>
         public int GetCurrentUserId()
         {
             return _currentUser.userId;
         }
 
-        public List<Quiz> GetLastFiveQuizes(int userId)
+        /// <summary>
+        /// Returnează o listă cu ultimele 10 quiz-uri completate de utilizatorul curent logat.
+        /// </summary>
+        /// <param name="userId">ID-ul utilizatorului curent logat.</param>
+        /// <returns>Listă de elemente de tip ”Quiz”</returns>
+        public List<Quiz> GetLastTenQuizes(int userId)
         {
             List<Quiz> quizList = new List<Quiz>();
             using (var connection = new SQLiteConnection($"Data Source={_databaseFileName}"))
@@ -419,7 +462,7 @@ namespace ChestionarAuto
                     FROM quiz_user
                     WHERE id_user = $userId
                     ORDER BY rowid DESC
-                    LIMIT 5;";
+                    LIMIT 10;";
 
                     command.Parameters.AddWithValue("$userId", userId);
 
@@ -439,6 +482,213 @@ namespace ChestionarAuto
             }
 
             return quizList;
+        }
+
+        /// <summary>
+        /// Funcție ce returnează un dicționar cu utilizatorii înregistrați (username-ul și rolul lor).
+        /// </summary>
+        /// <returns>Dicționar cu username + rol utilizator.</returns>
+        public Dictionary<string, string> GetUsers()
+        {
+            Dictionary<string, string> users = new Dictionary<string, string>();
+
+            using (var connection = new SQLiteConnection($"Data Source={_databaseFileName}"))
+            {
+                connection.Open();
+
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = @"
+                    SELECT username, role
+                    FROM User;
+                    ";
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string username = reader.GetString(0);
+                            string role = reader.GetString(1);
+                            users.Add(username, role);
+                        }
+                    }
+                }
+            }
+            return users;
+        }
+
+        /// <summary>
+        /// Returnează o listă cu numele fiecărui quiz în parte.
+        /// </summary>
+        /// <returns>Listă de string-uri cu numele fiecărui quiz.</returns>
+        public List<string> GetQuizzes()
+        {
+            List<string> list = new List<string>();
+
+            for(int i = 0; i < _quizzes.Count; i++)
+            {
+                list.Add("Quiz no. " + i);
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// Resetarea progresului utilizatorului pentru completarea quiz-urilor, prin ștergerea din baza de date a înregistrărilor.
+        /// </summary>
+        /// <param name="username">Username-ul utilizatorului selectat.</param>
+        /// <returns>True dacă operațiunea a avut succes, false în caz contrar.</returns>
+        public bool UserResetProgress(string  username)
+        {
+            using (var connection = new SQLiteConnection($"Data Source={_databaseFileName}"))
+            {
+                connection.Open();
+                int userId = 0;
+                
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = @"
+                    SELECT id_user
+                    FROM User
+                    WHERE username = $username
+                    ;";
+
+                    command.Parameters.AddWithValue("$username", username);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            userId = reader.GetInt32(0);
+                        }
+                    }
+                }
+                if (userId == 0)
+                    return false;
+
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = @"
+                    DELETE FROM quiz_user
+                    WHERE id_user = $userId
+                    ;";
+
+                    command.Parameters.AddWithValue("$userId", userId);
+
+                    int x = command.ExecuteNonQuery();
+                    return x > 0;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Eliminarea unui utilizator din baza de date.
+        /// </summary>
+        /// <param name="username">Username-ul utilizatorului ce va fi eliminat.</param>
+        /// <returns></returns>
+        public bool RemoveUser(string username)
+        {
+            using (var connection = new SQLiteConnection($"Data Source={_databaseFileName}"))
+            {
+                connection.Open();
+                int userId = 0;
+
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = @"
+                    SELECT id_user
+                    FROM User
+                    WHERE username = $username
+                    ;";
+
+                    command.Parameters.AddWithValue("$username", username);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            userId = reader.GetInt32(0);
+                        }
+                    }
+                }
+                if (userId == 0)
+                    return false;
+
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = @"
+                    DELETE FROM quiz_user
+                    WHERE id_user = $userId
+                    ;";
+
+                    command.Parameters.AddWithValue("$userId", userId);
+
+                    int x = command.ExecuteNonQuery();
+                }
+
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = @"
+                    DELETE FROM User
+                    WHERE id_user = $userId
+                    ;";
+
+                    command.Parameters.AddWithValue("$userId", userId);
+
+                    int x = command.ExecuteNonQuery();
+                    return x > 0;
+                }
+            }
+        }
+        /// <summary>
+        /// Schimbarea rolului utilizatorului selectat (admin sau user).
+        /// </summary>
+        /// <param name="username">Username-ul utilizatorului pentru care se dorește schimbarea rolului.</param>
+        /// <param name="role">Rolul curent al utilizatorului.</param>
+        /// <returns></returns>
+        public bool ChangeUserRole(string username, string role)
+        {
+            using (var connection = new SQLiteConnection($"Data Source={_databaseFileName}"))
+            {
+                connection.Open();
+                int userId = 0;
+
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = @"
+                    SELECT id_user
+                    FROM User
+                    WHERE username = $username
+                    ;";
+
+                    command.Parameters.AddWithValue("$username", username);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            userId = reader.GetInt32(0);
+                        }
+                    }
+                }
+                if (userId == 0)
+                    return false;
+
+                role = (role == "admin") ? "user" : "admin";
+
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = @"
+                    UPDATE User
+                    SET role = $role
+                    WHERE id_user = $userId
+                    ;";
+
+                    command.Parameters.AddWithValue("$role", role);
+                    command.Parameters.AddWithValue("$userId", userId);
+
+                    int x = command.ExecuteNonQuery();
+                    return x > 0;
+                }
+            }
         }
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -38,22 +39,24 @@ namespace ChestionarAuto
         /// <summary>
         /// Încarcă controlul de autentificare (LogInUserControl) în formular.
         /// </summary>
-        public void LoadLoginControl()
+        public void LoadLoginControl(bool err)
         {
             var loginControl = new LogInUserControl();
             loginControl.LoginRequested += (s, e) => presenter.OnLoginRequest(e.Username, e.Password);
-            loginControl.SignUpRequested += (s, e) => LoadSignupControl();
+            loginControl.SignUpRequested += (s, e) => LoadSignupControl(true);
+            loginControl.setErrorMessageVisible(!err);
             _form.LoadUserControl(loginControl);
         }
 
         /// <summary>
         /// Încarcă controlul de înregistrare (SignUpUserControl) în formular.
         /// </summary>
-        public void LoadSignupControl()
+        public void LoadSignupControl(bool err)
         {
             var signupControl = new SignUpUserControl();
-            signupControl.LoginRequested += (s, e) => LoadLoginControl();
+            signupControl.LoginRequested += (s, e) => LoadLoginControl(true);
             signupControl.SignupRequested += (s, e) => presenter.OnSignupRequest(e.Username, e.Name, e.Email, e.Password);
+            signupControl.setErrorVisible(!err);
             _form.LoadUserControl(signupControl);
         }
 
@@ -64,11 +67,13 @@ namespace ChestionarAuto
         public void LoadUserDashboardControl(string role)
         {
             var dashboardUserControl = new DashboardUserControl();
+            dashboardUserControl.SetWelcomeMessage(presenter.GetCurrentUsername());
 
             dashboardUserControl.LogOutRequested += (s, e) => presenter.OnLogoutRequest();
             dashboardUserControl.AdminDashBoardRequested += (s, e) => this.LoadAdminDashboardControl();
             dashboardUserControl.StartQuizRequested += (s, e) => this.StartQuizControl();
             this.LoadUserHistory(dashboardUserControl);
+
             if (role == "admin")
             {
                 dashboardUserControl.SetAdminDashBttnVisibility(false);
@@ -89,6 +94,16 @@ namespace ChestionarAuto
         {
             var dashboardAdminControl = new DashboardAdminControl();
             dashboardAdminControl.UserPanelRequested += (s, e) => LoadUserDashboardControl("admin");
+
+            dashboardAdminControl.populateUsersList(presenter.GetUsers());
+            dashboardAdminControl.populateQuizzesList(presenter.GetQuizzes());
+
+            dashboardAdminControl.RemoveUserRequested += (s, e) => { presenter.OnRemoveUser(e.Username); LoadAdminDashboardControl(); };
+            dashboardAdminControl.ChangeUserRoleRequested += (s, e) => { presenter.OnChangeUserRole(e.Username, e.Role); LoadAdminDashboardControl(); };
+            dashboardAdminControl.RemoveQuizRequested += (s, e) => { presenter.OnRemoveQuiz(int.Parse(e.Quiz.Split(' ')[2])); LoadAdminDashboardControl(); };
+            dashboardAdminControl.CreateQuizRequested += (s, e) => { presenter.OnCreateQuiz(); LoadAdminDashboardControl(); };
+            dashboardAdminControl.RemoveUserProgressRequested += (s, e) => { presenter.OnDeleteUserProgress(e.Username); LoadAdminDashboardControl(); };
+
             _form.LoadUserControl(dashboardAdminControl);
         }
 
@@ -139,29 +154,40 @@ namespace ChestionarAuto
             quizControl.UpdateUI(correctAnswers, wrongAnswers);
         }
 
+        /// <summary>
+        /// Setează quiz-ul drept abandonat.
+        /// </summary>
         public void AbortQuiz()
         {
             quizControl.StopTimer();
             presenter.OnAbortQuiz();
         }
-
+        /// <summary>
+        /// Setează quiz-ul drept eșuat (respins).
+        /// </summary>
         public void FailQuiz()
         {
             quizControl.StopTimer();
             presenter.OnFailQuiz();
         }
-
+        /// <summary>
+        /// Setează quiz-ul drept completat (admis).
+        /// </summary>
         public void PassQuiz()
         {
             quizControl.StopTimer();
             presenter.OnPassQuiz();
         }
 
+        /// <summary>
+        /// Încarcă istoricul completărilor chestionarelor pentru utilizatorul curent logat.
+        /// </summary>
+        /// <param name="dashboardUserControl">Indică panel-ul de contorl al utilizatorului.</param>
         private void LoadUserHistory(DashboardUserControl dashboardUserControl)
         {
             List<Quiz> quizList = presenter.OnLoadUserHistory();
             int index = 0;
-            while(index < quizList.Count)
+            while (index < quizList.Count)
             {
                 dashboardUserControl.UpdateUserHistoryUI(index, quizList[index].correctAnswers, quizList[index].wrongAnswers,
                      quizList[index].quizState);

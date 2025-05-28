@@ -22,6 +22,14 @@ namespace ChestionarAuto
         static string exeFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         static string commonsFolder = Path.Combine(exeFolder, "..\\..\\..\\", "Commons");
 
+        /// <summary>
+        /// Constructor pentru inițializarea unui obiect de tip Question.
+        /// </summary>
+        /// <param name="question">Enunțul întrebării.</param>
+        /// <param name="answers">Lista de variante.</param>
+        /// <param name="correctAnswer">Răspunsul corect.</param>
+        /// <param name="image">Path-ul către imaginea atașată întrebării.</param>
+        /// <param name="difficulty">Dificultatea întrebării.</param>
         public Question(string question, List<string> answers, List<int> correctAnswer, string image, string difficulty)
         {
             this.question = question;

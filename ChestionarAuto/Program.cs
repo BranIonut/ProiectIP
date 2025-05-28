@@ -20,7 +20,7 @@ namespace ChestionarAuto
             IView view = new View(form);
             IModel model = new Model();
             IPresenter presenter = new Presenter(model, view);
-            view.LoadLoginControl();
+            view.LoadLoginControl(true);
             view.SetPresenter(presenter);
 
             Application.Run(form);

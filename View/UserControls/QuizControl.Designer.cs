@@ -45,10 +45,9 @@
             // 
             // quizPictureBox
             // 
-            this.quizPictureBox.Location = new System.Drawing.Point(28, 39);
-            this.quizPictureBox.Margin = new System.Windows.Forms.Padding(4);
+            this.quizPictureBox.Location = new System.Drawing.Point(21, 32);
             this.quizPictureBox.Name = "quizPictureBox";
-            this.quizPictureBox.Size = new System.Drawing.Size(681, 262);
+            this.quizPictureBox.Size = new System.Drawing.Size(511, 213);
             this.quizPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.quizPictureBox.TabIndex = 0;
             this.quizPictureBox.TabStop = false;
@@ -56,10 +55,9 @@
             // answerCheckBox1
             // 
             this.answerCheckBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.answerCheckBox1.Location = new System.Drawing.Point(28, 391);
-            this.answerCheckBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.answerCheckBox1.Location = new System.Drawing.Point(21, 307);
             this.answerCheckBox1.Name = "answerCheckBox1";
-            this.answerCheckBox1.Size = new System.Drawing.Size(396, 54);
+            this.answerCheckBox1.Size = new System.Drawing.Size(579, 44);
             this.answerCheckBox1.TabIndex = 1;
             this.answerCheckBox1.Text = "checkBox1";
             this.answerCheckBox1.UseVisualStyleBackColor = true;
@@ -67,10 +65,9 @@
             // answerCheckBox2
             // 
             this.answerCheckBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.answerCheckBox2.Location = new System.Drawing.Point(28, 453);
-            this.answerCheckBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.answerCheckBox2.Location = new System.Drawing.Point(21, 368);
             this.answerCheckBox2.Name = "answerCheckBox2";
-            this.answerCheckBox2.Size = new System.Drawing.Size(396, 54);
+            this.answerCheckBox2.Size = new System.Drawing.Size(579, 44);
             this.answerCheckBox2.TabIndex = 2;
             this.answerCheckBox2.Text = "checkBox2";
             this.answerCheckBox2.UseVisualStyleBackColor = true;
@@ -78,10 +75,9 @@
             // answerCheckBox3
             // 
             this.answerCheckBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.answerCheckBox3.Location = new System.Drawing.Point(432, 418);
-            this.answerCheckBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.answerCheckBox3.Location = new System.Drawing.Point(21, 422);
             this.answerCheckBox3.Name = "answerCheckBox3";
-            this.answerCheckBox3.Size = new System.Drawing.Size(396, 54);
+            this.answerCheckBox3.Size = new System.Drawing.Size(579, 44);
             this.answerCheckBox3.TabIndex = 3;
             this.answerCheckBox3.Text = "checkBox3";
             this.answerCheckBox3.UseVisualStyleBackColor = true;
@@ -89,10 +85,9 @@
             // nextQuestionButton
             // 
             this.nextQuestionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nextQuestionButton.Location = new System.Drawing.Point(839, 332);
-            this.nextQuestionButton.Margin = new System.Windows.Forms.Padding(4);
+            this.nextQuestionButton.Location = new System.Drawing.Point(629, 331);
             this.nextQuestionButton.Name = "nextQuestionButton";
-            this.nextQuestionButton.Size = new System.Drawing.Size(151, 42);
+            this.nextQuestionButton.Size = new System.Drawing.Size(113, 34);
             this.nextQuestionButton.TabIndex = 5;
             this.nextQuestionButton.Text = "Next";
             this.nextQuestionButton.UseVisualStyleBackColor = true;
@@ -103,10 +98,9 @@
             this.correctAnswLabel.AutoSize = true;
             this.correctAnswLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.correctAnswLabel.ForeColor = System.Drawing.Color.Green;
-            this.correctAnswLabel.Location = new System.Drawing.Point(752, 39);
-            this.correctAnswLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.correctAnswLabel.Location = new System.Drawing.Point(564, 32);
             this.correctAnswLabel.Name = "correctAnswLabel";
-            this.correctAnswLabel.Size = new System.Drawing.Size(112, 31);
+            this.correctAnswLabel.Size = new System.Drawing.Size(88, 25);
             this.correctAnswLabel.TabIndex = 7;
             this.correctAnswLabel.Text = "Correct:";
             // 
@@ -115,10 +109,9 @@
             this.wrongAnswLabel.AutoSize = true;
             this.wrongAnswLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.wrongAnswLabel.ForeColor = System.Drawing.Color.Red;
-            this.wrongAnswLabel.Location = new System.Drawing.Point(752, 92);
-            this.wrongAnswLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.wrongAnswLabel.Location = new System.Drawing.Point(564, 75);
             this.wrongAnswLabel.Name = "wrongAnswLabel";
-            this.wrongAnswLabel.Size = new System.Drawing.Size(101, 31);
+            this.wrongAnswLabel.Size = new System.Drawing.Size(81, 25);
             this.wrongAnswLabel.TabIndex = 8;
             this.wrongAnswLabel.Text = "Wrong:";
             // 
@@ -127,20 +120,18 @@
             this.timerLabel.AutoSize = true;
             this.timerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timerLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.timerLabel.Location = new System.Drawing.Point(752, 149);
-            this.timerLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.timerLabel.Location = new System.Drawing.Point(564, 121);
             this.timerLabel.Name = "timerLabel";
-            this.timerLabel.Size = new System.Drawing.Size(91, 31);
+            this.timerLabel.Size = new System.Drawing.Size(72, 25);
             this.timerLabel.TabIndex = 9;
             this.timerLabel.Text = "Timer:";
             // 
             // abortQuizButton
             // 
             this.abortQuizButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.abortQuizButton.Location = new System.Drawing.Point(839, 460);
-            this.abortQuizButton.Margin = new System.Windows.Forms.Padding(4);
+            this.abortQuizButton.Location = new System.Drawing.Point(629, 381);
             this.abortQuizButton.Name = "abortQuizButton";
-            this.abortQuizButton.Size = new System.Drawing.Size(151, 38);
+            this.abortQuizButton.Size = new System.Drawing.Size(113, 31);
             this.abortQuizButton.TabIndex = 10;
             this.abortQuizButton.Text = "Abort";
             this.abortQuizButton.UseVisualStyleBackColor = true;
@@ -149,16 +140,15 @@
             // questionLabel
             // 
             this.questionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.questionLabel.Location = new System.Drawing.Point(28, 332);
-            this.questionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.questionLabel.Location = new System.Drawing.Point(17, 248);
             this.questionLabel.Name = "questionLabel";
-            this.questionLabel.Size = new System.Drawing.Size(695, 63);
+            this.questionLabel.Size = new System.Drawing.Size(583, 56);
             this.questionLabel.TabIndex = 11;
             this.questionLabel.Text = "Ce trebuie să faceți când întâlniți semnul «STOP»?";
             // 
             // QuizControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.questionLabel);
             this.Controls.Add(this.abortQuizButton);
@@ -170,9 +160,8 @@
             this.Controls.Add(this.answerCheckBox2);
             this.Controls.Add(this.answerCheckBox1);
             this.Controls.Add(this.quizPictureBox);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "QuizControl";
-            this.Size = new System.Drawing.Size(1031, 524);
+            this.Size = new System.Drawing.Size(773, 520);
             ((System.ComponentModel.ISupportInitialize)(this.quizPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

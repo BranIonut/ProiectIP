@@ -40,7 +40,7 @@ namespace ChestionarAuto
         public void OnLogoutRequest()
         {
             _model.Logout();
-            _view.LoadLoginControl();
+            _view.LoadLoginControl(true);
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace ChestionarAuto
             }
             else
             {
-                _view.LoadLoginControl();
+                _view.LoadLoginControl(false);
             }
         }
 
@@ -70,18 +70,19 @@ namespace ChestionarAuto
         /// <param name="name">Numele complet al utilizatorului.</param>
         /// <param name="email">Adresa de email a utilizatorului.</param>
         /// <param name="password">Parola aleasă de utilizator pentru contul său.</param>
-        public void OnSignupRequest(string username, string name, string email, string password)
+        public bool OnSignupRequest(string username, string name, string email, string password)
         {
             bool success = false;
             success = _model.AddUser(username, name, email, password);
             if (success)
             {
-                _view.LoadLoginControl();
+                _view.LoadLoginControl(true);
             }
             else
             {
-                _view.LoadSignupControl();
+                _view.LoadSignupControl(false);
             }
+            return success;
         }
 
         /// <summary>
@@ -162,28 +163,119 @@ namespace ChestionarAuto
             _view.LoadUserDashboardControl(_model.GetLoggedUserRole());
         }
 
+        /// <summary>
+        /// Apelată în momentul eșuării completării unui quiz.
+        /// </summary>
         public void OnFailQuiz()
         {
             this.SaveInDatabase(_currentQuiz);
             _view.ShowQuizResults(_currentQuiz);
         }
 
+        /// <summary>
+        /// Apelată în momentul completării unui quiz.
+        /// </summary>
         public void OnPassQuiz()
         {
             this.SaveInDatabase(_currentQuiz);
             _view.ShowQuizResults(_currentQuiz);
         }
 
+        /// <summary>
+        /// Adăugare înregistrare nouă în baza de date, după încercarea utilizatorului de a completa un quiz.
+        /// </summary>
+        /// <param name="_quiz">Datele quiz-ului completat.</param>
         private void SaveInDatabase(Quiz _quiz)
         {
             _model.AddToUserQuiz(_quiz.Id, _model.GetCurrentUserId(), _quiz.correctAnswers, _quiz.wrongAnswers, _quiz.quizState);
         }
 
+        /// <summary>
+        /// Obține lista quiz-urilor completate de utilizator în trecut.
+        /// </summary>
+        /// <returns></returns>
         public List<Quiz> OnLoadUserHistory()
         {
             int currentUserId = _model.GetCurrentUserId();
-            List<Quiz> quizList = _model.GetLastFiveQuizes(currentUserId);
+            List<Quiz> quizList = _model.GetLastTenQuizes(currentUserId);
             return quizList;
         }
+
+        /// <summary>
+        /// Obține lista de utilizatori înregistrați.
+        /// </summary>
+        /// <returns></returns>
+        public Dictionary<string, string> GetUsers()
+        {
+            return _model.GetUsers();
+        }
+
+        /// <summary>
+        /// Obține lista de quiz-uri disponibile în aplicație.
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GetQuizzes()
+        {
+            return _model.GetQuizzes();
+        }
+
+        /// <summary>
+        /// Elimină utilizatorul selectat.
+        /// </summary>
+        /// <param name="username">username-ul utilizatorului</param>
+        /// <returns></returns>
+        public bool OnRemoveUser(string username)
+        {
+            return _model.RemoveUser(username); 
+        }
+
+        /// <summary>
+        /// Șterge progresul utilizatorului selectat.
+        /// </summary>
+        /// <param name="username">username-ul utilizatorului</param>
+        /// <returns></returns>
+        public bool OnDeleteUserProgress(string username)
+        {
+            return _model.UserResetProgress(username);
+        }
+
+        /// <summary>
+        /// Schimbă rolul utilizatorului selectat.
+        /// </summary>
+        /// <param name="username">username-ul utilizatorului</param>
+        /// <param name="role">rolul curent</param>
+        /// <returns></returns>
+        public bool OnChangeUserRole(string username, string role)
+        {
+            return _model.ChangeUserRole(username, role);
+        }
+
+        /// <summary>
+        /// Elimină quiz-ul selectat.
+        /// </summary>
+        /// <param name="id">ID-ul quiz-ului selectat.</param>
+        /// <returns></returns>
+        public bool OnRemoveQuiz(int id)
+        {
+            return _model.DeleteQuiz(id);
+        }
+
+        /// <summary>
+        /// Creează un nou quiz.
+        /// </summary>
+        public void OnCreateQuiz()
+        {
+            _model.CreateQuiz(_model.GetQuizzes().Count+1);
+        }
+
+        /// <summary>
+        /// Obține username-ul utilizatorului curent autentificat.
+        /// </summary>
+        /// <returns></returns>
+        public string GetCurrentUsername()
+        {
+            return _model.GetCurrentUsername();
+        }
+          
     }
 }

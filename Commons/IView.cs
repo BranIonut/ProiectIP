@@ -11,8 +11,8 @@ namespace ChestionarAuto
     /// </summary>
     public interface IView
     {
-        void LoadLoginControl();
-        void LoadSignupControl();
+        void LoadLoginControl(bool err);
+        void LoadSignupControl(bool err);
         void LoadUserDashboardControl(string role);
         void LoadAdminDashboardControl();
         void SetPresenter(IPresenter presenter);

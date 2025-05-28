@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,12 +16,19 @@ namespace ChestionarAuto
         void OnLoginRequest(string username, string password);
         void OnLogoutRequest();
         void OnNextQuestion(List<int> selectedAnswers);
-        void OnSignupRequest(string username, string name, string email, string password);
+        bool OnSignupRequest(string username, string name, string email, string password);
         void OnStartQuiz();
         void GoToMainMenu();
         void OnFailQuiz();
         void OnPassQuiz();
         List<Quiz> OnLoadUserHistory();
-
+        Dictionary<string, string> GetUsers();
+        List<string> GetQuizzes();
+        bool OnRemoveUser(string username);
+        bool OnDeleteUserProgress(string username);
+        bool OnChangeUserRole(string username, string role);
+        bool OnRemoveQuiz(int id);
+        void OnCreateQuiz();
+        string GetCurrentUsername();
     }
 }

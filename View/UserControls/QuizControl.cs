@@ -18,7 +18,7 @@ namespace ChestionarAuto
         public event EventHandler AbortQuizClicked;
         public event EventHandler FailedQuiz;
         private Timer quizTimer;
-        private int timeLeftInSeconds = 600;
+        private int timeLeftInSeconds = 1500;
         public QuizControl()
         {
             InitializeComponent();
@@ -35,7 +35,7 @@ namespace ChestionarAuto
 
         public void StartGlobalTimer()
         {
-            timeLeftInSeconds = 600;
+            timeLeftInSeconds = 1500;
             quizTimer.Start();
             UpdateTimerLabel();
         }

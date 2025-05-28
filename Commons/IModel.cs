@@ -13,7 +13,7 @@ namespace ChestionarAuto
     {
         void InitializeQuestions();
         void CreateQuiz(int n);
-        void DeleteQuiz(int n);
+        bool DeleteQuiz(int n);
         void QuizCancelled(int n, int correct, int incorrect);
 
         void QuizCompleted(int n, int correct, int incorrect);
@@ -26,7 +26,12 @@ namespace ChestionarAuto
         Quiz GetRandomQuiz();
         bool AddToUserQuiz(int quizId, int userId, int correctAns, int wrongAns, string quizState);
         int GetCurrentUserId();
-        List<Quiz> GetLastFiveQuizes(int userId);
+        string GetCurrentUsername();
+        List<Quiz> GetLastTenQuizes(int userId);
+        Dictionary<string, string> GetUsers();
+        List<string> GetQuizzes();
+        bool UserResetProgress(string username);
+        bool RemoveUser(string username);
+        bool ChangeUserRole(string username, string role);
     }
-
 }

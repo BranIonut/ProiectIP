@@ -17,6 +17,14 @@ namespace ChestionarAuto
         public int correctAnswers { get; set; }
         public int wrongAnswers { get; set; }
 
+        /// <summary>
+        /// Constructor pentru inițializarea unui obiect de tip Quiz
+        /// </summary>
+        /// <param name="Id">ID-ul quiz-ului</param>
+        /// <param name="questionsList">Lista de întrebări, obiecte de tip Quiz.</param>
+        /// <param name="correctAnswers">Numărul de întrebări la care s-a răspuns corect.</param>
+        /// <param name="wrongAnswers">Numărul de întrebări la care s-a răspuns greșit.</param>
+        /// <param name="quizState">Stadiul în care se află quiz-ul (aborted/completed/failed).</param>
         public Quiz(int Id, List<Question> questionsList, int correctAnswers, int wrongAnswers, string quizState) {
             this.Id = Id;
             this.questionsList = questionsList;

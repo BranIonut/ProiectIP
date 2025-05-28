@@ -32,49 +32,45 @@
             System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
             System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("");
             this.welcomeBackLabel = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.userQuizHistoryList = new System.Windows.Forms.ListView();
             this.adminDashButton = new System.Windows.Forms.Button();
             this.userSettingsButton = new System.Windows.Forms.Button();
             this.logOutButton = new System.Windows.Forms.Button();
             this.startQuizButton = new System.Windows.Forms.Button();
-            this.quizNumber1Label = new System.Windows.Forms.Label();
-            this.quizNumber2Label = new System.Windows.Forms.Label();
-            this.quizNumber3Label = new System.Windows.Forms.Label();
-            this.quizNumber4Label = new System.Windows.Forms.Label();
-            this.quizNumber5Label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // welcomeBackLabel
             // 
             this.welcomeBackLabel.AutoSize = true;
-            this.welcomeBackLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.welcomeBackLabel.Location = new System.Drawing.Point(17, 26);
-            this.welcomeBackLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.welcomeBackLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.welcomeBackLabel.Location = new System.Drawing.Point(13, 21);
             this.welcomeBackLabel.Name = "welcomeBackLabel";
-            this.welcomeBackLabel.Size = new System.Drawing.Size(199, 31);
+            this.welcomeBackLabel.Size = new System.Drawing.Size(178, 29);
             this.welcomeBackLabel.TabIndex = 0;
             this.welcomeBackLabel.Text = "Welcome back!";
             // 
-            // listView1
+            // userQuizHistoryList
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            this.userQuizHistoryList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userQuizHistoryList.GridLines = true;
+            this.userQuizHistoryList.HideSelection = false;
+            this.userQuizHistoryList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem4,
             listViewItem5,
             listViewItem6});
-            this.listView1.Location = new System.Drawing.Point(24, 81);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(755, 406);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.userQuizHistoryList.Location = new System.Drawing.Point(18, 66);
+            this.userQuizHistoryList.Name = "userQuizHistoryList";
+            this.userQuizHistoryList.Size = new System.Drawing.Size(567, 331);
+            this.userQuizHistoryList.TabIndex = 1;
+            this.userQuizHistoryList.UseCompatibleStateImageBehavior = false;
+            this.userQuizHistoryList.View = System.Windows.Forms.View.List;
             // 
             // adminDashButton
             // 
-            this.adminDashButton.Location = new System.Drawing.Point(840, 351);
-            this.adminDashButton.Margin = new System.Windows.Forms.Padding(4);
+            this.adminDashButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminDashButton.Location = new System.Drawing.Point(612, 244);
             this.adminDashButton.Name = "adminDashButton";
-            this.adminDashButton.Size = new System.Drawing.Size(137, 28);
+            this.adminDashButton.Size = new System.Drawing.Size(134, 39);
             this.adminDashButton.TabIndex = 2;
             this.adminDashButton.Text = "Admin Panel";
             this.adminDashButton.UseVisualStyleBackColor = true;
@@ -82,20 +78,20 @@
             // 
             // userSettingsButton
             // 
-            this.userSettingsButton.Location = new System.Drawing.Point(840, 405);
-            this.userSettingsButton.Margin = new System.Windows.Forms.Padding(4);
+            this.userSettingsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userSettingsButton.Location = new System.Drawing.Point(612, 301);
             this.userSettingsButton.Name = "userSettingsButton";
-            this.userSettingsButton.Size = new System.Drawing.Size(137, 28);
+            this.userSettingsButton.Size = new System.Drawing.Size(134, 39);
             this.userSettingsButton.TabIndex = 3;
             this.userSettingsButton.Text = "User Settings";
             this.userSettingsButton.UseVisualStyleBackColor = true;
             // 
             // logOutButton
             // 
-            this.logOutButton.Location = new System.Drawing.Point(840, 460);
-            this.logOutButton.Margin = new System.Windows.Forms.Padding(4);
+            this.logOutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logOutButton.Location = new System.Drawing.Point(612, 361);
             this.logOutButton.Name = "logOutButton";
-            this.logOutButton.Size = new System.Drawing.Size(137, 28);
+            this.logOutButton.Size = new System.Drawing.Size(134, 36);
             this.logOutButton.TabIndex = 4;
             this.logOutButton.Text = "Log Out";
             this.logOutButton.UseVisualStyleBackColor = true;
@@ -103,77 +99,28 @@
             // 
             // startQuizButton
             // 
-            this.startQuizButton.Location = new System.Drawing.Point(840, 33);
+            this.startQuizButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startQuizButton.Location = new System.Drawing.Point(612, 66);
+            this.startQuizButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.startQuizButton.Name = "startQuizButton";
-            this.startQuizButton.Size = new System.Drawing.Size(137, 24);
+            this.startQuizButton.Size = new System.Drawing.Size(134, 41);
             this.startQuizButton.TabIndex = 5;
             this.startQuizButton.Text = "Start Quiz";
             this.startQuizButton.UseVisualStyleBackColor = true;
             this.startQuizButton.Click += new System.EventHandler(this.startQuizButton_Click);
             // 
-            // quizNumber1Label
-            // 
-            this.quizNumber1Label.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.quizNumber1Label.Location = new System.Drawing.Point(38, 174);
-            this.quizNumber1Label.Name = "quizNumber1Label";
-            this.quizNumber1Label.Size = new System.Drawing.Size(725, 45);
-            this.quizNumber1Label.TabIndex = 6;
-            this.quizNumber1Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // quizNumber2Label
-            // 
-            this.quizNumber2Label.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.quizNumber2Label.Location = new System.Drawing.Point(38, 219);
-            this.quizNumber2Label.Name = "quizNumber2Label";
-            this.quizNumber2Label.Size = new System.Drawing.Size(725, 45);
-            this.quizNumber2Label.TabIndex = 7;
-            this.quizNumber2Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // quizNumber3Label
-            // 
-            this.quizNumber3Label.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.quizNumber3Label.Location = new System.Drawing.Point(38, 264);
-            this.quizNumber3Label.Name = "quizNumber3Label";
-            this.quizNumber3Label.Size = new System.Drawing.Size(725, 45);
-            this.quizNumber3Label.TabIndex = 8;
-            this.quizNumber3Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // quizNumber4Label
-            // 
-            this.quizNumber4Label.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.quizNumber4Label.Location = new System.Drawing.Point(38, 309);
-            this.quizNumber4Label.Name = "quizNumber4Label";
-            this.quizNumber4Label.Size = new System.Drawing.Size(725, 45);
-            this.quizNumber4Label.TabIndex = 9;
-            this.quizNumber4Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // quizNumber5Label
-            // 
-            this.quizNumber5Label.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.quizNumber5Label.Location = new System.Drawing.Point(38, 354);
-            this.quizNumber5Label.Name = "quizNumber5Label";
-            this.quizNumber5Label.Size = new System.Drawing.Size(725, 45);
-            this.quizNumber5Label.TabIndex = 10;
-            this.quizNumber5Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // DashboardUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.quizNumber5Label);
-            this.Controls.Add(this.quizNumber4Label);
-            this.Controls.Add(this.quizNumber3Label);
-            this.Controls.Add(this.quizNumber2Label);
-            this.Controls.Add(this.quizNumber1Label);
             this.Controls.Add(this.startQuizButton);
             this.Controls.Add(this.logOutButton);
             this.Controls.Add(this.userSettingsButton);
             this.Controls.Add(this.adminDashButton);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.userQuizHistoryList);
             this.Controls.Add(this.welcomeBackLabel);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DashboardUserControl";
-            this.Size = new System.Drawing.Size(1031, 524);
+            this.Size = new System.Drawing.Size(773, 426);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,7 +129,7 @@
         #endregion
 
         private System.Windows.Forms.Label welcomeBackLabel;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView userQuizHistoryList;
         private System.Windows.Forms.Button adminDashButton;
         private System.Windows.Forms.Button userSettingsButton;
         private System.Windows.Forms.Button logOutButton;
@@ -193,10 +140,5 @@
         }
 
         private System.Windows.Forms.Button startQuizButton;
-        private System.Windows.Forms.Label quizNumber1Label;
-        private System.Windows.Forms.Label quizNumber2Label;
-        private System.Windows.Forms.Label quizNumber3Label;
-        private System.Windows.Forms.Label quizNumber4Label;
-        private System.Windows.Forms.Label quizNumber5Label;
     }
 }

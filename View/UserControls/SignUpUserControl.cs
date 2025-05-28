@@ -20,11 +20,21 @@ namespace ChestionarAuto
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Apelată atunci când se dorește redirecționarea către pagina de autentificare a utilizatorului.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void goToLogInPanelLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             LoginRequested?.Invoke(this, e);
         }
 
+        /// <summary>
+        /// Apelată când se dorește înregistrarea utilizatorului.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             string username = textBox3.Text;
@@ -33,7 +43,20 @@ namespace ChestionarAuto
             string password = textBox6.Text;
             SignupRequested?.Invoke(this, new SignupEventArgs(username, name, email, password));
         }
+
+        /// <summary>
+        /// Setarea vizibilității mesajului de eroare în cazul în care datele introduse pentru înregistrare sunt eronate.
+        /// </summary>
+        /// <param name="visible"></param>
+        public void setErrorVisible(bool visible)
+        {
+            errorLabel.Visible = true;
+            errorLabel.Visible = visible;
+        }
     }
+    /// <summary>
+    /// Eveniment generat pentru operația de înregistrare utilizator.
+    /// </summary>
     public class SignupEventArgs : EventArgs
     {
         public string Username { get; }
