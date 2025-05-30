@@ -40,6 +40,7 @@
             this.timerLabel = new System.Windows.Forms.Label();
             this.abortQuizButton = new System.Windows.Forms.Button();
             this.questionLabel = new System.Windows.Forms.Label();
+            this.helpButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.quizPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -146,10 +147,22 @@
             this.questionLabel.TabIndex = 11;
             this.questionLabel.Text = "Ce trebuie să faceți când întâlniți semnul «STOP»?";
             // 
+            // helpButton
+            // 
+            this.helpButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.helpButton.Location = new System.Drawing.Point(629, 282);
+            this.helpButton.Name = "helpButton";
+            this.helpButton.Size = new System.Drawing.Size(113, 32);
+            this.helpButton.TabIndex = 12;
+            this.helpButton.Text = "Help";
+            this.helpButton.UseVisualStyleBackColor = true;
+            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
+            // 
             // QuizControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.helpButton);
             this.Controls.Add(this.questionLabel);
             this.Controls.Add(this.abortQuizButton);
             this.Controls.Add(this.timerLabel);
@@ -181,5 +194,6 @@
         private System.Windows.Forms.Label timerLabel;
         private System.Windows.Forms.Button abortQuizButton;
         private System.Windows.Forms.Label questionLabel;
+        private System.Windows.Forms.Button helpButton;
     }
 }

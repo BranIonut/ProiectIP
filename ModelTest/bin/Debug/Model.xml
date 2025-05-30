@@ -1,0 +1,228 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Model</name>
+    </assembly>
+    <members>
+        <member name="T:ChestionarAuto.Model">
+            <summary>
+            Reprezintă modelul de business logic pentru aplicația Chestionar Auto.
+            Se ocupă de interacțiunea cu baza de date, întrebări, quizuri și utilizatori.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.Model.#ctor">
+            <summary>
+            Constructorul clasei Model. Inițializează baza de date și încarcă întrebările.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.Model.InitializeDatabase">
+            <summary>
+            Inițializează baza de date și creează tabelele necesare în baza de date dacă acestea nu există.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.Model.InitializeQuestions">
+            <summary>
+            Încarcă întrebările din fișierul JSON într-o listă de obiecte Question.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.Model.CreateQuiz(System.Int32)">
+            <summary>
+            Creează un quiz nou cu 25 de întrebări aleatorii și îl inserează în baza de date.
+            </summary>
+            <param name="n">Numărul de quizuri de creat (folosit doar în bucla constructorului).</param>
+        </member>
+        <member name="M:ChestionarAuto.Model.DeleteQuiz(System.Int32)">
+            <summary>
+            Șterge un quiz existent din baza de date și din lista de quiz-uri.
+            </summary>
+            <param name="n">Indexul quiz-ului ce va fi șters din listă.</param>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:ChestionarAuto.Model.UpdateQuizUserState(System.Int32,System.String,System.Int32,System.Int32)">
+            <summary>
+            Actualizează starea unui quiz asociat unui utilizator (completat, anulat, eșuat).
+            </summary>
+            <param name="n">Indicele quiz-ului din lista de quiz-uri.</param>
+            <param name="state">Starea quiz-ului ce va fi actualizată.</param>
+            <param name="correct">Numărul de răspunsuri corecte.</param>
+            <param name="incorrect">Numărul de răspunsuri greșite.</param>
+        </member>
+        <member name="M:ChestionarAuto.Model.QuizCancelled(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Marchează un quiz ca anulat.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.Model.QuizCompleted(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Marchează un quiz ca completat cu succes.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.Model.QuizFailed(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Marchează un quiz ca eșuat.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.Model.AddUser(System.String,System.String,System.String,System.String)">
+            <summary>
+            Adaugă un utilizator nou în baza de date.
+            </summary>
+            <param name="username">Numele de utilizator folosit pentru identificare.</param>
+            <param name="name">Numele și prenumele utilizatorului</param>
+            <param name="email">Email-ul utilizatorului.</param>
+            <param name="password">Parola utilizatorului.</param>
+            <returns>True dacă utilizatorul a fost adăugat cu succes, sau false în caz contrar.</returns>
+        </member>
+        <member name="M:ChestionarAuto.Model.Login(System.String,System.String)">
+            <summary>
+            Autentifică un utilizator în aplicație pe baza numelui de utilizator și a parolei.
+            </summary>
+            <param name="username">Numele de utilizator introdus de utilizator.</param>
+            <param name="password">Parola introdusă de utilizator.</param>
+            <returns>True dacă utilizatorul a fost logat cu succes, sau false în caz contrar.</returns>
+        </member>
+        <member name="M:ChestionarAuto.Model.Logout">
+            <summary>
+            Deconectează utilizatorul curent din aplicație.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.Model.GetLoggedUserRole">
+            <summary>
+            Obține rolul utilizatorului curent conectat.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ChestionarAuto.Model.GetRandomQuiz">
+            <summary>
+            Obține un quiz aleatoriu din lista de quiz-uri disponibile.
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:ChestionarAuto.Model.AddToUserQuiz(System.Int32,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Adaugă un quiz asociat unui utilizator în baza de date.
+            </summary>
+            <param name="quizId">ID-ul quiz-ului care a fost completat.</param>
+            <param name="userId">ID-ul utilizatorului care a completat quiz-ul.</param>
+            <param name="correctAns">Numărul de răspunsuri corecte.</param>
+            <param name="wrongAns">Numărul de răspunsuri greșite.</param>
+            <param name="quizState">Starea finală a quiz-ului (ex: completed, aborted, failed).</param>
+            <returns>True dacă inserarea a avut succes, altfel false.</returns>
+        </member>
+        <member name="M:ChestionarAuto.Model.GetCurrentUsername">
+            <summary>
+            Obține username-ul utilizatorului logat.
+            </summary>
+            <returns>String reprezentând username-ul utilizatorului logat.</returns>
+        </member>
+        <member name="M:ChestionarAuto.Model.GetCurrentUserId">
+            <summary>
+            Obține ID-ul utilizatorului logat.
+            </summary>
+            <returns>Int reprezentând ID-ul utilizatorului logat.</returns>
+        </member>
+        <member name="M:ChestionarAuto.Model.GetLastTenQuizes(System.Int32)">
+            <summary>
+            Returnează o listă cu ultimele 10 quiz-uri completate de utilizatorul curent logat.
+            </summary>
+            <param name="userId">ID-ul utilizatorului curent logat.</param>
+            <returns>Listă de elemente de tip ”Quiz”</returns>
+        </member>
+        <member name="M:ChestionarAuto.Model.GetUsers">
+            <summary>
+            Funcție ce returnează un dicționar cu utilizatorii înregistrați (username-ul și rolul lor).
+            </summary>
+            <returns>Dicționar cu username + rol utilizator.</returns>
+        </member>
+        <member name="M:ChestionarAuto.Model.GetQuizzes">
+            <summary>
+            Returnează o listă cu numele fiecărui quiz în parte.
+            </summary>
+            <returns>Listă de string-uri cu numele fiecărui quiz.</returns>
+        </member>
+        <member name="M:ChestionarAuto.Model.UserResetProgress(System.String)">
+            <summary>
+            Resetarea progresului utilizatorului pentru completarea quiz-urilor, prin ștergerea din baza de date a înregistrărilor.
+            </summary>
+            <param name="username">Username-ul utilizatorului selectat.</param>
+            <returns>True dacă operațiunea a avut succes, false în caz contrar.</returns>
+        </member>
+        <member name="M:ChestionarAuto.Model.RemoveUser(System.String)">
+            <summary>
+            Eliminarea unui utilizator din baza de date.
+            </summary>
+            <param name="username">Username-ul utilizatorului ce va fi eliminat.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ChestionarAuto.Model.ChangeUserRole(System.String,System.String)">
+            <summary>
+            Schimbarea rolului utilizatorului selectat (admin sau user).
+            </summary>
+            <param name="username">Username-ul utilizatorului pentru care se dorește schimbarea rolului.</param>
+            <param name="role">Rolul curent al utilizatorului.</param>
+            <returns></returns>
+        </member>
+        <member name="T:ChestionarAuto.QuizScoreObserver">
+            <summary>
+            Reprezintă un observator pentru chestionar care monitorizează scorul utilizatorului.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.QuizScoreObserver.#ctor(ChestionarAuto.Quiz,ChestionarAuto.IView)">
+            <summary>
+            Constructorul clasei QuizScoreObserver.
+            </summary>
+            <param name="quiz">Obiectul Quiz a cărui stare va fi actualizată în funcție de răspunsurile utilizatorului.</param>
+            <param name="view">Interfața utilizator care va fi actualizată în funcție de scorul actual.</param>
+        </member>
+        <member name="M:ChestionarAuto.QuizScoreObserver.OnAnswerValidated(System.Boolean)">
+            <summary>
+            Metoda care este apelată atunci când un răspuns este validat.
+            </summary>
+            <param name="isCorrect">Indică dacă răspunsul utilizatorului a fost corect (true) sau greșit (false).</param>
+        </member>
+        <member name="T:ChestionarAuto.QuizViewModel">
+            <summary>
+            Reprezintă modelul de vizualizare pentru chestionar, care gestionează logica de răspuns la întrebări și notificarea observatorilor.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.QuizViewModel.#ctor(ChestionarAuto.Quiz)">
+            <summary>
+            Constructorul clasei QuizViewModel.
+            </summary>
+            <param name="quiz">Obiectul Quiz care conține întrebările și starea chestionarului.</param>
+        </member>
+        <member name="M:ChestionarAuto.QuizViewModel.RegisterObserver(ChestionarAuto.IQuizObserver)">
+            <summary>
+            Înregistrează un observator pentru a primi notificări despre validarea răspunsurilor.
+            </summary>
+            <param name="observer">Observatorul care va fi notificat la fiecare răspuns validat.</param>
+        </member>
+        <member name="M:ChestionarAuto.QuizViewModel.UnregisterObserver(ChestionarAuto.IQuizObserver)">
+            <summary>
+            Dezabonează un observator pentru a nu mai primi notificări despre validarea răspunsurilor.
+            </summary>
+            <param name="observer">Observatorul care va fi eliminat din lista de notificare.</param>
+        </member>
+        <member name="M:ChestionarAuto.QuizViewModel.NotifyObservers(System.Boolean)">
+            <summary>
+            Notifică toți observatorii despre validarea răspunsului.
+            </summary>
+            <param name="isCorrect">Valoare booleană care indică dacă răspunsul utilizatorului a fost corect.</param>
+        </member>
+        <member name="M:ChestionarAuto.QuizViewModel.AnswerQuestion(System.String,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Răspunde la o întrebare a chestionarului cu răspunsurile selectate de utilizator.
+            </summary>
+            <param name="questionText">Textul întrebării la care utilizatorul a răspuns.</param>
+            <param name="selectedAnswers">Lista de indecși ai răspunsurilor selectate de utilizator.</param>
+        </member>
+        <member name="M:ChestionarAuto.QuizViewModel.AreListsEqualIgnoreOrder(System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Verifică dacă două liste de răspunsuri sunt egale, ignorând ordinea elementelor.
+            </summary>
+            <param name="list1">Prima listă de răspunsuri.</param>
+            <param name="list2">A doua listă de răspunsuri.</param>
+            <returns>True dacă listele sunt egale ca elemente, indiferent de ordine; altfel, false.</returns>
+        </member>
+    </members>
+</doc>

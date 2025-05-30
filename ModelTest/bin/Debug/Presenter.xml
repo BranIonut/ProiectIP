@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Presenter</name>
+    </assembly>
+    <members>
+        <member name="T:ChestionarAuto.Presenter">
+            <summary>
+            Reprezintă un presenter care gestionează logica aplicației și interacțiunea dintre model și vizualizare.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.Presenter.#ctor(ChestionarAuto.IModel,ChestionarAuto.IView)">
+            <summary>
+            Constructorul clasei Presenter.
+            </summary>
+            <param name="model">Instanța modelului care gestionează logica aplicației și accesul la date.</param>
+            <param name="view">Instanța interfeței view care gestionează interacțiunea cu utilizatorul.</param>
+        </member>
+        <member name="M:ChestionarAuto.Presenter.OnLogoutRequest">
+            <summary>
+            Metoda care este apelată atunci când utilizatorul solicită deconectarea.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.Presenter.OnLoginRequest(System.String,System.String)">
+            <summary>
+            Metoda care este apelată atunci când utilizatorul solicită autentificarea.
+            </summary>
+            <param name="username">Numele de utilizator ales de către utilizator pentru autentificare.</param>
+            <param name="password">Parola aleasă de utilizator pentru contul său pentru autentificare.</param>
+        </member>
+        <member name="M:ChestionarAuto.Presenter.OnSignupRequest(System.String,System.String,System.String,System.String)">
+            <summary>
+            Metoda care este apelată atunci când utilizatorul solicită înregistrarea unui nou cont.
+            </summary>
+            <param name="username">Numele de utilizator ales de către utilizator pentru autentificare.</param>
+            <param name="name">Numele complet al utilizatorului.</param>
+            <param name="email">Adresa de email a utilizatorului.</param>
+            <param name="password">Parola aleasă de utilizator pentru contul său.</param>
+        </member>
+        <member name="M:ChestionarAuto.Presenter.OnStartQuiz">
+            <summary>
+            Metoda care este apelată atunci când utilizatorul solicită să înceapă un chestionar.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.Presenter.OnNextQuestion(System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Metoda care este apelată atunci când utilizatorul răspunde la o întrebare a chestionarului și trece la următoarea întrebare.
+            </summary>
+            <param name="selectedAnswers">Lista cu indicii variantelor de răspuns selectate de utilizator pentru întrebarea curentă.</param>
+        </member>
+        <member name="M:ChestionarAuto.Presenter.OnAbortQuiz">
+            <summary>
+            Metoda care este apelată atunci când utilizatorul decide să renunțe la chestionar.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.Presenter.GoToMainMenu">
+            <summary>
+            Metoda care este apelată pentru a naviga utilizatorul înapoi la meniul principal al aplicației.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.Presenter.OnFailQuiz">
+            <summary>
+            Apelată în momentul eșuării completării unui quiz.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.Presenter.OnPassQuiz">
+            <summary>
+            Apelată în momentul completării unui quiz.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.Presenter.SaveInDatabase(ChestionarAuto.Quiz)">
+            <summary>
+            Adăugare înregistrare nouă în baza de date, după încercarea utilizatorului de a completa un quiz.
+            </summary>
+            <param name="_quiz">Datele quiz-ului completat.</param>
+        </member>
+        <member name="M:ChestionarAuto.Presenter.OnLoadUserHistory">
+            <summary>
+            Obține lista quiz-urilor completate de utilizator în trecut.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ChestionarAuto.Presenter.GetUsers">
+            <summary>
+            Obține lista de utilizatori înregistrați.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ChestionarAuto.Presenter.GetQuizzes">
+            <summary>
+            Obține lista de quiz-uri disponibile în aplicație.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ChestionarAuto.Presenter.OnRemoveUser(System.String)">
+            <summary>
+            Elimină utilizatorul selectat.
+            </summary>
+            <param name="username">username-ul utilizatorului</param>
+            <returns></returns>
+        </member>
+        <member name="M:ChestionarAuto.Presenter.OnDeleteUserProgress(System.String)">
+            <summary>
+            Șterge progresul utilizatorului selectat.
+            </summary>
+            <param name="username">username-ul utilizatorului</param>
+            <returns></returns>
+        </member>
+        <member name="M:ChestionarAuto.Presenter.OnChangeUserRole(System.String,System.String)">
+            <summary>
+            Schimbă rolul utilizatorului selectat.
+            </summary>
+            <param name="username">username-ul utilizatorului</param>
+            <param name="role">rolul curent</param>
+            <returns></returns>
+        </member>
+        <member name="M:ChestionarAuto.Presenter.OnRemoveQuiz(System.Int32)">
+            <summary>
+            Elimină quiz-ul selectat.
+            </summary>
+            <param name="id">ID-ul quiz-ului selectat.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ChestionarAuto.Presenter.OnCreateQuiz">
+            <summary>
+            Creează un nou quiz.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.Presenter.GetCurrentUsername">
+            <summary>
+            Obține username-ul utilizatorului curent autentificat.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -40,6 +40,7 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.errorLabel = new System.Windows.Forms.Label();
+            this.helpButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label3
@@ -160,10 +161,22 @@
             this.errorLabel.Text = "Error: wrong sign up credentials!";
             this.errorLabel.Visible = false;
             // 
+            // helpButton
+            // 
+            this.helpButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.helpButton.Location = new System.Drawing.Point(354, 449);
+            this.helpButton.Name = "helpButton";
+            this.helpButton.Size = new System.Drawing.Size(75, 33);
+            this.helpButton.TabIndex = 24;
+            this.helpButton.Text = "Help";
+            this.helpButton.UseVisualStyleBackColor = true;
+            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
+            // 
             // SignUpUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.helpButton);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
@@ -198,5 +211,6 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.Button helpButton;
     }
 }

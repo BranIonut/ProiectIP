@@ -1,0 +1,423 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>View</name>
+    </assembly>
+    <members>
+        <member name="F:ChestionarAuto.Form1.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.Form1.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ChestionarAuto.Form1.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.UserControls.DashboardAdminControl.#ctor">
+            <summary>
+            Constructor pentru inițializarea panoului de control al adminului.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.UserControls.DashboardAdminControl.baskToUserPanelButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Funcție ce produce event de întoarcere la panel-ul utilizatorului.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ChestionarAuto.UserControls.DashboardAdminControl.populateUsersList(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Funcție ce populează lista cu utilizatorii aplicației, înregistrați în baza de date.
+            </summary>
+            <param name="users"></param>
+        </member>
+        <member name="M:ChestionarAuto.UserControls.DashboardAdminControl.populateQuizzesList(System.Collections.Generic.List{System.String})">
+            <summary>
+            Funcție ce populează lista cu quiz-urile create de aplicație și disponibile spre completare de către utilizatori.
+            </summary>
+            <param name="quizzes"></param>
+        </member>
+        <member name="M:ChestionarAuto.UserControls.DashboardAdminControl.listView1_SelectedIndexChanged(System.Object,System.EventArgs)">
+            <summary>
+            Apelată atunci când un utilizator din listă este selectat.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ChestionarAuto.UserControls.DashboardAdminControl.listView2_SelectedIndexChanged(System.Object,System.EventArgs)">
+            <summary>
+            Apelată atunci când un quiz din listă este selectat.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ChestionarAuto.UserControls.DashboardAdminControl.SelectedUser">
+            <summary>
+            Returnează utilizatorul selectat din listă.
+            </summary>
+            <returns>Pereche cheie (username) și valoare (rol).</returns>
+        </member>
+        <member name="M:ChestionarAuto.UserControls.DashboardAdminControl.SelectedQuiz">
+            <summary>
+            Returnează quiz-ul selectat din listă.
+            </summary>
+            <returns>String reprezentând numele quiz-ului.</returns>
+        </member>
+        <member name="M:ChestionarAuto.UserControls.DashboardAdminControl.resetUserProgButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Apelată atunci când se dorește resetarea progresului utilizatorului selectat.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ChestionarAuto.UserControls.DashboardAdminControl.removeUserButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Apelată atunci când se dorește eliminarea unui utiizator din lista utilizatorilor înregistrați.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ChestionarAuto.UserControls.DashboardAdminControl.changeRoleButton_Click_1(System.Object,System.EventArgs)">
+            <summary>
+            Apelată atunci când se dorește schimbarea rolului curent al utilizatorului selectat.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ChestionarAuto.UserControls.DashboardAdminControl.createQuizButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Apelată atunci când se dorește adăugarea unui nou quiz în lista celor existente deja.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ChestionarAuto.UserControls.DashboardAdminControl.removeQuizButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Apelată atunci când se dorește ștergerea unui quiz selectat din cele existente.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:ChestionarAuto.UserControls.DashboardAdminControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.UserControls.DashboardAdminControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ChestionarAuto.UserControls.DashboardAdminControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:ChestionarAuto.UserControls.RemoveProgressEvent">
+            <summary>
+            Event pentru resetarea progresului.
+            </summary>
+        </member>
+        <member name="T:ChestionarAuto.UserControls.RemoveUserEvent">
+            <summary>
+            Event pentru eliminarea utilizatorului.
+            </summary>
+        </member>
+        <member name="T:ChestionarAuto.UserControls.ChangeUserRoleEvent">
+            <summary>
+            Event peentru schimbarea rolului utilizatorului.
+            </summary>
+        </member>
+        <member name="T:ChestionarAuto.UserControls.RemoveQuizEvent">
+            <summary>
+            Event pentru eliminarea quiz-ului selectat.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.UserControls.DashboardUserControl.SetWelcomeMessage(System.String)">
+            <summary>
+            Actualizarea mesajului de întâmpinare pentru utilizatorul autentificat.
+            </summary>
+            <param name="username">Username-ul utilizatorului curent.</param>
+        </member>
+        <member name="M:ChestionarAuto.UserControls.DashboardUserControl.logOutButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Apelată atunci când se dorește deconectarea utilizatorului curent autentificat.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ChestionarAuto.UserControls.DashboardUserControl.adminDashButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Apelată atunci când utilizatorul cu rol de administrator dorește redirecționarea către panel-ul de admin.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ChestionarAuto.UserControls.DashboardUserControl.startQuizButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Apelată atunci când se dorește începerea rezolvării unui quiz de către utilizatorul curent.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ChestionarAuto.UserControls.DashboardUserControl.SetupQuizHistoryListView">
+            <summary>
+            Inițializează lista în care se încarcă ulterior istoricul și progresul utilizatorului curent.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.UserControls.DashboardUserControl.UpdateUserHistoryUI(System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Actualizează lista de istoric de completări ale quiz-urilor.
+            </summary>
+            <param name="labelIndex"></param>
+            <param name="correctAnswers"></param>
+            <param name="wrongAnswers"></param>
+            <param name="quiz_state"></param>
+        </member>
+        <member name="F:ChestionarAuto.UserControls.DashboardUserControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.UserControls.DashboardUserControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ChestionarAuto.UserControls.DashboardUserControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.LogInUserControl.goToSignupLink_LinkClicked(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs)">
+            <summary>
+            Apelată atunci când se dorește redirecționarea către pagina de înregistrare utilizator.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ChestionarAuto.LogInUserControl.loginButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Apelată atunci când se dorește autentificarea utilizatorului.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ChestionarAuto.LogInUserControl.setErrorMessageVisible(System.Boolean)">
+            <summary>
+            Setarea vizibilității pe interfață a mesajului de eroare, în cazul în care datele introduse la autentificare au fost eronate.
+            </summary>
+            <param name="visible"></param>
+        </member>
+        <member name="F:ChestionarAuto.LogInUserControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.LogInUserControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ChestionarAuto.LogInUserControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:ChestionarAuto.LoginEventArgs">
+            <summary>
+            Event generat la operația de autentificare.
+            </summary>
+        </member>
+        <member name="F:ChestionarAuto.QuizControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.QuizControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ChestionarAuto.QuizControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:ChestionarAuto.ResultsForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.ResultsForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ChestionarAuto.ResultsForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.SignUpUserControl.goToLogInPanelLink_LinkClicked(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs)">
+            <summary>
+            Apelată atunci când se dorește redirecționarea către pagina de autentificare a utilizatorului.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ChestionarAuto.SignUpUserControl.button1_Click(System.Object,System.EventArgs)">
+            <summary>
+            Apelată când se dorește înregistrarea utilizatorului.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ChestionarAuto.SignUpUserControl.setErrorVisible(System.Boolean)">
+            <summary>
+            Setarea vizibilității mesajului de eroare în cazul în care datele introduse pentru înregistrare sunt eronate.
+            </summary>
+            <param name="visible"></param>
+        </member>
+        <member name="F:ChestionarAuto.SignUpUserControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.SignUpUserControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ChestionarAuto.SignUpUserControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:ChestionarAuto.SignupEventArgs">
+            <summary>
+            Eveniment generat pentru operația de înregistrare utilizator.
+            </summary>
+        </member>
+        <member name="T:ChestionarAuto.View">
+            <summary>
+            Clasa View implementează interfața IView și este responsabilă pentru interacțiunea cu utilizatorul.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.View.#ctor(ChestionarAuto.Form1)">
+            <summary>
+            Constructorul clasei View.
+            </summary>
+            <param name="form">Formularul principal al aplicației.</param>
+        </member>
+        <member name="M:ChestionarAuto.View.SetPresenter(ChestionarAuto.IPresenter)">
+            <summary>
+            Setează presenter-ul pentru View.
+            </summary>
+            <param name="presenter">Obiectul presenter care conține logica aplicației.</param>
+        </member>
+        <member name="M:ChestionarAuto.View.LoadLoginControl(System.Boolean)">
+            <summary>
+            Încarcă controlul de autentificare (LogInUserControl) în formular.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.View.LoadSignupControl(System.Boolean)">
+            <summary>
+            Încarcă controlul de înregistrare (SignUpUserControl) în formular.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.View.LoadUserDashboardControl(System.String)">
+            <summary>
+            Încarcă controlul de tablă de bord pentru utilizator (DashboardUserControl) în formular.
+            </summary>
+            <param name="role">Parametru ce primește rolul utilizatorului curent logat (ex: "admin" sau "user").</param>
+        </member>
+        <member name="M:ChestionarAuto.View.LoadAdminDashboardControl">
+            <summary>
+            Încarcă controlul de tablă de bord pentru administrator (DashboardAdminControl) în formular.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.View.StartQuizControl">
+            <summary>
+            Inițiază controlul de quiz (QuizControl) și îl încarcă în formular.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.View.ShowQuestion(ChestionarAuto.Question,System.Boolean)">
+            <summary>
+            Afișează o întrebare în controlul de quiz.
+            </summary>
+            <param name="question">Întrebarea ce urmează să fie afișată.</param>
+            <param name="isLastQuestion">Indică dacă întrebarea este ultima din quiz.</param>
+        </member>
+        <member name="M:ChestionarAuto.View.ShowQuizResults(ChestionarAuto.Quiz)">
+            <summary>
+            Afișează rezultatele quiz-ului și navighează înapoi la meniul principal.
+            </summary>
+            <param name="_quiz">Obiectul de tip Quiz care conține rezultatele quiz-ului (răspunsuri corecte, greșite, stare).</param>
+        </member>
+        <member name="M:ChestionarAuto.View.UpdateUI(System.Int32,System.Int32)">
+            <summary>
+            Actualizează interfața utilizatorului cu numărul de răspunsuri corecte și greșite.
+            </summary>
+            <param name="correctAnswers">Numărul de răspunsuri corecte.</param>
+            <param name="wrongAnswers">Numărul de răspunsuri greșite.</param>
+        </member>
+        <member name="M:ChestionarAuto.View.AbortQuiz">
+            <summary>
+            Setează quiz-ul drept abandonat.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.View.FailQuiz">
+            <summary>
+            Setează quiz-ul drept eșuat (respins).
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.View.PassQuiz">
+            <summary>
+            Setează quiz-ul drept completat (admis).
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.View.LoadUserHistory(ChestionarAuto.UserControls.DashboardUserControl)">
+            <summary>
+            Încarcă istoricul completărilor chestionarelor pentru utilizatorul curent logat.
+            </summary>
+            <param name="dashboardUserControl">Indică panel-ul de contorl al utilizatorului.</param>
+        </member>
+        <member name="T:ChestionarAuto.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:ChestionarAuto.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:ChestionarAuto.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -40,6 +40,7 @@
             this.createQuizButton = new System.Windows.Forms.Button();
             this.baskToUserPanelButton = new System.Windows.Forms.Button();
             this.changeRoleButton = new System.Windows.Forms.Button();
+            this.helpAdminButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -159,10 +160,22 @@
             this.changeRoleButton.UseVisualStyleBackColor = true;
             this.changeRoleButton.Click += new System.EventHandler(this.changeRoleButton_Click_1);
             // 
+            // helpAdminButton
+            // 
+            this.helpAdminButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.helpAdminButton.Location = new System.Drawing.Point(215, 370);
+            this.helpAdminButton.Name = "helpAdminButton";
+            this.helpAdminButton.Size = new System.Drawing.Size(132, 35);
+            this.helpAdminButton.TabIndex = 10;
+            this.helpAdminButton.Text = "Help Admin";
+            this.helpAdminButton.UseVisualStyleBackColor = true;
+            this.helpAdminButton.Click += new System.EventHandler(this.helpAdminButton_Click);
+            // 
             // DashboardAdminControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.helpAdminButton);
             this.Controls.Add(this.changeRoleButton);
             this.Controls.Add(this.baskToUserPanelButton);
             this.Controls.Add(this.createQuizButton);
@@ -193,5 +206,6 @@
         private System.Windows.Forms.ColumnHeader usersCol;
         private System.Windows.Forms.ColumnHeader rolesCol;
         private System.Windows.Forms.Button changeRoleButton;
+        private System.Windows.Forms.Button helpAdminButton;
     }
 }

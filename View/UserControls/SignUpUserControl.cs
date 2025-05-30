@@ -53,6 +53,11 @@ namespace ChestionarAuto
             errorLabel.Visible = true;
             errorLabel.Visible = visible;
         }
+
+        private void helpButton_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, System.Environment.CurrentDirectory + "\\Help_ChestionarAuto.chm");
+        }
     }
     /// <summary>
     /// Eveniment generat pentru operația de înregistrare utilizator.

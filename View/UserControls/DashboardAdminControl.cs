@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -191,6 +192,19 @@ namespace ChestionarAuto.UserControls
         private void removeQuizButton_Click(object sender, EventArgs e)
         {
             RemoveQuizRequested?.Invoke(this, new RemoveQuizEvent(_selectedQuiz));
+        }
+
+        private void helpAdminButton_Click(object sender, EventArgs e)
+        {
+            string helpPath = Path.Combine(Application.StartupPath, "ChestionarAuto_API.chm");
+            if (File.Exists(helpPath))
+            {
+                Help.ShowHelp(this, helpPath);
+            }
+            else
+            {
+                MessageBox.Show("Documentația API nu a fost găsită!");
+            }
         }
     }
     /// <summary>

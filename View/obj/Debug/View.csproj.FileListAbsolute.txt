@@ -116,3 +116,43 @@ C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\Vie
 C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\View\obj\Debug\View.csproj.Up2Date
 C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\View\obj\Debug\View.dll
 C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\ProiectIP\View\obj\Debug\View.pdb
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\View.dll.config
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\View.dll
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\View.pdb
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\Commons.dll
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\EntityFramework.dll
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\Presenter.dll
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\System.Data.SQLite.dll
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\Model.dll
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\Presenter.pdb
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\Presenter.dll.config
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\Commons.pdb
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\Commons.dll.config
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\EntityFramework.xml
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\System.Data.SQLite.xml
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\Model.pdb
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\Model.dll.config
+C:\Users\Diana\Desktop\ProiectIP\View\obj\Debug\View.csproj.AssemblyReference.cache
+C:\Users\Diana\Desktop\ProiectIP\View\obj\Debug\ChestionarAuto.Form1.resources
+C:\Users\Diana\Desktop\ProiectIP\View\obj\Debug\View.Properties.Resources.resources
+C:\Users\Diana\Desktop\ProiectIP\View\obj\Debug\ChestionarAuto.UserControls.DashboardAdminControl.resources
+C:\Users\Diana\Desktop\ProiectIP\View\obj\Debug\ChestionarAuto.UserControls.DashboardUserControl.resources
+C:\Users\Diana\Desktop\ProiectIP\View\obj\Debug\ChestionarAuto.LogInUserControl.resources
+C:\Users\Diana\Desktop\ProiectIP\View\obj\Debug\ChestionarAuto.QuizControl.resources
+C:\Users\Diana\Desktop\ProiectIP\View\obj\Debug\ChestionarAuto.ResultsForm.resources
+C:\Users\Diana\Desktop\ProiectIP\View\obj\Debug\ChestionarAuto.SignUpUserControl.resources
+C:\Users\Diana\Desktop\ProiectIP\View\obj\Debug\View.csproj.GenerateResource.cache
+C:\Users\Diana\Desktop\ProiectIP\View\obj\Debug\View.csproj.CoreCompileInputs.cache
+C:\Users\Diana\Desktop\ProiectIP\View\obj\Debug\View.csproj.Up2Date
+C:\Users\Diana\Desktop\ProiectIP\View\obj\Debug\View.dll
+C:\Users\Diana\Desktop\ProiectIP\View\obj\Debug\View.pdb
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\View.xml
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\Presenter.xml
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\Commons.xml
+C:\Users\Diana\Desktop\ProiectIP\View\bin\Debug\Model.xml

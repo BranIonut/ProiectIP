@@ -130,6 +130,11 @@ namespace ChestionarAuto
             var resultsForm = new ResultsForm(correctAnswers, wrongAnswers, quizState);
             resultsForm.ShowDialog();
         }
+
+        private void helpButton_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, System.Environment.CurrentDirectory + "\\Help_ChestionarAuto.chm");
+        }
     }
 
     public class AnswerEventArgs : EventArgs

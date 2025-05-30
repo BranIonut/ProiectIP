@@ -36,6 +36,7 @@
             this.loginButton = new System.Windows.Forms.Button();
             this.goToSignupLink = new System.Windows.Forms.LinkLabel();
             this.loginFailedLbl = new System.Windows.Forms.Label();
+            this.helpButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // loginTitleLabel
@@ -120,10 +121,22 @@
             this.loginFailedLbl.Text = "Wrong login credentials!";
             this.loginFailedLbl.Visible = false;
             // 
+            // helpButton
+            // 
+            this.helpButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.helpButton.Location = new System.Drawing.Point(354, 356);
+            this.helpButton.Name = "helpButton";
+            this.helpButton.Size = new System.Drawing.Size(75, 32);
+            this.helpButton.TabIndex = 14;
+            this.helpButton.Text = "Help";
+            this.helpButton.UseVisualStyleBackColor = true;
+            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
+            // 
             // LogInUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.helpButton);
             this.Controls.Add(this.loginFailedLbl);
             this.Controls.Add(this.goToSignupLink);
             this.Controls.Add(this.loginButton);
@@ -151,5 +164,6 @@
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.LinkLabel goToSignupLink;
         private System.Windows.Forms.Label loginFailedLbl;
+        private System.Windows.Forms.Button helpButton;
     }
 }

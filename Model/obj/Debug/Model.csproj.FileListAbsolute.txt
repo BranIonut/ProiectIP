@@ -61,3 +61,26 @@ C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\Chest
 C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ProiectIP\Model\obj\Debug\Model.csproj.Up2Date
 C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ProiectIP\Model\obj\Debug\Model.dll
 C:\Users\gamia\OneDrive\Desktop\Facultate\Anul III\Semestrul II\IP\Proiect\ChestionarAuto\ProiectIP\Model\obj\Debug\Model.pdb
+C:\Users\Diana\Desktop\ProiectIP\Model\bin\Debug\Model.dll.config
+C:\Users\Diana\Desktop\ProiectIP\Model\bin\Debug\Model.dll
+C:\Users\Diana\Desktop\ProiectIP\Model\bin\Debug\Model.pdb
+C:\Users\Diana\Desktop\ProiectIP\Model\bin\Debug\Commons.dll
+C:\Users\Diana\Desktop\ProiectIP\Model\bin\Debug\EntityFramework.dll
+C:\Users\Diana\Desktop\ProiectIP\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Diana\Desktop\ProiectIP\Model\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Diana\Desktop\ProiectIP\Model\bin\Debug\System.Data.SQLite.dll
+C:\Users\Diana\Desktop\ProiectIP\Model\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\Diana\Desktop\ProiectIP\Model\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Diana\Desktop\ProiectIP\Model\bin\Debug\Commons.pdb
+C:\Users\Diana\Desktop\ProiectIP\Model\bin\Debug\Commons.dll.config
+C:\Users\Diana\Desktop\ProiectIP\Model\bin\Debug\EntityFramework.xml
+C:\Users\Diana\Desktop\ProiectIP\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Diana\Desktop\ProiectIP\Model\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Diana\Desktop\ProiectIP\Model\bin\Debug\System.Data.SQLite.xml
+C:\Users\Diana\Desktop\ProiectIP\Model\obj\Debug\Model.csproj.AssemblyReference.cache
+C:\Users\Diana\Desktop\ProiectIP\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\Diana\Desktop\ProiectIP\Model\obj\Debug\Model.csproj.Up2Date
+C:\Users\Diana\Desktop\ProiectIP\Model\obj\Debug\Model.dll
+C:\Users\Diana\Desktop\ProiectIP\Model\obj\Debug\Model.pdb
+C:\Users\Diana\Desktop\ProiectIP\Model\bin\Debug\Model.xml
+C:\Users\Diana\Desktop\ProiectIP\Model\bin\Debug\Commons.xml

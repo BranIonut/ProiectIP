@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Commons</name>
+    </assembly>
+    <members>
+        <member name="T:ChestionarAuto.IModel">
+            <summary>
+            Interfață pentru modelul aplicației.
+            </summary>
+        </member>
+        <member name="T:ChestionarAuto.IPresenter">
+            <summary>
+            Interfață pentru presenter-ul aplicației.
+            </summary>
+        </member>
+        <member name="T:ChestionarAuto.IQuizObserver">
+            <summary>
+            Interfață pentru observatorul quiz-ului.
+            </summary>
+        </member>
+        <member name="T:ChestionarAuto.IView">
+            <summary>
+            Interfață pentru vizualizarea aplicației.
+            </summary>
+        </member>
+        <member name="T:ChestionarAuto.Question">
+            <summary>
+            Reprezintă o întrebare din chestionar.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.Question.#ctor(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Int32},System.String,System.String)">
+            <summary>
+            Constructor pentru inițializarea unui obiect de tip Question.
+            </summary>
+            <param name="question">Enunțul întrebării.</param>
+            <param name="answers">Lista de variante.</param>
+            <param name="correctAnswer">Răspunsul corect.</param>
+            <param name="image">Path-ul către imaginea atașată întrebării.</param>
+            <param name="difficulty">Dificultatea întrebării.</param>
+        </member>
+        <member name="T:ChestionarAuto.Quiz">
+            <summary>
+            Reprezintă un chestionar care conține o listă de întrebări și starea acestuia.
+            </summary>
+        </member>
+        <member name="M:ChestionarAuto.Quiz.#ctor(System.Int32,System.Collections.Generic.List{ChestionarAuto.Question},System.Int32,System.Int32,System.String)">
+            <summary>
+            Constructor pentru inițializarea unui obiect de tip Quiz
+            </summary>
+            <param name="Id">ID-ul quiz-ului</param>
+            <param name="questionsList">Lista de întrebări, obiecte de tip Quiz.</param>
+            <param name="correctAnswers">Numărul de întrebări la care s-a răspuns corect.</param>
+            <param name="wrongAnswers">Numărul de întrebări la care s-a răspuns greșit.</param>
+            <param name="quizState">Stadiul în care se află quiz-ul (aborted/completed/failed).</param>
+        </member>
+        <member name="T:ChestionarAuto.User">
+            <summary>
+            Reprezintă un utilizator al aplicației, cu informații despre ID, nume de utilizator, nume real, email, parolă și rol.
+            </summary>
+        </member>
+    </members>
+</doc>
