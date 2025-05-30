@@ -257,6 +257,10 @@ namespace ChestionarAuto
         /// <returns></returns>
         public bool OnRemoveQuiz(int id)
         {
+            if (id == null)
+            {
+                return false;
+            }
             return _model.DeleteQuiz(id);
         }
 

@@ -6,6 +6,7 @@ using System.Data.SQLite;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 
 namespace ChestionarAuto
@@ -16,8 +17,8 @@ namespace ChestionarAuto
     /// </summary>
     public class Model : IModel
     {
-        static string exeFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-        static string commonsFolder = Path.Combine(exeFolder, "..\\..\\..\\", "Commons");
+        static readonly string exeFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        static readonly string commonsFolder = Path.Combine(exeFolder, "..\\..\\..\\", "Commons");
         string _questionsFileName = Path.GetFullPath(Path.Combine(commonsFolder, "questions.json"));
         string _databaseFileName = Path.GetFullPath(Path.Combine(commonsFolder, "application.db"));
         private User _currentUser;
@@ -248,6 +249,46 @@ namespace ChestionarAuto
         public void QuizFailed(int n, int correct, int incorrect)
             => UpdateQuizUserState(n, "failed", correct, incorrect);
 
+        private bool InputsCheck(string input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+
+            var notEmptyRegex = new Regex(@"^(?!\s*$).+");
+            var sqlInjection = new Regex(@"('|\-\-|;|\b(OR|AND|SELECT|DROP|INSERT|DELETE|UPDATE|UNION|EXEC)\b)", RegexOptions.IgnoreCase);
+
+            return notEmptyRegex.IsMatch(input) && !sqlInjection.IsMatch(input);
+        }
+
+        private bool CheckPassword(string input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            var notEmptyRegex = new Regex(@"^(?!\s*$).+");
+            var passwordFormat = new Regex(@"^.{8,}$");
+            var sqlInjection = new Regex(@"('|\-\-|;|\b(OR|AND|SELECT|DROP|INSERT|DELETE|UPDATE|UNION|EXEC)\b)", RegexOptions.IgnoreCase);
+
+            return notEmptyRegex.IsMatch(input) && passwordFormat.IsMatch(input) && !sqlInjection.IsMatch(input);
+        }
+
+
+        private bool CheckEmail(string input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            var notEmptyRegex = new Regex(@"^(?!\s*$).+");
+            var emailFormat = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+            var sqlInjection = new Regex(@"('|\-\-|;|\b(OR|AND|SELECT|DROP|INSERT|DELETE|UPDATE|UNION|EXEC)\b)", RegexOptions.IgnoreCase);
+
+            return notEmptyRegex.IsMatch(input) && emailFormat.IsMatch(input) && !sqlInjection.IsMatch(input);
+        }
+
         /// <summary>
         /// Adaugă un utilizator nou în baza de date.
         /// </summary>
@@ -258,6 +299,9 @@ namespace ChestionarAuto
         /// <returns>True dacă utilizatorul a fost adăugat cu succes, sau false în caz contrar.</returns>
         public bool AddUser(string username, string name, string email, string password)
         {
+            if (!InputsCheck(username) || !InputsCheck(name) || !CheckEmail(email) || !CheckPassword(password))
+                return false;
+
             using (var connection = new SQLiteConnection($"Data Source={_databaseFileName}"))
             {
                 connection.Open();
@@ -315,6 +359,10 @@ namespace ChestionarAuto
         /// <returns>True dacă utilizatorul a fost logat cu succes, sau false în caz contrar.</returns>
         public bool Login(string username, string password)
         {
+            if (!InputsCheck(username))
+            {
+                return false;
+            }
             using (var connection = new SQLiteConnection($"Data Source={_databaseFileName}"))
             {
                 connection.Open();
@@ -574,7 +622,7 @@ namespace ChestionarAuto
                     command.Parameters.AddWithValue("$userId", userId);
 
                     int x = command.ExecuteNonQuery();
-                    return x > 0;
+                    return x >= 0;
                 }
             }
         }
@@ -586,6 +634,10 @@ namespace ChestionarAuto
         /// <returns></returns>
         public bool RemoveUser(string username)
         {
+            if (!InputsCheck(username))
+            {
+                return false;
+            }
             using (var connection = new SQLiteConnection($"Data Source={_databaseFileName}"))
             {
                 connection.Open();
@@ -646,6 +698,11 @@ namespace ChestionarAuto
         /// <returns></returns>
         public bool ChangeUserRole(string username, string role)
         {
+            if(!InputsCheck(username) || role == null || (role != "admin" || role != "user")) 
+            {
+                return false;
+            }
+
             using (var connection = new SQLiteConnection($"Data Source={_databaseFileName}"))
             {
                 connection.Open();
