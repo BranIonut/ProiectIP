@@ -1,4 +1,20 @@
-﻿using ChestionarAuto.UserControls;
+﻿/**************************************************************************
+ *                                                                        *
+ *  File:        View.cs                                                  *
+ *  Copyright:   (c) 2025, Check & Drive                                  *
+ *  E-mail:      checkandrive@chestionarauto.ro                           *
+ *  Description: Clasa View implementează interfața IView și este         *
+ *               responsabilă pentru interacțiunea cu utilizatorul.       *
+ *                                                                        *
+ *  Această aplicație a fost realizată de patru studenți ai Facultății de *
+ *  Automatică și Calculatoare, în cadrul materiei Ingineria Programării. *
+ *  Este oferită ca software liber, conform licenței GNU GPL.             *
+ *  Poate fi redistribuită și/sau modificată, dar fără nicio garanție,    *
+ *  nici măcar pentru adecvarea la un scop anume.                         *
+ *                                                                        *
+ **************************************************************************/
+
+using ChestionarAuto.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;

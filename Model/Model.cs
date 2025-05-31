@@ -1,4 +1,21 @@
-﻿using Microsoft.SqlServer.Server;
+﻿/**************************************************************************
+ *                                                                        *
+ *  File:        Model.cs                                                 *
+ *  Copyright:   (c) 2025, Check & Drive                                  *
+ *  E-mail:      checkandrive@chestionarauto.ro                           *
+ *  Description: Reprezintă modelul de business logic pentruaplicația     *
+ *               Chestionar Auto.                                         *
+ *               Se ocupă de interacțiunea cu baza de date,întrebări,     *
+ *               quizuri și utilizatori.                                  *
+ *                                                                        *
+ *  Această aplicație a fost realizată de patru studenți ai Facultății de *
+ *  Automatică și Calculatoare, în cadrul materiei Ingineria Programării. *
+ *  Este oferită ca software liber, conform licenței GNU GPL.             *
+ *  Poate fi redistribuită și/sau modificată, dar fără nicio garanție,    *
+ *  nici măcar pentru adecvarea la un scop anume.                         *
+ *                                                                        *
+ **************************************************************************/
+using Microsoft.SqlServer.Server;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
