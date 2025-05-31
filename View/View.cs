@@ -116,37 +116,88 @@ namespace ChestionarAuto
             dashboardAdminControl.RemoveUserRequested += (s, e) => { presenter.OnRemoveUser(e.Username); LoadAdminDashboardControl(); };
             //dashboardAdminControl.ChangeUserRoleRequested += (s, e) => { presenter.OnChangeUserRole(e.Username, e.Role); LoadAdminDashboardControl(); };
             dashboardAdminControl.ChangeUserRoleRequested += (s, e) => {
-                if (e.Username == presenter.GetCurrentUsername())
+                try
                 {
-                    // Afișează dialog de confirmare
-                    DialogResult result = MessageBox.Show(
-                        $"Ești sigur că vrei să îți schimbi propriul rol",
-                        "Confirmare schimbare rol propriu",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Warning);
-
-                    if (result == DialogResult.Yes)
+                    if (e.Username == presenter.GetCurrentUsername())
                     {
-                        bool success = presenter.OnChangeOwnRole(e.Username, e.Role);
-                        if (success)
+                        DialogResult result = MessageBox.Show(
+                            $"Ești sigur că vrei să îți schimbi propriul rol?\n\n",
+                            "Confirmare schimbare rol propriu",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning);
+
+                        if (result == DialogResult.Yes)
                         {
-                            LoadLoginControl(true);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Eroare la schimbarea rolului.", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            bool success = presenter.OnChangeOwnRole(e.Username, e.Role);
+                            if (success)
+                            {
+                                LoadLoginControl(true);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Nu s-a putut schimba rolul.",
+                                    "Eroare",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                            }
                         }
                     }
+                    else
+                    {
+                        presenter.OnChangeUserRole(e.Username, e.Role);
+                        LoadAdminDashboardControl();
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    presenter.OnChangeUserRole(e.Username, e.Role);
-                    LoadAdminDashboardControl();
+                    MessageBox.Show($"Eroare neașteptată: {ex.Message}",
+                        "Eroare",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
                 }
             };
-            dashboardAdminControl.RemoveQuizRequested += (s, e) => { presenter.OnRemoveQuiz(int.Parse(e.Quiz.Split(' ')[2])); LoadAdminDashboardControl(); };
-            dashboardAdminControl.CreateQuizRequested += (s, e) => { presenter.OnCreateQuiz(); LoadAdminDashboardControl(); };
-            dashboardAdminControl.RemoveUserProgressRequested += (s, e) => { presenter.OnDeleteUserProgress(e.Username); LoadAdminDashboardControl(); };
+
+            dashboardAdminControl.RemoveQuizRequested += (s, e) => {
+                try
+                {
+                    LoadAdminDashboardControl();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Eroare neașteptată: {ex.Message}",
+                        "Eroare",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            };
+            dashboardAdminControl.CreateQuizRequested += (s, e) => {
+                try
+                {
+                    presenter.OnCreateQuiz();
+                    LoadAdminDashboardControl();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Eroare la crearea quiz-ului: {ex.Message}",
+                        "Eroare",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            };
+            dashboardAdminControl.RemoveUserProgressRequested += (s, e) => {
+                try
+                {
+                   presenter.OnDeleteUserProgress(e.Username);
+                   LoadAdminDashboardControl();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Eroare neașteptată: {ex.Message}",
+                        "Eroare",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            };
 
             _form.LoadUserControl(dashboardAdminControl);
         }

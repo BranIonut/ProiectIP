@@ -166,7 +166,34 @@ namespace ChestionarAuto.UserControls
         /// <param name="e"></param>
         private void resetUserProgButton_Click(object sender, EventArgs e)
         {
-            RemoveUserProgressRequested?.Invoke(this, new RemoveProgressEvent(_selectedUser));
+            try
+            {
+                if (string.IsNullOrEmpty(_selectedUser))
+                {
+                    MessageBox.Show("Vă rugăm selectați un utilizator din listă!",
+                        "Niciun utilizator selectat",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    return;
+                }
+                DialogResult result = MessageBox.Show(
+            $"Sigur doriți să resetați progresul utilizatorului '{_selectedUser}'?\n\n",
+            "Confirmare resetare progres",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    RemoveUserProgressRequested?.Invoke(this, new RemoveProgressEvent(_selectedUser));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Eroare la resetarea progresului utilizatorului: {ex.Message}",
+                    "Eroare",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
         }
 
         /// <summary>
@@ -176,7 +203,20 @@ namespace ChestionarAuto.UserControls
         /// <param name="e"></param>
         private void removeUserButton_Click(object sender, EventArgs e)
         {
-            RemoveUserRequested?.Invoke(this, new RemoveUserEvent(_selectedUser));
+            try
+            {
+                if (string.IsNullOrEmpty(_selectedUser))
+                {
+                    MessageBox.Show("Va rugam selectati un user din lista");
+                    return;
+                }
+
+                RemoveUserRequested?.Invoke(this, new RemoveUserEvent(_selectedUser));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Eroare la eliminarea utilizatorului: {ex.Message}");
+            }
         }
 
         /// <summary>
@@ -186,13 +226,23 @@ namespace ChestionarAuto.UserControls
         /// <param name="e"></param>
         private void changeRoleButton_Click_1(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(_selectedUser))
+            try
             {
-                MessageBox.Show("Va rugam selectati un user din lista");
-            }
-            string newRole = _selectedRole == "admin" ? "user" : "admin";
+                if (string.IsNullOrEmpty(_selectedUser))
+                {
+                    MessageBox.Show("Va rugam selectati un user din lista");
+                }
+                string newRole = _selectedRole == "admin" ? "user" : "admin";
 
-            ChangeUserRoleRequested?.Invoke(this, new ChangeUserRoleEvent(_selectedUser, newRole));
+                ChangeUserRoleRequested?.Invoke(this, new ChangeUserRoleEvent(_selectedUser, newRole));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Eroare la schimbarea rolului utilizatorului: {ex.Message}",
+                    "Eroare",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
         }
 
         /// <summary>
@@ -202,7 +252,17 @@ namespace ChestionarAuto.UserControls
         /// <param name="e"></param>
         private void createQuizButton_Click(object sender, EventArgs e)
         {
-            CreateQuizRequested?.Invoke(this, e);
+            try
+            {
+                CreateQuizRequested?.Invoke(this, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Eroare la crearea quiz-ului: {ex.Message}",
+                    "Eroare",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -212,7 +272,26 @@ namespace ChestionarAuto.UserControls
         /// <param name="e"></param>
         private void removeQuizButton_Click(object sender, EventArgs e)
         {
-            RemoveQuizRequested?.Invoke(this, new RemoveQuizEvent(_selectedQuiz));
+            try
+            {
+                if (string.IsNullOrEmpty(_selectedQuiz))
+                {
+                    MessageBox.Show("Vă rugăm selectați un quiz din listă!",
+                        "Niciun quiz selectat",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    return;
+                }
+                 RemoveQuizRequested?.Invoke(this, new RemoveQuizEvent(_selectedQuiz));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Eroare la ștergerea quiz-ului: {ex.Message}",
+                    "Eroare",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
         }
 
         private void helpAdminButton_Click(object sender, EventArgs e)

@@ -52,11 +52,46 @@ namespace ChestionarAuto
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            string username = textBox3.Text;
-            string name = textBox4.Text;
-            string email = textBox5.Text;
-            string password = textBox6.Text;
-            SignupRequested?.Invoke(this, new SignupEventArgs(username, name, email, password));
+            try
+            {
+                string username = textBox3.Text.Trim();
+                string name = textBox4.Text.Trim();
+                string email = textBox5.Text.Trim();
+                string password = textBox6.Text;
+
+                // Validări locale înainte de a trimite la presenter
+                List<string> errors = new List<string>();
+
+                if (string.IsNullOrWhiteSpace(username) || username.Length < 3)
+                    errors.Add("• Username-ul trebuie să aibă minim 3 caractere");
+
+                if (string.IsNullOrWhiteSpace(name))
+                    errors.Add("• Numele complet este obligatoriu");
+
+                if (string.IsNullOrWhiteSpace(email) || !email.Contains("@"))
+                    errors.Add("• Email-ul trebuie să fie valid");
+
+                if (string.IsNullOrWhiteSpace(password) || password.Length < 8)
+                    errors.Add("• Parola trebuie să aibă minim 8 caractere");
+
+                if (errors.Count > 0)
+                {
+                    MessageBox.Show("Vă rugăm corectați următoarele erori:\n\n" + string.Join("\n", errors),
+                        "Date invalide",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    return;
+                }
+
+                SignupRequested?.Invoke(this, new SignupEventArgs(username, name, email, password));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Eroare la înregistrare: {ex.Message}",
+                    "Eroare",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
