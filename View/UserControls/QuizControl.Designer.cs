@@ -62,6 +62,7 @@
             this.answerCheckBox1.TabIndex = 1;
             this.answerCheckBox1.Text = "checkBox1";
             this.answerCheckBox1.UseVisualStyleBackColor = true;
+            this.answerCheckBox1.CheckedChanged += new System.EventHandler(this.answerCheckBox1_CheckedChanged);
             // 
             // answerCheckBox2
             // 
@@ -72,6 +73,7 @@
             this.answerCheckBox2.TabIndex = 2;
             this.answerCheckBox2.Text = "checkBox2";
             this.answerCheckBox2.UseVisualStyleBackColor = true;
+            this.answerCheckBox2.CheckedChanged += new System.EventHandler(this.answerCheckBox2_CheckedChanged);
             // 
             // answerCheckBox3
             // 
@@ -82,6 +84,7 @@
             this.answerCheckBox3.TabIndex = 3;
             this.answerCheckBox3.Text = "checkBox3";
             this.answerCheckBox3.UseVisualStyleBackColor = true;
+            this.answerCheckBox3.CheckedChanged += new System.EventHandler(this.answerCheckBox3_CheckedChanged);
             // 
             // nextQuestionButton
             // 

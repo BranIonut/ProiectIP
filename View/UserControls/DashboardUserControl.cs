@@ -74,7 +74,30 @@ namespace ChestionarAuto.UserControls
         /// <param name="e"></param>
         private void startQuizButton_Click(object sender, EventArgs e)
         {
-            StartQuizRequested?.Invoke(this, EventArgs.Empty);
+            try
+            {
+                DialogResult result = MessageBox.Show(
+                    "Ești pregătit să începi un quiz nou?\n\n" +
+                    "• Vei avea 25 de întrebări\n" +
+                    "• Timpul limită este de 25 de minute\n" +
+                    "• Maximum 4 răspunsuri greșite pentru a trece\n\n" +
+                    "Succes!",
+                    "Începe Quiz",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    StartQuizRequested?.Invoke(this, EventArgs.Empty);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Eroare la pornirea quiz-ului: {ex.Message}",
+                    "Eroare",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>

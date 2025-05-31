@@ -86,15 +86,69 @@ namespace ChestionarAuto
             FailedQuiz?.Invoke(this, EventArgs.Empty);
         }
 
+
+        private void answerCheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (answerCheckBox1.Checked)
+            {
+                answerCheckBox2.Checked = false;
+                answerCheckBox3.Checked = false;
+            }
+        }
+
+        private void answerCheckBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (answerCheckBox2.Checked)
+            {
+                answerCheckBox1.Checked = false;
+                answerCheckBox3.Checked = false;
+            }
+        }
+
+        private void answerCheckBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (answerCheckBox3.Checked)
+            {
+                answerCheckBox2.Checked = false;
+                answerCheckBox1.Checked = false;
+            }
+        }
+
         private void nextQuestionButton_Click(object sender, EventArgs e)
         {
-            var selectedAnswers = new List<int>();
+            try
+            {
+                var selectedAnswers = new List<int>();
 
-            if (answerCheckBox1.Checked) selectedAnswers.Add(0);
-            if (answerCheckBox2.Checked) selectedAnswers.Add(1);
-            if (answerCheckBox3.Checked) selectedAnswers.Add(2);
+                if (answerCheckBox1.Checked) selectedAnswers.Add(0);
+                if (answerCheckBox2.Checked) selectedAnswers.Add(1);
+                if (answerCheckBox3.Checked) selectedAnswers.Add(2);
 
-            NextQuestionClicked?.Invoke(this, new AnswerEventArgs(selectedAnswers));
+                if (selectedAnswers.Count == 0)
+                {
+                    DialogResult result = MessageBox.Show(
+                        "Nu ai selectat niciun răspuns pentru această întrebare.\n\n" +
+                        "Dacă treci mai departe fără să răspunzi, întrebarea va fi considerată greșită.\n\n" +
+                        "Vrei să continui?",
+                        "Niciun răspuns selectat",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
+
+                NextQuestionClicked?.Invoke(this, new AnswerEventArgs(selectedAnswers));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Eroare la procesarea răspunsului: {ex.Message}",
+                    "Eroare",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
 
         private void abortQuizButton_Click(object sender, EventArgs e)
