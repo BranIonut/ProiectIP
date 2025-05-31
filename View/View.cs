@@ -113,9 +113,37 @@ namespace ChestionarAuto
 
             dashboardAdminControl.populateUsersList(presenter.GetUsers());
             dashboardAdminControl.populateQuizzesList(presenter.GetQuizzes());
-
             dashboardAdminControl.RemoveUserRequested += (s, e) => { presenter.OnRemoveUser(e.Username); LoadAdminDashboardControl(); };
-            dashboardAdminControl.ChangeUserRoleRequested += (s, e) => { presenter.OnChangeUserRole(e.Username, e.Role); LoadAdminDashboardControl(); };
+            //dashboardAdminControl.ChangeUserRoleRequested += (s, e) => { presenter.OnChangeUserRole(e.Username, e.Role); LoadAdminDashboardControl(); };
+            dashboardAdminControl.ChangeUserRoleRequested += (s, e) => {
+                if (e.Username == presenter.GetCurrentUsername())
+                {
+                    // Afișează dialog de confirmare
+                    DialogResult result = MessageBox.Show(
+                        $"Ești sigur că vrei să îți schimbi propriul rol",
+                        "Confirmare schimbare rol propriu",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        bool success = presenter.OnChangeOwnRole(e.Username, e.Role);
+                        if (success)
+                        {
+                            LoadLoginControl(true);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Eroare la schimbarea rolului.", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                else
+                {
+                    presenter.OnChangeUserRole(e.Username, e.Role);
+                    LoadAdminDashboardControl();
+                }
+            };
             dashboardAdminControl.RemoveQuizRequested += (s, e) => { presenter.OnRemoveQuiz(int.Parse(e.Quiz.Split(' ')[2])); LoadAdminDashboardControl(); };
             dashboardAdminControl.CreateQuizRequested += (s, e) => { presenter.OnCreateQuiz(); LoadAdminDashboardControl(); };
             dashboardAdminControl.RemoveUserProgressRequested += (s, e) => { presenter.OnDeleteUserProgress(e.Username); LoadAdminDashboardControl(); };

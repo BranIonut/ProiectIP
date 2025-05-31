@@ -44,5 +44,6 @@ namespace ChestionarAuto
         bool OnRemoveQuiz(int id);
         void OnCreateQuiz();
         string GetCurrentUsername();
+        bool OnChangeOwnRole(string username, string role);
     }
 }

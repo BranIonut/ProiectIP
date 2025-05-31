@@ -186,7 +186,13 @@ namespace ChestionarAuto.UserControls
         /// <param name="e"></param>
         private void changeRoleButton_Click_1(object sender, EventArgs e)
         {
-            ChangeUserRoleRequested?.Invoke(this, new ChangeUserRoleEvent(_selectedUser, _selectedRole));
+            if (string.IsNullOrEmpty(_selectedUser))
+            {
+                MessageBox.Show("Va rugam selectati un user din lista");
+            }
+            string newRole = _selectedRole == "admin" ? "user" : "admin";
+
+            ChangeUserRoleRequested?.Invoke(this, new ChangeUserRoleEvent(_selectedUser, newRole));
         }
 
         /// <summary>

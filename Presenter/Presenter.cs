@@ -264,9 +264,24 @@ namespace ChestionarAuto
         /// <returns></returns>
         public bool OnChangeUserRole(string username, string role)
         {
+            if (_model.isCurrentUser(username))
+            {
+                return false; 
+            }
+
             return _model.ChangeUserRole(username, role);
         }
 
+        public bool OnChangeOwnRole(string username, string role)
+        {
+            bool result = _model.ChangeUserRole(username, role);
+            if (result)
+            {
+                _model.Logout();
+            }
+
+            return result;
+        }
         /// <summary>
         /// Elimină quiz-ul selectat.
         /// </summary>

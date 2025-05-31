@@ -154,6 +154,11 @@
             <param name="username">Username-ul utilizatorului ce va fi eliminat.</param>
             <returns></returns>
         </member>
+        <member name="M:ChestionarAuto.Model.isCurrentUser(System.String)">
+            <summary>
+            Verifica daca utilizatorul curent este cel care incearca sa isi schimbe rolul.
+            </summary>
+        </member>
         <member name="M:ChestionarAuto.Model.ChangeUserRole(System.String,System.String)">
             <summary>
             Schimbarea rolului utilizatorului selectat (admin sau user).

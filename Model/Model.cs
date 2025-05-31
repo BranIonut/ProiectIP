@@ -707,6 +707,19 @@ namespace ChestionarAuto
                 }
             }
         }
+
+        /// <summary>
+        /// Verifica daca utilizatorul curent este cel care incearca sa isi schimbe rolul.
+        /// </summary>
+
+        public bool isCurrentUser(string username)
+        {
+            if (_currentUser == null)
+                return false;
+            return _currentUser.Username == username;
+        }
+
+
         /// <summary>
         /// Schimbarea rolului utilizatorului selectat (admin sau user).
         /// </summary>
@@ -715,7 +728,7 @@ namespace ChestionarAuto
         /// <returns></returns>
         public bool ChangeUserRole(string username, string role)
         {
-            if(!InputsCheck(username) || role == null || (role != "admin" || role != "user")) 
+            if(!InputsCheck(username) || role == null || (role != "admin" && role != "user")) 
             {
                 return false;
             }
@@ -746,7 +759,7 @@ namespace ChestionarAuto
                 if (userId == 0)
                     return false;
 
-                role = (role == "admin") ? "user" : "admin";
+                //role = (role == "admin") ? "user" : "admin";
 
                 using (var command = connection.CreateCommand())
                 {

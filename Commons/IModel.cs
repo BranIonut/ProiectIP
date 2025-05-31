@@ -47,5 +47,7 @@ namespace ChestionarAuto
         bool UserResetProgress(string username);
         bool RemoveUser(string username);
         bool ChangeUserRole(string username, string role);
+
+        bool isCurrentUser(string username);
     }
 }
